@@ -1,0 +1,1664 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Microsoft 365 Copilot – Komma igång | B3 Consulting Group</title>
+<style>
+  :root {
+    --bg-dark: #0F1F3A;
+    --bg-dark-2: #142a4d;
+    --bg-page: #F4F6FA;
+    --bg-card: #FFFFFF;
+    --bg-tint: #EBF0FA;
+    --text-primary: #1A2540;
+    --text-muted: #5A6478;
+    --text-light: #8993A8;
+    --border: #E1E6F0;
+    --accent: #5B5FCE;
+    --accent-soft: #E4E5F8;
+    --b3-teal: #0CCCCC;
+    --b3-pink: #DF668A;
+    --b3-yellow: #EFBD47;
+    --b3-blue: #426DA9;
+    --c-installningar: #F39C12;
+    --c-chat: #5B5FCE;
+    --c-outlook: #0078D4;
+    --c-teams: #6264A7;
+    --c-word: #2B579A;
+    --c-ppt: #B7472A;
+    --c-excel: #217346;
+    --c-pages: #DF668A;
+    --c-agents: #0CCCCC;
+    --shadow-sm: 0 1px 3px rgba(15, 31, 58, 0.06);
+    --shadow-md: 0 4px 12px rgba(15, 31, 58, 0.08);
+    --shadow-lg: 0 10px 30px rgba(15, 31, 58, 0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg-page);
+    color: var(--text-primary);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+  /* === HERO === */
+  .hero {
+    background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-dark-2) 100%);
+    color: #fff;
+    padding: 80px 0 100px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--c-outlook) 0%, var(--c-teams) 50%, var(--b3-teal) 100%);
+  }
+
+  .hero-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 80px;
+  }
+
+  .logo {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 4px;
+    font-weight: 800;
+    font-size: 28px;
+    letter-spacing: -0.5px;
+    text-decoration: none;
+    color: #fff;
+    transition: opacity 0.15s;
+  }
+
+  .logo:hover { opacity: 0.85; }
+
+  nav.sticky-nav .nav-back {
+    color: var(--text-primary);
+    font-weight: 700;
+  }
+
+  nav.sticky-nav .nav-sep {
+    width: 1px;
+    background: var(--border);
+    margin: 2px 8px;
+    align-self: stretch;
+  }
+
+  .logo-mark { color: var(--b3-teal); }
+
+  .logo-text {
+    color: #fff;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-left: 12px;
+    opacity: 0.7;
+  }
+
+  .hero-meta-info {
+    font-size: 14px;
+    opacity: 0.65;
+    letter-spacing: 0.5px;
+  }
+
+  .hero .modnum {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--b3-teal);
+    margin-bottom: 16px;
+    opacity: 0.85;
+  }
+
+  .hero h1 {
+    font-size: 64px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+
+  .hero .subtitle {
+    font-size: 22px;
+    opacity: 0.75;
+    max-width: 700px;
+    font-weight: 300;
+    margin-bottom: 32px;
+  }
+
+  .hero-divider {
+    width: 120px;
+    height: 4px;
+    background: var(--c-outlook);
+    margin: 32px 0;
+    border-radius: 2px;
+  }
+
+  .hero-byline {
+    font-size: 14px;
+    opacity: 0.6;
+  }
+
+  /* === STICKY NAV === */
+  nav.sticky-nav {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+    padding: 12px 0;
+  }
+
+  .nav-inner {
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .nav-inner::-webkit-scrollbar { display: none; }
+
+  nav.sticky-nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.15s;
+  }
+
+  nav.sticky-nav a:hover {
+    background: var(--bg-tint);
+    color: var(--text-primary);
+  }
+
+  nav.sticky-nav a.active {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  /* === SECTIONS === */
+  section.station {
+    padding: 80px 0 40px;
+    scroll-margin-top: 80px;
+  }
+
+  .station-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .station-number {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .station-title-wrap h2 {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    margin-bottom: 4px;
+    position: relative;
+    display: inline-block;
+  }
+
+  .station-title-wrap h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--accent);
+    margin-top: 8px;
+    border-radius: 2px;
+  }
+
+  .station-title-wrap .station-tagline {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-top: 16px;
+  }
+
+  /* Section accent colors */
+  .s-installningar .station-number { background: var(--c-installningar); }
+  .s-installningar .station-title-wrap h2::after { background: var(--c-installningar); }
+  .s-chat .station-number { background: var(--c-chat); }
+  .s-chat .station-title-wrap h2::after { background: var(--c-chat); }
+  .s-outlook .station-number { background: var(--c-outlook); }
+  .s-outlook .station-title-wrap h2::after { background: var(--c-outlook); }
+  .s-teams .station-number { background: var(--c-teams); }
+  .s-teams .station-title-wrap h2::after { background: var(--c-teams); }
+  .s-word .station-number { background: var(--c-word); }
+  .s-word .station-title-wrap h2::after { background: var(--c-word); }
+  .s-ppt .station-number { background: var(--c-ppt); }
+  .s-ppt .station-title-wrap h2::after { background: var(--c-ppt); }
+  .s-excel .station-number { background: var(--c-excel); }
+  .s-excel .station-title-wrap h2::after { background: var(--c-excel); }
+  .s-pages .station-number { background: var(--c-pages); }
+  .s-pages .station-title-wrap h2::after { background: var(--c-pages); }
+  .s-agents .station-number { background: var(--c-agents); color: var(--bg-dark); }
+  .s-agents .station-title-wrap h2::after { background: var(--c-agents); }
+
+  /* === OVERVIEW === */
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .overview-card {
+    background: var(--bg-card);
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: var(--shadow-sm);
+    border-top: 4px solid;
+  }
+
+  .overview-card.ov-chat { border-top-color: var(--c-chat); }
+  .overview-card.ov-apps { border-top-color: var(--c-outlook); }
+  .overview-card.ov-agents { border-top-color: var(--c-agents); }
+
+  .overview-card .tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    letter-spacing: 0.3px;
+  }
+
+  .overview-card.ov-chat .tag { background: var(--accent-soft); color: var(--c-chat); }
+  .overview-card.ov-apps .tag { background: #DDECFC; color: var(--c-outlook); }
+  .overview-card.ov-agents .tag { background: #DDF6F6; color: #066b6b; }
+
+  .overview-card h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .overview-card p {
+    color: var(--text-muted);
+    font-size: 15px;
+  }
+
+  /* === CONTENT === */
+  .lead {
+    font-size: 18px;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+    max-width: 800px;
+  }
+
+  .card-grid {
+    display: grid;
+    gap: 20px;
+    margin: 24px 0;
+  }
+
+  .card-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .card-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .card-grid.cols-4 { grid-template-columns: repeat(2, 1fr); }
+
+  @media (min-width: 980px) {
+    .card-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  .card {
+    background: var(--bg-card);
+    border-radius: 10px;
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    border-top: 3px solid var(--accent);
+  }
+
+  .card h4 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .card p {
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+
+  .card .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 3px 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    letter-spacing: 0.3px;
+  }
+
+  .s-installningar .card { border-top-color: var(--c-installningar); }
+  .s-chat .card { border-top-color: var(--c-chat); }
+  .s-outlook .card { border-top-color: var(--c-outlook); }
+  .s-teams .card { border-top-color: var(--c-teams); }
+  .s-word .card { border-top-color: var(--c-word); }
+  .s-ppt .card { border-top-color: var(--c-ppt); }
+  .s-excel .card { border-top-color: var(--c-excel); }
+  .s-pages .card { border-top-color: var(--c-pages); }
+  .s-agents .card { border-top-color: var(--c-agents); }
+
+  /* Numbered steps */
+  .step-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    background: var(--bg-card);
+    padding: 20px 24px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .step-num {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: var(--accent);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  .s-installningar .step-num { background: var(--c-installningar); }
+  .s-outlook .step-num { background: var(--c-outlook); }
+  .s-teams .step-num { background: var(--c-teams); }
+  .s-word .step-num { background: var(--c-word); }
+
+  .step-content h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .step-content p {
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+
+  /* When-to-use callout */
+  .when-callout {
+    background: var(--bg-tint);
+    border-left: 4px solid var(--accent);
+    padding: 20px 24px;
+    border-radius: 0 8px 8px 0;
+    margin: 28px 0;
+  }
+
+  .when-callout .label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .when-callout .rule {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  .s-installningar .when-callout { border-left-color: var(--c-installningar); }
+  .s-installningar .when-callout .label { color: var(--c-installningar); }
+  .s-chat .when-callout { border-left-color: var(--c-chat); }
+  .s-chat .when-callout .label { color: var(--c-chat); }
+  .s-outlook .when-callout { border-left-color: var(--c-outlook); }
+  .s-outlook .when-callout .label { color: var(--c-outlook); }
+  .s-teams .when-callout { border-left-color: var(--c-teams); }
+  .s-teams .when-callout .label { color: var(--c-teams); }
+  .s-word .when-callout { border-left-color: var(--c-word); }
+  .s-word .when-callout .label { color: var(--c-word); }
+  .s-ppt .when-callout { border-left-color: var(--c-ppt); }
+  .s-ppt .when-callout .label { color: var(--c-ppt); }
+  .s-excel .when-callout { border-left-color: var(--c-excel); }
+  .s-excel .when-callout .label { color: var(--c-excel); }
+  .s-pages .when-callout { border-left-color: var(--c-pages); }
+  .s-pages .when-callout .label { color: var(--c-pages); }
+  .s-agents .when-callout { border-left-color: var(--c-agents); }
+  .s-agents .when-callout .label { color: #066b6b; }
+
+  .pro-tip {
+    background: #FFF8E5;
+    border: 1px solid #F5E0A0;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 14px;
+  }
+
+  .pro-tip strong { color: #8B6914; }
+
+  .hands-on {
+    background: #ECFAF2;
+    border: 1px solid #B7E4C7;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 14px;
+  }
+
+  .hands-on .label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #2ECC71;
+    margin-bottom: 6px;
+  }
+
+  .prompt-block {
+    background: #0F1F3A;
+    color: #D7E0F2;
+    padding: 20px 24px;
+    border-radius: 8px;
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 16px 0;
+    overflow-x: auto;
+  }
+
+  .prompt-block .prompt-label {
+    display: block;
+    font-family: Inter, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--b3-teal);
+    margin-bottom: 10px;
+  }
+
+  /* Comparison: Copilot vs Claude */
+  .vs-section {
+    background: linear-gradient(135deg, #f8fafd 0%, #eef2fa 100%);
+    border-radius: 16px;
+    padding: 48px;
+    margin: 32px 0;
+    border: 1px solid var(--border);
+  }
+
+  .vs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 24px;
+  }
+
+  @media (max-width: 880px) {
+    .vs-grid { grid-template-columns: 1fr; }
+    .vs-section { padding: 32px 24px; }
+  }
+
+  .vs-col {
+    background: #fff;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .vs-col.copilot { border-top: 4px solid var(--c-outlook); }
+  .vs-col.claude { border-top: 4px solid var(--b3-teal); }
+
+  .vs-col h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .vs-col .sub-when {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .vs-col ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .vs-col ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .vs-col ul li:last-child { border-bottom: none; }
+
+  .vs-col ul li::before {
+    content: "→";
+    color: var(--accent);
+    flex-shrink: 0;
+    font-weight: 600;
+  }
+
+  .vs-col.copilot ul li::before { color: var(--c-outlook); }
+  .vs-col.claude ul li::before { color: var(--b3-teal); }
+
+  .vs-rule {
+    background: var(--bg-dark);
+    color: #fff;
+    padding: 20px 28px;
+    border-radius: 10px;
+    margin-top: 32px;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .vs-rule strong { color: var(--b3-teal); }
+
+  /* Decision table dark section */
+  .decision-section {
+    background: var(--bg-dark);
+    color: #fff;
+    padding: 80px 0;
+    margin-top: 40px;
+  }
+
+  .decision-section h2 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+
+  .decision-section .sub {
+    font-size: 18px;
+    opacity: 0.7;
+    margin-bottom: 48px;
+  }
+
+  .decision-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+  }
+
+  .decision-table td {
+    padding: 18px 22px;
+    background: rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 15px;
+  }
+
+  .decision-table td:first-child {
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    color: #D7E0F2;
+  }
+
+  .decision-table td:last-child {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    font-weight: 700;
+    color: #fff;
+    text-align: right;
+  }
+
+  .pill {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 14px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .pill.chat { background: var(--c-chat); }
+  .pill.outlook { background: var(--c-outlook); }
+  .pill.teams { background: var(--c-teams); }
+  .pill.word { background: var(--c-word); }
+  .pill.ppt { background: var(--c-ppt); }
+  .pill.excel { background: var(--c-excel); }
+  .pill.pages { background: var(--c-pages); }
+  .pill.agents { background: var(--c-agents); color: var(--bg-dark); }
+  .pill.claude { background: var(--b3-teal); color: var(--bg-dark); }
+
+  /* Commitments */
+  .commitments {
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #1a3460 100%);
+    color: #fff;
+    border-radius: 16px;
+    padding: 48px;
+    margin: 40px 0;
+  }
+
+  .commitments h3 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .commitments .lead-light {
+    opacity: 0.75;
+    margin-bottom: 32px;
+    font-size: 16px;
+  }
+
+  .commitment-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .commitment-row:last-child { border-bottom: none; }
+
+  .commitment-when {
+    flex-shrink: 0;
+    width: 130px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--b3-teal);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .commitment-text {
+    flex: 1;
+    font-size: 15px;
+    opacity: 0.9;
+  }
+
+  /* Footer */
+  footer {
+    background: var(--bg-dark);
+    color: #fff;
+    padding: 60px 0 40px;
+    margin-top: 40px;
+  }
+
+  footer .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  footer h5 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--b3-teal);
+    margin-bottom: 16px;
+  }
+
+  footer a {
+    color: #D7E0F2;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    opacity: 0.85;
+    transition: opacity 0.15s;
+  }
+
+  footer a:hover { opacity: 1; color: #fff; }
+
+  footer .copy {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 24px;
+    font-size: 12px;
+    opacity: 0.5;
+    text-align: center;
+  }
+
+  @media (max-width: 880px) {
+    .hero h1 { font-size: 44px; }
+    .hero .subtitle { font-size: 18px; }
+    .overview-grid { grid-template-columns: 1fr; }
+    .card-grid.cols-2, .card-grid.cols-3 { grid-template-columns: 1fr; }
+    .station-header { flex-direction: column; gap: 16px; }
+    .commitment-row { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .commitment-when { width: auto; }
+    footer .footer-grid { grid-template-columns: 1fr; }
+    .container { padding: 0 20px; }
+  }
+
+  @media print {
+    nav.sticky-nav { display: none; }
+    .hero { background: #fff; color: #000; }
+    .hero h1, .hero .subtitle { color: #000; }
+    section.station { page-break-inside: avoid; }
+  }
+
+  /* === PROMPT LIBRARY === */
+  .prompt-card {
+    background: var(--bg-card);
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--accent);
+  }
+
+  .prompt-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+
+  .prompt-card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+    flex: 1;
+    min-width: 60%;
+  }
+
+  .prompt-card-badge {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 5px 12px;
+    border-radius: 12px;
+    white-space: nowrap;
+    color: #fff;
+  }
+
+  .prompt-card-badge.app-outlook { background: var(--c-outlook); }
+  .prompt-card-badge.app-teams { background: var(--c-teams); }
+  .prompt-card-badge.app-word { background: var(--c-word); }
+  .prompt-card-badge.app-ppt { background: var(--c-ppt); }
+  .prompt-card-badge.app-excel { background: var(--c-excel); }
+  .prompt-card-badge.app-chat { background: var(--c-chat); }
+
+  .prompt-card-when {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  .prompt-card-block {
+    background: var(--bg-dark);
+    color: #D7E0F2;
+    padding: 20px 24px;
+    border-radius: 8px;
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+    font-size: 13px;
+    line-height: 1.65;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin: 0;
+    overflow-x: auto;
+  }
+
+  .prompt-library-intro {
+    background: var(--bg-tint);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 32px;
+    font-size: 15px;
+    color: var(--text-primary);
+  }
+
+  .prompt-library-intro strong { color: var(--accent); }
+
+</style>
+</head>
+<body>
+
+<!-- ====== HERO ====== -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-meta">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">B</span><span class="logo-mark">3</span>
+        <span class="logo-text">Consulting Group</span>
+      </a>
+      <div class="hero-meta-info">Koncernledningen · 2026</div>
+    </div>
+    <span class="modnum">Modul 2</span>
+    <h1>Microsoft 365 Copilot</h1>
+    <p class="subtitle">En guidad tur genom Copilot i Outlook, Teams, Word, Excel, PowerPoint och agentlagret – plus när Claude är bättre val</p>
+    <div class="hero-divider"></div>
+    <div class="hero-byline">Deltagarguide · Modul 2 · Komma igång</div>
+  </div>
+</header>
+
+<!-- ====== STICKY NAV ====== -->
+<nav class="sticky-nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-back">← Alla moduler</a>
+      <span class="nav-sep"></span>
+      <a href="#oversikt">Översikt</a>
+      <a href="#installningar">1 · Inställningar</a>
+      <a href="#chat">2 · Copilot Chat</a>
+      <a href="#outlook">3 · Outlook</a>
+      <a href="#teams">4 · Teams</a>
+      <a href="#word">5 · Word</a>
+      <a href="#ppt">6 · PowerPoint</a>
+      <a href="#excel">7 · Excel</a>
+      <a href="#pages">8 · Pages</a>
+      <a href="#agents">9 · Agents</a>
+      <a href="#vs">Copilot vs Claude</a>
+      <a href="#beslut">Beslutsdiagram</a>
+      <a href="#promptbibliotek">Promptbibliotek</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ====== ÖVERSIKT ====== -->
+<section class="station" id="oversikt">
+  <div class="container">
+    <div class="station-header">
+      <div class="station-title-wrap">
+        <h2>Översikt</h2>
+        <p class="station-tagline">Copilot är inte en sak utan tre. Här är arkitekturen ni navigerar.</p>
+      </div>
+    </div>
+
+    <div class="overview-grid">
+      <div class="overview-card ov-chat">
+        <span class="tag">Fristående</span>
+        <h3>Copilot Chat</h3>
+        <p>Den standalone chatten. Når er M365-data (work grounding) eller webben. Närmast Claudes vanliga chatt – men med er Microsoft-kontext inbyggd.</p>
+      </div>
+      <div class="overview-card ov-apps">
+        <span class="tag">Inbäddat</span>
+        <h3>Copilot i apparna</h3>
+        <p>I Outlook, Teams, Word, Excel, PowerPoint – kontextmedveten där ni är. Den verkliga hävstången sitter här eftersom det är där ni redan jobbar.</p>
+      </div>
+      <div class="overview-card ov-agents">
+        <span class="tag">Autonomt</span>
+        <h3>Agents</h3>
+        <p>Researcher, Analyst och egna agenter via Copilot Studio. Tar tid på sig, syntetiserar djupare, eller bevakar processer åt er.</p>
+      </div>
+    </div>
+
+    <p class="lead">Tre saker att förstå direkt. <strong>Grounding</strong> styr vad Copilot ser: work grounding = er M365-data, web grounding = öppna webben, ni togglar. <strong>Sensitivity labels</strong> respekteras – Copilot kan inte exportera "Confidential" till lägre klassad output. <strong>Compliance</strong> stannar inom ert tenant: Copilot tränar inte modeller på er data.</p>
+
+    <div class="when-callout">
+      <div class="label">Meta-budskap</div>
+      <div class="rule">Copilot och Claude är inte konkurrenter – de gör olika saker bra. Slutet av guiden svarar på den fråga ingen vågar ställa öppet: vilket använder jag när?</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== STATION 1: INSTÄLLNINGAR ====== -->
+<section class="station s-installningar" id="installningar">
+  <div class="container">
+    <div class="station-header">
+      <div class="station-number">1</div>
+      <div class="station-title-wrap">
+        <h2>Inställningar och grounding</h2>
+        <p class="station-tagline">Tre saker som styr allt Copilot gör. Förstå dem innan ni börjar prompta.</p>
+      </div>
+    </div>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>Work grounding vs Web grounding</h4>
+          <p>Copilot hämtar data från ert M365-tenant (mejl, dokument, kalender, Teams-chattar, SharePoint) eller från öppna webben. Toggla i Copilot Chat. Work grounding är det som gör Copilot unikt – den känner er organisation utan att ni laddar upp något.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>Sensitivity labels respekteras</h4>
+          <p>Om ett dokument är märkt "Confidential" behandlas det därefter. Content från det dokumentet kan inte spridas till output med lägre klassning. Era befintliga compliance-regler gäller.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>Var hittar man Copilot</h4>
+          <p>I appens ribbon (Outlook, Word, Excel, PowerPoint), i Edge sidebar, i m365.cloud.microsoft, i Teams. Samma underliggande motor, olika frontytor anpassade efter sammanhanget.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pro-tip">
+      <strong>Datasekretess i en mening:</strong> Copilot tränar inte modeller på er data. Allt stannar i ert tenant. Compliance-gränserna ni redan har konfigurerat gäller. Detta är inte gratis-ChatGPT – det är enterprise-tjänst med samma juridiska ramverk som resten av M365.
+    </div>
+
+    <div class="when-callout">
+      <div class="label">När gör jag det här?</div>
+      <div class="rule">En gång. Kontrollera att licens, sensitivity-policy och språkinställningar är på plats. Återbesök kvartalsvis när Microsoft adderar funktioner.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== STATION 2: COPILOT CHAT ====== -->
+<section class="station s-chat" id="chat">
+  <div class="container">
+    <div class="station-header">
+      <div class="station-number">2</div>
+      <div class="station-title-wrap">
+        <h2>Copilot Chat</h2>
+        <p class="station-tagline">Det fristående läget. Närmast Claudes Chat – men med er Microsoft-data inbyggd.</p>
+      </div>
+    </div>
+
+    <p class="lead">Copilot Chat ligger på m365.cloud.microsoft, i Edge sidebar och som egen ikon i Teams. Skillnaden mot Claude är att den kan slå på work grounding och nå er Microsoft-data utan ytterligare konfiguration – mejl, dokument, kalender, chattar – allt som Microsoft Graph indexerar.</p>
+
+    <div class="card-grid cols-2">
+      <div class="card">
+        <h4>Användningsområden</h4>
+        <p>Synthesis över system ni redan har i M365. Faktasökning kombinerad med er kontext. Brainstorm med organisationsmedvetenhet. Hitta information som är spritt över mejl, möten och dokument.</p>
+      </div>
+      <div class="card">
+        <h4>Bra att veta</h4>
+        <p>Använd "@" för att referera personer, filer eller möten direkt. Toggla work/web efter behov. Bifoga filer i Chat för punktuppgifter. Webbsök är inbyggt och kompletteras automatiskt när relevant.</p>
+      </div>
+    </div>
+
+    <div class="prompt-block">
+<span class="prompt-label">Exempel – work grounding</span>Sammanfatta de viktigaste mejlen och chattarna senaste veckan från min ledningsgrupp. Vad är öppna frågor jag behöver ta tag i, och vilka beslut väntar på mig?</div>
+
+    <div class="prompt-block">
+<span class="prompt-label">Exempel – kombinerat work + web</span>Vad har sagts i svensk affärsmedia om Skanska senaste månaden? Sätt det i kontrast mot status i vårt eget arbete med dem – hämta från SharePoint-mappen "Skanska 2026" och mejlkonversationerna.</div>
+
+    <div class="hands-on">
+      <div class="label">Hands-on – 4 min</div>
+      Prova två frågor i Copilot Chat – en mot work data, en mot webben. Märk skillnaden i vad Copilot kan svara på beroende på grounding.
+    </div>
+
+    <div class="when-callout">
+      <div class="label">När använder jag Copilot Chat?</div>
+      <div class="rule">När uppgiften inte sitter i en specifik app. Synthesis över systemen, research, faktasökning, snabb research där M365-kontext gör Copilot starkare än alternativen.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== STATION 3: OUTLOOK ====== -->
+<section class="station s-outlook" id="outlook">
+  <div class="container">
+    <div class="station-header">
+      <div class="station-number">3</div>
+      <div class="station-title-wrap">
+        <h2>Copilot i Outlook</h2>
+        <p class="station-tagline">Där chefer sparar mest tid varje vecka. Tre flöden ni inte ska missa.</p>
+      </div>
+    </div>
+
+    <p class="lead">Outlook är där ni lever. Copilot här gör tre saker som spar timmar per vecka: sammanfattar långa trådar, skriver utkast till svar, och coachar er innan ni skickar.</p>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>Summary by Copilot</h4>
+          <p>Öppna en lång mejltråd → klicka <em>Summary by Copilot</em>. Trådens viktiga beslut, frågor och nästa steg sammanfattas. Vad förändrats över tid, vem som har sagt vad. Spar 10–15 min per tråd som annars hade krävt scrollning.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>Draft with Copilot</h4>
+          <p>Klicka <em>Draft with Copilot</em> i ett nytt mejl. Skriv kort vad svaret ska göra: <em>"Tacka för förslaget, be om förtydligande kring leveransdatum och pris, signera vänligt."</em> Copilot drar ett utkast i er ton.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>Coach by Copilot</h4>
+          <p>Innan ni skickar – låt Copilot granska tonläget, klarheten och vad mottagaren sannolikt tar med sig. Bra för känsliga mejl, externa kontakter, eller när ni märker att utkastet är vassare än ni egentligen ville.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="hands-on">
+      <div class="label">Hands-on – 5 min</div>
+      Testa alla tre flöden mot en egen mejltråd. Identifiera vilket av de tre ni kommer använda dagligen.
+    </div>
+
+    <div class="when-callout">
+      <div class="label">När använder jag Copilot i Outlook?</div>
+      <div class="rule">Varje gång ni öppnar en mejltråd som är längre än två svar. Varje gång ni skriver ett mejl som ska sitta. Det är hygien, inte specialfall.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== STATION 4: TEAMS ====== -->
+<section class="station s-teams" id="teams">
+  <div class="container">
+    <div class="station-header">
+      <div class="station-number">4</div>
+      <div class="station-title-wrap">
+        <h2>Copilot i Teams</h2>
+        <p class="station-tagline">Den enskilt största hävstången för en chef. Möten är det dyraste ni gör.</p>
+      </div>
+    </div>
+
+    <p class="lead">Möten konsumerar en stor del av era veckor. Copilot förändrar inte att ni har möten, men radikalt hur ni jobbar med dem före, under och efter.</p>
+
+    <div class="card-grid cols-3">
+      <div class="card">
+        <h4>Mötessammanfattning</h4>
+        <p>Öppna inspelat möte → Copilot. Vad sas, vilka beslut togs, action items per person, öppna frågor, ton i diskussionen. Ersätter manuell protokollskrivning.</p>
+      </div>
+      <div class="card">
+        <h4>In-meeting Copilot</h4>
+        <p>Under pågående möte: <em>"Vad missade jag om jag kommer in nu?"</em>, <em>"Vilka invändningar har Anna haft?"</em>, <em>"Vilka beslut är fattade hittills?"</em></p>
+      </div>
+      <div class="card">
+        <h4>Chat-summering</h4>
+        <p>I en Teams-kanal eller chat med 200+ olästa meddelanden – Copilot ger nuläget på 30 sekunder. Sparar er från scrollning av två veckors konversation.</p>
+      </div>
+    </div>
+
+    <div class="prompt-block">
+<span class="prompt-label">Exempelprompt efter ett möte</span>Sammanfatta det här mötet. Lista beslut, action items med ansvarig och deadline, och eventuella öppna frågor som behöver tas vidare. Visa även vilka som var oeniga om något.</div>
+
+    <div class="pro-tip">
+      <strong>Slå på automatisk inspelning med transcript</strong> som default för era möten – krävs för att Copilot ska kunna jobba med dem efteråt. Hantera samtycke och GDPR vid externa möten enligt B3:s policy.
+    </div>
+
+    <div class="hands-on">
+      <div class="label">Hands-on – 5 min</div>
+      Öppna ett eget inspelat möte (senaste två veckorna) och be Copilot om sammanfattning samt action items. Notera hur lång tid det skulle ha tagit att göra manuellt.
+    </div>
+
+    <div class="when-callout">
+      <div class="label">När använder jag Copilot i Teams?</div>
+      <div class="rule">Varje möte ni leder eller deltar i som spelas in. Varje gång ni återvänder till en kanal med oläst material. Allt mötesefterarbete.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== STATION 5: WORD ====== -->
+<section class="station s-word" id="word">
+  <div class="container">
+    <div class="station-header">
+      <div class="station-number">5</div>
+      <div class="station-title-wrap">
+        <h2>Copilot i Word</h2>
+        <p class="station-tagline">Tre kärnflöden: skriv från scratch, förbättra existerande, syntetisera från andra dokument.</p>
+      </div>
+    </div>
+
+    <div class="card-grid cols-3">
+      <div class="card">
+        <h4>Draft</h4>
+        <p>Tom Word → Copilot. <em>"Skriv ett PM till styrelsen om förvärvet av X, max två sidor, formell ton, B3-mall."</em> Ni får ett utkast att jobba vidare på.</p>
+      </div>
+      <div class="card">
+        <h4>Rewrite</h4>
+        <p>Markera en passage → Rewrite with Copilot. Be om tightare, mer formellt, kortare, eller annan ton. Bra för att hitta rätt fras när er egen version skaver.</p>
+      </div>
+      <div class="card">
+        <h4>Reference med /</h4>
+        <p>Använd <em>"/"</em> i prompten för att referera ett annat dokument. <em>"Sammanfatta /styrelsematerial-Q1 som ett mejl till mig själv."</em> Copilot drar ihop över filer.</p>
+      </div>
+    </div>
+
+    <div class="prompt-block">
+<span class="prompt-label">Exempelprompt – syntes över dokument</span>Läs /strategi-2026 och /budget-Q1, jämför var det finns gap mellan vad strategin lovar och vad budgeten täcker. Skriv det som ett kort PM jag kan ta upp med CFO. Max 400 ord.</div>
+
+    <div class="hands-on">
+      <div class="label">Hands-on – 4 min</div>
+      Öppna ett pågående Word-dokument och kör en av tre operationer: draft, rewrite eller summarize. Använd "/" för att referera ett annat dokument om relevant.
+    </div>
+
+    <div class="when-callout">
+      <div class="label">När använder jag Copilot i Word?</div>
+      <div class="rule">När dokumentet är slutprodukten och ni vill jobba i Word direkt. Drafts, omskrivningar, granskning, syntes från andra Word-filer i ert tenant.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== STATION 6: POWERPOINT ====== -->
+<section class="station s-ppt" id="ppt">
+  <div class="container">
+    <div class="station-header">
+      <div class="station-number">6</div>
+      <div class="station-title-wrap">
+        <h2>Copilot i PowerPoint</h2>
+        <p class="station-tagline">Två lägen sparar mest tid: generera från Word-dokument, eller bygg från outline i prompt.</p>
+      </div>
+    </div>
+
+    <div class="card-grid cols-2">
+      <div class="card">
+        <h4>Create from file</h4>
+        <p>Tom PowerPoint → <em>Create presentation from file</em> → peka på ett Word-PM. Copilot genererar en presentation med slides per sektion, talarnoteringar och struktur.</p>
+      </div>
+      <div class="card">
+        <h4>Bygg från prompt</h4>
+        <p>Tom presentation: <em>"Skapa en presentation om Q1-resultatet, 10 slides, organisationsmall, för KLG."</em> Använder org-mallen om konfigurerad.</p>
+      </div>
+    </div>
+
+    <div class="pro-tip">
+      <strong>Begränsning att känna till:</strong> Copilot i PowerPoint är duktig på struktur och basic design men <strong>begränsad jämfört med Claude för PowerPoint kombinerat med B3 brand-applicator-skillen</strong>. För styrelse- eller kundleveranser där design måste sitta exakt – använd Claude-flödet vi visade i Modul 1. För interna utkast där struktur är viktigare än perfektion – Copilot räcker långt.
+    </div>
+
+    <div class="hands-on">
+      <div class="label">Hands-on – 3 min</div>
+      Be Copilot generera en presentation antingen från ett befintligt Word-dokument eller från en prompt. Bedöm: hur långt kommer ni utan manuell efterbearbetning?
+    </div>
+
+    <div class="when-callout">
+      <div class="label">När använder jag Copilot i PowerPoint?</div>
+      <div class="rule">Interna presentationer där struktur är viktigare än designperfektion. Snabba första utkast. När ni startar från ett Word-dokument som redan är skrivet.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== STATION 7: EXCEL ====== -->
+<section class="station s-excel" id="excel">
+  <div class="container">
+    <div class="station-header">
+      <div class="station-number">7</div>
+      <div class="station-title-wrap">
+        <h2>Copilot i Excel</h2>
+        <p class="station-tagline">Datasidan. Här lever Copilot om ni gör analys.</p>
+      </div>
+    </div>
+
+    <div class="card-grid cols-4">
+      <div class="card">
+        <h4>Analys i naturligt språk</h4>
+        <p>"Vad är trenden senaste kvartalet och vilka tre celler påverkar mest?"</p>
+      </div>
+      <div class="card">
+        <h4>Pivot-tabeller</h4>
+        <p>"Skapa en pivot över omsättning per dotterbolag och månad."</p>
+      </div>
+      <div class="card">
+        <h4>Formler</h4>
+        <p>"Vilken formel räknar ut beläggning per konsult exkl. frånvaro?"</p>
+      </div>
+      <div class="card">
+        <h4>Python in Excel</h4>
+        <p>Djupare analys utan att lämna Excel – statistiska modeller, ML, visualiseringar.</p>
+      </div>
+    </div>
+
+    <div class="prompt-block">
+<span class="prompt-label">Exempelprompt – Excel-analys</span>Identifiera de tre konsulter med svagast beläggningstrend senaste sex månaderna. Visa beläggningskurva per person i ett diagram, lyft fram brytpunkter där det började dippa. Föreslå tre möjliga orsaker baserat på datat.</div>
+
+    <div class="hands-on">
+      <div class="label">Hands-on – 3 min</div>
+      Öppna en egen Excel-fil och be Copilot om en analys, en pivot, eller en formel ni inte minns. Notera tidsbesparingen.
+    </div>
+
+    <div class="when-callout">
+      <div class="label">När använder jag Copilot i Excel?</div>
+      <div class="rule">När data redan finns i Excel och ni vill ställa frågor till den utan att bygga formler manuellt. Analys, pivots, formler, snabba diagram, Python-analys för djupare frågor.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== STATION 8: PAGES ====== -->
+<section class="station s-pages" id="pages">
+  <div class="container">
+    <div class="station-header">
+      <div class="station-number">8</div>
+      <div class="station-title-wrap">
+        <h2>Copilot Pages och Notebook</h2>
+        <p class="station-tagline">Två nyare ytor som chefer ofta missar. Värda att känna till.</p>
+      </div>
+    </div>
+
+    <div class="card-grid cols-2">
+      <div class="card">
+        <h4>Pages</h4>
+        <p>Persistent canvas som ni och kollegor jobbar i tillsammans med Copilot. Tänk: en Loop-komponent där Copilot är en deltagare. Bra för pågående utredningar där flera bidrar – Copilot håller koll på vad som lagts till och hjälper syntetisera.</p>
+      </div>
+      <div class="card">
+        <h4>Notebook</h4>
+        <p>Projektbaserad arbetsyta där ni samlar källor, anteckningar och låter Copilot syntetisera över allt. Närmast Claude Projects i logik – men inom M365-ekosystemet och med Graph-tillgång inbyggt.</p>
+      </div>
+    </div>
+
+    <div class="when-callout">
+      <div class="label">När använder jag Pages eller Notebook?</div>
+      <div class="rule">Pages: när flera ska jobba tillsammans i en AI-stöttad yta. Notebook: när ni samlar material kring en pågående fråga och vill att Copilot ska syntetisera över det. Båda för längre arbeten, inte engångsuppgifter.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== STATION 9: AGENTS ====== -->
+<section class="station s-agents" id="agents">
+  <div class="container">
+    <div class="station-header">
+      <div class="station-number">9</div>
+      <div class="station-title-wrap">
+        <h2>Agents i Copilot</h2>
+        <p class="station-tagline">Tre kategorier att känna till. Bygget hör hemma i Modul 4.</p>
+      </div>
+    </div>
+
+    <p class="lead">Agenter i Copilot är autonoma flöden som tar tid på sig, syntetiserar djupare och kan bevaka processer åt er. Tre kategorier: två färdiga (Researcher, Analyst) och en där ni bygger själva (Copilot Studio).</p>
+
+    <div class="card-grid cols-3">
+      <div class="card">
+        <h4>Researcher</h4>
+        <p>Färdig agent för djupare research. Jobbar i bakgrunden längre tid, syntetiserar både er data och webben, levererar strukturerade rapporter. Bra för: marknadsanalyser, konkurrentbevakning, due diligence-research.</p>
+      </div>
+      <div class="card">
+        <h4>Analyst</h4>
+        <p>Färdig agent för dataanalys. Kombinerar Python in Excel med agentic reasoning. Bra för: kvartalsanalyser, pipeline-läge, finansiella jämförelser och scenario-modellering.</p>
+      </div>
+      <div class="card">
+        <h4>Copilot Studio</h4>
+        <p>Plattform för att bygga era egna agenter. Microsofts motsvarighet till Claude Agent SDK – lägre kodtröskel men begränsad till M365-ekosystemet. Bra för repetitiva processer inom Office, Outlook och Teams.</p>
+      </div>
+    </div>
+
+    <div class="prompt-block">
+<span class="prompt-label">Exempel – aktivera Researcher</span>Researcher: ge mig en briefing om svenska konsultmarknaden 2026. Inkludera tillväxttakt per segment, top 5 aktörer, prisutveckling, och sätt det i kontrast mot vad våra Cinode-data säger om vår positionering. Leverera som strukturerad rapport.</div>
+
+    <div class="when-callout">
+      <div class="label">När använder jag agenter i Copilot?</div>
+      <div class="rule">När jobbet är större än en enkel fråga och kräver att Copilot tar tid på sig. Researcher för djupgrejer, Analyst för data, Studio-agenter för era egna processer. Bygget av Studio-agenter hör hemma i Modul 4.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== COPILOT VS CLAUDE ====== -->
+<section class="station" id="vs">
+  <div class="container">
+    <div class="station-header">
+      <div class="station-title-wrap">
+        <h2>Copilot vs Claude</h2>
+        <p class="station-tagline">Frågan ingen vågar ställa öppet. Här är svaret – de gör olika saker bra.</p>
+      </div>
+    </div>
+
+    <div class="vs-section">
+      <h3 style="font-size: 22px; margin-bottom: 8px;">Det är ingen tävling. Det är en portfölj.</h3>
+      <p style="color: var(--text-muted); font-size: 15px;">Båda finns för att de gör olika saker bra. Använd båda. Mer kompetens, mindre dogmatik.</p>
+
+      <div class="vs-grid">
+        <div class="vs-col copilot">
+          <h3>Copilot</h3>
+          <div class="sub-when">Välj Copilot när</div>
+          <ul>
+            <li>Uppgiften lever inom M365 (Outlook, Teams, Word, Excel, PowerPoint, SharePoint)</li>
+            <li>Ni vill att AI ska ha kontext från er Microsoft-data utan extra konfiguration</li>
+            <li>Möten, mejl, dokument-iteration i Office</li>
+            <li>Sensitivity labels och compliance är centrala för uppgiften</li>
+            <li>Pages eller Notebook för kollaborativ AI-yta med kollegor</li>
+            <li>Researcher eller Analyst för djupare M365-grundad analys</li>
+          </ul>
+        </div>
+        <div class="vs-col claude">
+          <h3>Claude</h3>
+          <div class="sub-when">Välj Claude när</div>
+          <ul>
+            <li>Uppgiften korsar system Copilot inte når naturligt (Cinode, kundsystem, externa data)</li>
+            <li>Ni behöver B3-skills (KLG-protokoll, brand-applicator, prompt-optimizer, consultant-toolkit)</li>
+            <li>Tyngre prompt-iteration och resonemang över komplext underlag</li>
+            <li>Produktion där exakta design- eller formatkrav är centrala (B3-presentationer, branded leveranser)</li>
+            <li>Workflow-kedjor mellan flera AI:er (outline → PowerPoint → branding)</li>
+            <li>När ni vill köra Cowork-mode för bredare verktygsåtkomst</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="vs-rule">
+        Tumregel när båda funkar: <strong>välj det verktyg som har ert källmaterial</strong>. Material i SharePoint/Outlook/Teams → Copilot. Material spritt eller behöver B3-skills → Claude.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== BESLUTSDIAGRAM ====== -->
+<section class="decision-section" id="beslut">
+  <div class="container">
+    <h2>När använder jag vad i Copilot?</h2>
+    <p class="sub">Inom Copilot-familjen. Cross-portfolio-frågan (Copilot vs Claude) löses i tabellen ovan.</p>
+
+    <table class="decision-table">
+      <tr>
+        <td>Synthesis över systemen, research, snabb research med M365-kontext</td>
+        <td><span class="pill chat">Copilot Chat</span></td>
+      </tr>
+      <tr>
+        <td>Mejltråd att förstå eller besvara, drafts, coaching innan skick</td>
+        <td><span class="pill outlook">Outlook</span></td>
+      </tr>
+      <tr>
+        <td>Mötesefterarbete, in-meeting hjälp, chat-summering</td>
+        <td><span class="pill teams">Teams</span></td>
+      </tr>
+      <tr>
+        <td>Drafta, skriva om eller syntetisera över dokument</td>
+        <td><span class="pill word">Word</span></td>
+      </tr>
+      <tr>
+        <td>Intern presentation från Word-dokument eller outline</td>
+        <td><span class="pill ppt">PowerPoint</span></td>
+      </tr>
+      <tr>
+        <td>Dataanalys, formler, pivots, Python-analys i kalkylblad</td>
+        <td><span class="pill excel">Excel</span></td>
+      </tr>
+      <tr>
+        <td>Kollaborativ AI-yta för pågående utredning eller projekt</td>
+        <td><span class="pill pages">Pages / Notebook</span></td>
+      </tr>
+      <tr>
+        <td>Djupare research, autonom analys, egen process att automatisera</td>
+        <td><span class="pill agents">Agents</span></td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- ====== PROMPT LIBRARY ====== -->
+<section class="station" id="promptbibliotek">
+  <div class="container">
+    <div class="station-header">
+      <div class="station-title-wrap">
+        <h2>Promptbibliotek</h2>
+        <p class="station-tagline">Tio chefsprompts som funkar direkt i Copilot. Använd i rätt app – kopiera, ersätt placeholders, kör.</p>
+      </div>
+    </div>
+
+    <div class="prompt-library-intro">
+      Prompts är app-specifika i Copilot. En Outlook-prompt klistras in i Outlooks Copilot-fält, en Teams-prompt i Teams Copilot-panel, en Word-prompt i Word-sidebaren. <strong>Apparkoden i badgen säger var prompten hör hemma.</strong> Föreslå nya prompts via Teams-kanalen #ai-chefer.
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card-header">
+        <div class="prompt-card-title">1. Sammanfatta lång mejltråd</div>
+        <span class="prompt-card-badge app-outlook">Outlook</span>
+      </div>
+      <p class="prompt-card-when">När ni öppnar en mejltråd med fem eller fler svar och vill ha bottom-line på 30 sekunder.</p>
+      <pre class="prompt-card-block">Sammanfatta den här mejltråden för mig. Strukturera enligt:
+- Bottom line på en mening
+- Beslut som tagits hittills (vad, av vem)
+- Öppna frågor som väntar på svar
+- Vem som väntar på vad
+- Vad jag rimligen behöver svara på (om något)
+
+Lyft separat fram om någon uttryckt tveksamhet, bråttom eller missnöje – var sakligt explicit.</pre>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card-header">
+        <div class="prompt-card-title">2. Drafta professionellt svar</div>
+        <span class="prompt-card-badge app-outlook">Outlook</span>
+      </div>
+      <p class="prompt-card-when">När ni ska svara på ett mejl och vill ha rätt ton och struktur från första utkast.</p>
+      <pre class="prompt-card-block">Drafta ett svar med följande input:
+- Mottagare: [NAMN/ROLL]
+- Tre saker jag vill ha med: [PUNKT 1], [PUNKT 2], [PUNKT 3]
+- Ton: professionell men personlig, inte säljande
+- Längd: max 150 ord
+- Avsluta med tydligt nästa steg eller fråga
+- Inga "hoppas detta hjälper", "ber om ursäkt för dröjsmålet" eller liknande fyllnadsfraser</pre>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card-header">
+        <div class="prompt-card-title">3. Coach innan skick</div>
+        <span class="prompt-card-badge app-outlook">Outlook</span>
+      </div>
+      <p class="prompt-card-when">Innan ni skickar känsligt eller viktigt mejl. Coach-funktionen i Outlook använder denna typ av prompt.</p>
+      <pre class="prompt-card-block">Granska det här utkastet innan jag skickar. Bedöm:
+- Tonläget – är det rätt för mottagaren och situationen?
+- Klarhet – kommer mottagaren förstå exakt vad jag vill?
+- Risker – finns det formuleringar som kan misstolkas eller läsas hårdare än jag avser?
+- Tre konkreta förbättringar du föreslår, ordagrant
+
+Var rak. Skona mig inte. Om utkastet är klart att skicka som det är – säg det.</pre>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card-header">
+        <div class="prompt-card-title">4. Mötessammanfattning med beslut</div>
+        <span class="prompt-card-badge app-teams">Teams</span>
+      </div>
+      <p class="prompt-card-when">Efter ett inspelat möte – få en strukturerad sammanfattning med beslut, action items och ton.</p>
+      <pre class="prompt-card-block">Sammanfatta det här mötet. Strukturera:
+1. Mötets syfte i en mening
+2. Beslut som togs (vad, vem är ansvarig)
+3. Action items i tabellform: aktivitet | ansvarig | deadline
+4. Öppna frågor som inte besvarades
+5. Eventuella oeniga åsikter eller spänningar i diskussionen
+
+Visa vad som faktiskt blev sagt och beslutat – separera tydligt från det som bara diskuterades men inte landades.</pre>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card-header">
+        <div class="prompt-card-title">5. Vad missade jag i kanalen</div>
+        <span class="prompt-card-badge app-teams">Teams</span>
+      </div>
+      <p class="prompt-card-when">Efter frånvaro eller fokuserat arbete – snabb debrief av en Teams-kanal eller chat.</p>
+      <pre class="prompt-card-block">Jag har varit borta från kanalen [KANALNAMN] i [TID]. Ge mig en debrief:
+- Tre viktigaste sakerna jag missat
+- Pågående diskussioner där input väntas av mig
+- Beslut som tagits utan mig som påverkar mitt område
+- Något jag bör reagera på direkt (markera med "AKUT" om tillämpligt)
+
+Max 250 ord totalt.</pre>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card-header">
+        <div class="prompt-card-title">6. Skriv om för styrelseton</div>
+        <span class="prompt-card-badge app-word">Word</span>
+      </div>
+      <p class="prompt-card-when">När ert utkast är för informellt, för långt eller för spretigt för styrelsen.</p>
+      <pre class="prompt-card-block">Skriv om markerad text för styrelseton:
+- Mer formellt utan att bli krångligt
+- Slutsats först, sedan motivering
+- Inga punktlistor i löpande resonemang – håll det till prosatext
+- Behåll alla faktauppgifter exakt
+- Cirka samma längd som originalet, gärna 10–15 % kortare
+
+Lyft separat fram om något i originalet är otydligt eller behöver underlag.</pre>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card-header">
+        <div class="prompt-card-title">7. Syntetisera över flera dokument</div>
+        <span class="prompt-card-badge app-word">Word</span>
+      </div>
+      <p class="prompt-card-when">När informationen sitter spridd över flera Word-filer och ni behöver ett samlat PM.</p>
+      <pre class="prompt-card-block">Läs /[DOKUMENT 1] och /[DOKUMENT 2]. Identifiera tre områden där vad [DOKUMENT 1] beskriver inte täcks av [DOKUMENT 2] – eller där de motsäger varandra.
+
+Skriv det som ett kort PM (max 400 ord) jag kan ta upp på nästa [MÖTESKONTEXT]. Slutsats först, sedan motivering per gap eller konflikt.
+
+Avsluta med en rekommendation: vilken av dokumenten ska revideras, eller behöver en tredje variant tas fram?</pre>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card-header">
+        <div class="prompt-card-title">8. Presentation från Word-PM</div>
+        <span class="prompt-card-badge app-ppt">PowerPoint</span>
+      </div>
+      <p class="prompt-card-when">När ni har ett genomarbetat Word-dokument som ska bli en intern presentation.</p>
+      <pre class="prompt-card-block">Skapa en presentation från /[WORD-DOKUMENTNAMN].
+
+Specifikationer:
+- 10–12 slides
+- Använd organisationsmallen
+- Slutsatsbärande titel per slide (action title som sammanfattar slidens huvudbudskap)
+- Talarnotis med 2–3 meningar per slide som expanderar punkterna
+- Sista sliden ska heta "Beslut vi behöver i dag" med konkreta beslutspunkter
+
+Inkludera inte fler bilder än nödvändigt – innehållet är det viktiga, inte dekorationen.</pre>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card-header">
+        <div class="prompt-card-title">9. Dataanalys med insikter</div>
+        <span class="prompt-card-badge app-excel">Excel</span>
+      </div>
+      <p class="prompt-card-when">När data är i Excel och ni vill ha snabb analys utan att bygga formler eller pivots manuellt.</p>
+      <pre class="prompt-card-block">Analysera datan i [SHEET/TABELL] och svara:
+
+1. Tre tydligaste trenderna senaste [PERIOD]
+2. Tre outliers eller avvikelser som kräver förklaring
+3. Vad som driver utfallet enligt datat – var explicit om vad som är direkt observerbart kontra rimligt antagande
+4. En pivot som visualiserar huvudinsikten – föreslå struktur (rader, kolumner, värden)
+5. En formel jag kan använda för att räkna ut [SPECIFIK FRÅGA]
+
+Var konkret. Inga generiska observationer som "det går upp och ner" – peka på faktiska siffror och tidpunkter.</pre>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-card-header">
+        <div class="prompt-card-title">10. Veckobrief för måndag morgon</div>
+        <span class="prompt-card-badge app-chat">Copilot Chat</span>
+      </div>
+      <p class="prompt-card-when">Måndag morgon – sammanfatta läget från er M365-data så ni går in i veckan informerade. Kan schemaläggas som återkommande Researcher-jobb.</p>
+      <pre class="prompt-card-block">Veckobrief för måndag morgon. Hämta från min M365-data (work grounding):
+
+- Möten denna vecka som kräver förberedelse (vilka möten, vad krävs av mig)
+- Tre viktigaste mejlen senaste veckan jag inte besvarat
+- Action items från Teams-möten senaste veckan med deadline denna vecka
+- Större ändringar i SharePoint-mappar jag följer (om relevant)
+- Något jag bör veta från ledningsgruppens kanal eller chat
+
+Strukturera kort och tydligt. Slutsats per sektion först, detaljer sedan. Max 400 ord totalt.</pre>
+    </div>
+
+  </div>
+</section>
+
+<!-- ====== COMMITMENTS ====== -->
+<section class="station" id="commitments">
+  <div class="container">
+    <div class="commitments">
+      <h3>Tre commitments innan ni stänger guiden</h3>
+      <p class="lead-light">Skriv ned, dela med en kollega. Uppföljning dag 14.</p>
+
+      <div class="commitment-row">
+        <div class="commitment-when">Inom 24 h</div>
+        <div class="commitment-text">Mejltråden jag har låtit Copilot sammanfatta i Outlook: <em>_____________________</em></div>
+      </div>
+      <div class="commitment-row">
+        <div class="commitment-when">Inom 1 vecka</div>
+        <div class="commitment-text">Mötet jag fått hela action item-listan ur via Copilot i Teams: <em>_____________________</em></div>
+      </div>
+      <div class="commitment-row">
+        <div class="commitment-when">Inom 1 månad</div>
+        <div class="commitment-text">Arbetsuppgift värd 2+ h/vecka jag halverat tiden på (Copilot eller Claude): <em>_____________________</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h5>Fördjupning</h5>
+        <a href="https://learn.microsoft.com/copilot/" target="_blank" rel="noopener">Microsoft Learn – Copilot →</a>
+        <a href="https://adoption.microsoft.com/copilot/" target="_blank" rel="noopener">Microsoft Copilot Adoption →</a>
+        <a href="https://anthropic.skilljar.com/claude-101/" target="_blank" rel="noopener">Anthropic Claude 101 →</a>
+      </div>
+      <div>
+        <h5>Modulserie</h5>
+        <a href="modul1_deltagarguide.html">Modul 1 – Claude för chefer</a>
+        <a href="modul3_deltagarguide.html">Modul 3 – Promptkvalitet och iteration →</a>
+        <a href="modul4_deltagarguide.html">Modul 4 – Skills och agenter →</a>
+      </div>
+      <div>
+        <h5>Support</h5>
+        <a href="#">Teams-kanal #ai-chefer</a>
+        <a href="mailto:ai-support@b3.se">ai-support@b3.se</a>
+        <a href="mailto:fredrik.dolleus@b3.se">fredrik.dolleus@b3.se</a>
+      </div>
+    </div>
+    <div class="copy">
+      © 2026 B3 Consulting Group · Modul 2 – Komma igång med Microsoft 365 Copilot · Producerad av koncernledningen
+    </div>
+  </div>
+</footer>
+
+<script>
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav.sticky-nav a');
+
+  function highlightNav() {
+    const scrollPos = window.scrollY + 120;
+    let current = '';
+    sections.forEach(s => {
+      if (scrollPos >= s.offsetTop) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+
+  window.addEventListener('scroll', highlightNav, { passive: true });
+  highlightNav();
+</script>
+
+</body>
+</html>

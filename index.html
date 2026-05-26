@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B3 AI Academy</title>
+<style>
+  :root {
+    --bg-dark: #0F1F3A;
+    --bg-dark-2: #142a4d;
+    --bg-page: #F4F6FA;
+    --bg-card: #FFFFFF;
+    --bg-tint: #EBF0FA;
+    --text-primary: #1A2540;
+    --text-muted: #5A6478;
+    --text-light: #8993A8;
+    --border: #E1E6F0;
+    --accent: #3D6CE7;
+    --accent-soft: #DCE5FB;
+    --b3-teal: #0CCCCC;
+    --b3-pink: #DF668A;
+    --b3-yellow: #EFBD47;
+    --b3-blue: #426DA9;
+    --c-m1: #0CCCCC;
+    --c-m1-soft: #DDF6F6;
+    --c-m2: #0078D4;
+    --c-m2-soft: #DDECFC;
+    --c-m3: #DF668A;
+    --c-m3-soft: #F8DDE7;
+    --c-m4: #DAA520;
+    --c-m4-soft: #FAEFCB;
+    --shadow-sm: 0 1px 3px rgba(15, 31, 58, 0.06);
+    --shadow-md: 0 4px 12px rgba(15, 31, 58, 0.08);
+    --shadow-lg: 0 10px 30px rgba(15, 31, 58, 0.12);
+    --shadow-xl: 0 20px 50px rgba(15, 31, 58, 0.18);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg-page);
+    color: var(--text-primary);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+  /* === HERO === */
+  .hero {
+    background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-dark-2) 100%);
+    color: #fff;
+    padding: 80px 0 120px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--c-m1) 0%, var(--c-m2) 33%, var(--c-m3) 66%, var(--c-m4) 100%);
+  }
+
+  .hero-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 80px;
+  }
+
+  .logo {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 4px;
+    font-weight: 800;
+    font-size: 28px;
+    letter-spacing: -0.5px;
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .logo-mark { color: var(--b3-teal); }
+
+  .logo-text {
+    color: #fff;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-left: 12px;
+    opacity: 0.7;
+  }
+
+  .hero-meta-info {
+    font-size: 14px;
+    opacity: 0.65;
+    letter-spacing: 0.5px;
+  }
+
+  .academy-tag {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--b3-teal);
+    margin-bottom: 16px;
+    opacity: 0.9;
+  }
+
+  .hero h1 {
+    font-size: 84px;
+    font-weight: 800;
+    letter-spacing: -3px;
+    line-height: 1.0;
+    margin-bottom: 20px;
+  }
+
+  .hero .subtitle {
+    font-size: 22px;
+    opacity: 0.78;
+    max-width: 760px;
+    font-weight: 300;
+    margin-bottom: 32px;
+  }
+
+  .hero-divider {
+    width: 120px;
+    height: 4px;
+    background: var(--b3-teal);
+    margin: 32px 0;
+    border-radius: 2px;
+  }
+
+  .hero-byline {
+    font-size: 15px;
+    opacity: 0.6;
+    letter-spacing: 0.3px;
+  }
+
+  /* === INTRO === */
+  .intro-section {
+    padding: 80px 0 40px;
+  }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .intro-content h2 {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 24px;
+    position: relative;
+    display: inline-block;
+  }
+
+  .intro-content h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--accent);
+    margin-top: 8px;
+    border-radius: 2px;
+  }
+
+  .intro-content p {
+    font-size: 17px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    line-height: 1.7;
+  }
+
+  .intro-pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .pillar {
+    background: var(--bg-card);
+    border-radius: 12px;
+    padding: 24px 28px;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--accent);
+  }
+
+  .pillar:nth-child(1) { border-left-color: var(--c-m1); }
+  .pillar:nth-child(2) { border-left-color: var(--c-m3); }
+  .pillar:nth-child(3) { border-left-color: var(--c-m4); }
+
+  .pillar h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .pillar p {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  /* === MODULES === */
+  .modules-section {
+    padding: 80px 0;
+    background: linear-gradient(180deg, var(--bg-page) 0%, #ECF0F8 100%);
+  }
+
+  .section-header {
+    margin-bottom: 48px;
+  }
+
+  .section-header h2 {
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+    position: relative;
+    display: inline-block;
+  }
+
+  .section-header h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--accent);
+    margin-top: 10px;
+    border-radius: 2px;
+  }
+
+  .section-header .lead {
+    font-size: 17px;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin-top: 16px;
+  }
+
+  .modules-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+
+  .module-card {
+    display: block;
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 36px;
+    box-shadow: var(--shadow-md);
+    text-decoration: none;
+    color: var(--text-primary);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    border-top: 6px solid var(--accent);
+  }
+
+  .module-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .module-card.mc-1 { border-top-color: var(--c-m1); }
+  .module-card.mc-2 { border-top-color: var(--c-m2); }
+  .module-card.mc-3 { border-top-color: var(--c-m3); }
+  .module-card.mc-4 { border-top-color: var(--c-m4); }
+
+  .mc-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .mc-num {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .module-card.mc-1 .mc-num { color: var(--c-m1); }
+  .module-card.mc-2 .mc-num { color: var(--c-m2); }
+  .module-card.mc-3 .mc-num { color: var(--c-m3); }
+  .module-card.mc-4 .mc-num { color: var(--c-m4); }
+
+  .mc-level {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 12px;
+    color: #fff;
+  }
+
+  .module-card.mc-1 .mc-level { background: var(--c-m1); color: var(--bg-dark); }
+  .module-card.mc-2 .mc-level { background: var(--c-m2); }
+  .module-card.mc-3 .mc-level { background: var(--c-m3); }
+  .module-card.mc-4 .mc-level { background: var(--c-m4); color: var(--bg-dark); }
+
+  .mc-title {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .mc-tagline {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+
+  .mc-preview {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 24px;
+  }
+
+  .mc-preview li {
+    font-size: 14px;
+    color: var(--text-primary);
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .mc-preview li:last-child { border-bottom: none; }
+
+  .mc-preview li::before {
+    content: "→";
+    flex-shrink: 0;
+    font-weight: 600;
+  }
+
+  .module-card.mc-1 .mc-preview li::before { color: var(--c-m1); }
+  .module-card.mc-2 .mc-preview li::before { color: var(--c-m2); }
+  .module-card.mc-3 .mc-preview li::before { color: var(--c-m3); }
+  .module-card.mc-4 .mc-preview li::before { color: var(--c-m4); }
+
+  .mc-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .mc-cta {
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .module-card.mc-1 .mc-cta { color: var(--c-m1); }
+  .module-card.mc-2 .mc-cta { color: var(--c-m2); }
+  .module-card.mc-3 .mc-cta { color: var(--c-m3); }
+  .module-card.mc-4 .mc-cta { color: var(--c-m4); }
+
+  /* === LEARNING PATH === */
+  .path-section {
+    padding: 80px 0;
+    background: var(--bg-page);
+  }
+
+  .path-flow {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 48px 40px;
+    box-shadow: var(--shadow-md);
+    margin-top: 32px;
+    border: 1px solid var(--border);
+  }
+
+  .path-steps {
+    display: flex;
+    align-items: stretch;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .path-step {
+    flex: 1;
+    min-width: 200px;
+    background: linear-gradient(135deg, #fff 0%, #fafbff 100%);
+    border-radius: 12px;
+    padding: 24px 22px;
+    border: 1px solid var(--border);
+    position: relative;
+  }
+
+  .path-step.dual {
+    flex: 2;
+    min-width: 320px;
+    background: linear-gradient(135deg, #f8fbff 0%, #fff7fb 100%);
+    border: 1px dashed var(--border);
+  }
+
+  .path-step-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+
+  .path-step-title {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+
+  .path-step-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .path-arrow {
+    align-self: center;
+    color: var(--accent);
+    font-size: 28px;
+    font-weight: 300;
+    flex-shrink: 0;
+  }
+
+  .path-dual-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 8px;
+  }
+
+  .path-dual-item {
+    background: var(--bg-card);
+    border-radius: 8px;
+    padding: 12px 14px;
+    border-top: 3px solid;
+  }
+
+  .path-dual-item.pd-m1 { border-top-color: var(--c-m1); }
+  .path-dual-item.pd-m2 { border-top-color: var(--c-m2); }
+
+  .path-dual-item .pdi-num {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .path-dual-item.pd-m1 .pdi-num { color: var(--c-m1); }
+  .path-dual-item.pd-m2 .pdi-num { color: var(--c-m2); }
+
+  .path-dual-item .pdi-title {
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 4px;
+  }
+
+  .path-dual-or {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 4px 0;
+  }
+
+  /* === INSTRUCTOR === */
+  .instructor-section {
+    padding: 60px 0 80px;
+  }
+
+  .instructor-box {
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #1a3460 100%);
+    color: #fff;
+    border-radius: 16px;
+    padding: 40px 48px;
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .instructor-icon {
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    background: rgba(12, 204, 204, 0.15);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--b3-teal);
+    font-size: 28px;
+    font-weight: 700;
+  }
+
+  .instructor-content h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .instructor-content p {
+    opacity: 0.78;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .instructor-content strong { color: var(--b3-teal); }
+
+  /* === FOOTER === */
+  footer {
+    background: var(--bg-dark);
+    color: #fff;
+    padding: 60px 0 40px;
+  }
+
+  footer .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  footer h5 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--b3-teal);
+    margin-bottom: 16px;
+  }
+
+  footer a {
+    color: #D7E0F2;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    opacity: 0.85;
+    transition: opacity 0.15s;
+  }
+
+  footer a:hover { opacity: 1; color: #fff; }
+
+  footer .copy {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 24px;
+    font-size: 12px;
+    opacity: 0.5;
+    text-align: center;
+  }
+
+  @media (max-width: 880px) {
+    .hero h1 { font-size: 52px; }
+    .hero .subtitle { font-size: 18px; }
+    .intro-grid { grid-template-columns: 1fr; gap: 40px; }
+    .modules-grid { grid-template-columns: 1fr; }
+    .path-steps { flex-direction: column; }
+    .path-arrow { transform: rotate(90deg); align-self: center; }
+    .instructor-box { flex-direction: column; text-align: center; padding: 32px 24px; }
+    footer .footer-grid { grid-template-columns: 1fr; }
+    .container { padding: 0 20px; }
+    .section-header h2 { font-size: 32px; }
+  }
+
+  @media print {
+    .hero { background: #fff; color: #000; }
+    .hero h1, .hero .subtitle { color: #000; }
+    .module-card { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ====== HERO ====== -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-meta">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">B</span><span class="logo-mark">3</span>
+        <span class="logo-text">Consulting Group</span>
+      </a>
+      <div class="hero-meta-info">Koncernledningen · 2026</div>
+    </div>
+    <span class="academy-tag">Utbildningsserie för chefer och ledare</span>
+    <h1>B3 AI Academy</h1>
+    <p class="subtitle">Praktisk AI för B3:s chefer – Claude, Microsoft 365 Copilot, prompting och agentbygge</p>
+    <div class="hero-divider"></div>
+    <div class="hero-byline">Fyra moduler · Från första prompten till egen agent</div>
+  </div>
+</header>
+
+<!-- ====== INTRO ====== -->
+<section class="intro-section">
+  <div class="container">
+    <div class="intro-grid">
+      <div class="intro-content">
+        <h2>Vad det här är</h2>
+        <p>B3 AI Academy är koncernens kompletta grundutbildning i AI för chefer och ledare. Serien tar er från första inloggningen till att själva bygga agenter som körs autonomt – i fyra steg.</p>
+        <p>Allt är konkret. Allt är hands-on. Allt är skrivet utifrån hur chefer faktiskt jobbar – inte hur AI-leverantörerna marknadsför sina verktyg.</p>
+        <p>Materialet täcker både <strong>Claude Enterprise</strong> och <strong>Microsoft 365 Copilot</strong>. De är inte konkurrenter – de är komplement. Ni ska kunna båda.</p>
+      </div>
+      <div class="intro-pillars">
+        <div class="pillar">
+          <h4>Hands-on framför teori</h4>
+          <p>Sjuttio procent av tiden i varje modul är aktivt arbete mot era egna fall. Ingen powerpoint-driven utbildning.</p>
+        </div>
+        <div class="pillar">
+          <h4>Chefsnivå, inte nybörjarnivå</h4>
+          <p>Skrivet för erfarna ledare. Inga grundläggande affärsbegrepp förklaras. Tonen är rak och förutsätter mognad.</p>
+        </div>
+        <div class="pillar">
+          <h4>Beteendelås i avslutet</h4>
+          <p>Varje modul slutar med tre commitments (24 h, 1 vecka, 1 månad). Utan beteendeförändring blir utbildning teater.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== MODULES ====== -->
+<section class="modules-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Modulerna</h2>
+      <p class="lead">Klicka på en modul för att öppna deltagarguiden. Varje guide innehåller den fullständiga genomgången, hands-on-övningar, beslutsdiagram och ett promptbibliotek.</p>
+    </div>
+
+    <div class="modules-grid">
+
+      <a href="modul1_deltagarguide.html" class="module-card mc-1">
+        <div class="mc-top">
+          <span class="mc-num">Modul 1</span>
+          <span class="mc-level">Grund</span>
+        </div>
+        <div class="mc-title">Claude för chefer</div>
+        <div class="mc-tagline">En guidad hands-on tur genom Claude Enterprise – från inställningar till att låta AI:n jobba för er.</div>
+        <ul class="mc-preview">
+          <li>Inställningar, prompting, Chat, Projects, Cowork</li>
+          <li>Claude för Office, plugins, skills och scheduling</li>
+          <li>Workflow-kedjor: hur en AI lämnar över till nästa</li>
+        </ul>
+        <div class="mc-meta">
+          <span>90 min · max 12 deltagare</span>
+          <span class="mc-cta">Öppna guiden →</span>
+        </div>
+      </a>
+
+      <a href="modul2_deltagarguide.html" class="module-card mc-2">
+        <div class="mc-top">
+          <span class="mc-num">Modul 2</span>
+          <span class="mc-level">Grund</span>
+        </div>
+        <div class="mc-title">Copilot för chefer</div>
+        <div class="mc-tagline">Microsoft 365 Copilot i Outlook, Teams, Word, Excel, PowerPoint – plus när Claude är bättre val.</div>
+        <ul class="mc-preview">
+          <li>Copilot Chat med work- och webgrounding</li>
+          <li>Copilot i Outlook, Teams, Office-paketet</li>
+          <li>Pages, Notebook och agentlagret (Researcher, Analyst, Studio)</li>
+        </ul>
+        <div class="mc-meta">
+          <span>90 min · max 12 deltagare</span>
+          <span class="mc-cta">Öppna guiden →</span>
+        </div>
+      </a>
+
+      <a href="modul3_deltagarguide.html" class="module-card mc-3">
+        <div class="mc-top">
+          <span class="mc-num">Modul 3</span>
+          <span class="mc-level">Tillämpning</span>
+        </div>
+        <div class="mc-title">Promptkvalitet och iteration</div>
+        <div class="mc-tagline">Hantverket som skiljer 30 minuters tidsbesparing från två timmars – för både Claude och Copilot.</div>
+        <ul class="mc-preview">
+          <li>Anatomin i en bra prompt, iteration som vana</li>
+          <li>Few-shot, chain-of-thought, hantering av långa underlag</li>
+          <li>10 promptmönster ni kan kopiera och anpassa direkt</li>
+        </ul>
+        <div class="mc-meta">
+          <span>2 timmar · max 12 deltagare</span>
+          <span class="mc-cta">Öppna guiden →</span>
+        </div>
+      </a>
+
+      <a href="modul4_deltagarguide.html" class="module-card mc-4">
+        <div class="mc-top">
+          <span class="mc-num">Modul 4</span>
+          <span class="mc-level">Avancerat</span>
+        </div>
+        <div class="mc-title">Skills och agenter</div>
+        <div class="mc-tagline">Från användare till byggare. Paketera beteenden, låt dem köras själva, governance på plats.</div>
+        <ul class="mc-preview">
+          <li>Skill-anatomi, skill-creator hands-on, deploy till org</li>
+          <li>Agent-mönster, low-code-agent, Cowork agency mode</li>
+          <li>Governance, Claude Agent SDK, Copilot Studio</li>
+        </ul>
+        <div class="mc-meta">
+          <span>Halvdag (3,5 h) · max 10 deltagare</span>
+          <span class="mc-cta">Öppna guiden →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ====== LEARNING PATH ====== -->
+<section class="path-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Rekommenderad lärväg</h2>
+      <p class="lead">Modul 1 och 2 är parallella – välj den ni behöver först eller ta båda. Modul 3 förutsätter att ni klarat någon av grundmodulerna. Modul 4 förutsätter Modul 3.</p>
+    </div>
+
+    <div class="path-flow">
+      <div class="path-steps">
+
+        <div class="path-step dual">
+          <div class="path-step-num">Grund · Välj en eller båda</div>
+          <div class="path-dual-grid">
+            <div class="path-dual-item pd-m1">
+              <div class="pdi-num">Modul 1</div>
+              <div class="pdi-title">Claude för chefer</div>
+            </div>
+            <div class="path-dual-item pd-m2">
+              <div class="pdi-num">Modul 2</div>
+              <div class="pdi-title">Copilot för chefer</div>
+            </div>
+          </div>
+          <div class="path-dual-or">parallellspår</div>
+        </div>
+
+        <div class="path-arrow">→</div>
+
+        <div class="path-step">
+          <div class="path-step-num" style="color: var(--c-m3);">Tillämpning</div>
+          <div class="path-step-title">Modul 3</div>
+          <div class="path-step-desc">Promptkvalitet och iteration. Hantverket som gör allt ovanstående markant skarpare.</div>
+        </div>
+
+        <div class="path-arrow">→</div>
+
+        <div class="path-step">
+          <div class="path-step-num" style="color: var(--c-m4);">Avancerat</div>
+          <div class="path-step-title">Modul 4</div>
+          <div class="path-step-desc">Skills och agenter. För dem som ska driva AI-användningen i organisationen.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== INSTRUCTORS ====== -->
+<section class="instructor-section">
+  <div class="container">
+    <div class="instructor-box">
+      <div class="instructor-icon">i</div>
+      <div class="instructor-content">
+        <h3>För instruktörer och programledning</h3>
+        <p>Facilitator-guider, övningsmallar och förberedelsechecklistor finns på <strong>B3:s SharePoint under AI Academy</strong>. Logga in på B3 SharePoint och navigera till mappen <em>Internt &gt; AI Academy &gt; Facilitator-material</em>. Saknar du behörighet – kontakta AI-supportteamet via #ai-chefer i Teams.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h5>Fördjupning</h5>
+        <a href="https://anthropic.skilljar.com/claude-101/" target="_blank" rel="noopener">Anthropic Claude 101 →</a>
+        <a href="https://docs.claude.com" target="_blank" rel="noopener">Anthropic docs →</a>
+        <a href="https://learn.microsoft.com/copilot/" target="_blank" rel="noopener">Microsoft Learn Copilot →</a>
+      </div>
+      <div>
+        <h5>Moduler</h5>
+        <a href="modul1_deltagarguide.html">Modul 1 – Claude för chefer</a>
+        <a href="modul2_deltagarguide.html">Modul 2 – Copilot för chefer</a>
+        <a href="modul3_deltagarguide.html">Modul 3 – Promptkvalitet och iteration</a>
+        <a href="modul4_deltagarguide.html">Modul 4 – Skills och agenter</a>
+      </div>
+      <div>
+        <h5>Support</h5>
+        <a href="#">Teams-kanal #ai-chefer</a>
+        <a href="mailto:ai-support@b3.se">ai-support@b3.se</a>
+        <a href="mailto:fredrik.dolleus@b3.se">fredrik.dolleus@b3.se</a>
+      </div>
+    </div>
+    <div class="copy">
+      © 2026 B3 Consulting Group · B3 AI Academy · Producerad av koncernledningen
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
