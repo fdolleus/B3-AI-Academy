@@ -1292,13 +1292,15 @@
       <div class="station-number">9</div>
       <div class="station-title-wrap">
         <h2>Agents i Copilot</h2>
-        <p class="station-tagline">Tre kategorier att känna till. Bygget hör hemma i Modul 4.</p>
+        <p class="station-tagline">Större än många tror. Öppna er Copilot Chat och titta i sidomenyn – ni har flera kategorier av agenter redan på plats.</p>
       </div>
     </div>
 
-    <p class="lead">Agenter i Copilot är autonoma flöden som tar tid på sig, syntetiserar djupare och kan bevaka processer åt er. Tre kategorier: två färdiga (Researcher, Analyst) och en där ni bygger själva (Copilot Studio).</p>
+    <p class="lead">Agentlagret består av <strong>standardagenter från Microsoft</strong>, <strong>Frontier-agenter</strong> (early access), <strong>B3:s egna agenter</strong> och möjligheten att <strong>bygga egna</strong> via Copilot Studio. Här är hela kartan.</p>
 
-    <div class="card-grid cols-3">
+    <h3 style="font-size: 22px; margin: 32px 0 16px;">1. Standardagenter från Microsoft</h3>
+
+    <div class="card-grid cols-2">
       <div class="card">
         <h4>Researcher</h4>
         <p>Färdig agent för djupare research. Jobbar i bakgrunden längre tid, syntetiserar både er data och webben, levererar strukturerade rapporter. Bra för: marknadsanalyser, konkurrentbevakning, due diligence-research.</p>
@@ -1307,18 +1309,62 @@
         <h4>Analyst</h4>
         <p>Färdig agent för dataanalys. Kombinerar Python in Excel med agentic reasoning. Bra för: kvartalsanalyser, pipeline-läge, finansiella jämförelser och scenario-modellering.</p>
       </div>
+    </div>
+
+    <h3 style="font-size: 22px; margin: 32px 0 16px;">2. Frontier-agenter (Microsofts early-access-program)</h3>
+
+    <div class="card-grid cols-2">
       <div class="card">
-        <h4>Copilot Studio</h4>
-        <p>Plattform för att bygga era egna agenter. Microsofts motsvarighet till Claude Agent SDK – lägre kodtröskel men begränsad till M365-ekosystemet. Bra för repetitiva processer inom Office, Outlook och Teams.</p>
+        <h4>Workflows (Frontier)</h4>
+        <p>Regel-baserad automation. Fördefinierade flöden som körs likadant varje gång. Bra för rapporter, onboarding-mejl, standardbrev, kvartalsuppdateringar. Paketerat motsvarighet till Power Automate.</p>
+      </div>
+      <div class="card">
+        <h4>Cowork (Frontier)</h4>
+        <p>Mål-driven AI-orkestrering över M365. Ni säger målet, agenten planerar och utför över Outlook, Teams, SharePoint. Bra för "förbered mig inför nästa veckans möten", "organisera min inkorg", "undersök det här företaget", "ordna min vecka".</p>
       </div>
     </div>
 
+    <div class="when-callout">
+      <div class="label">Beslutsregel: Workflows vs Cowork</div>
+      <div class="rule">Kan ni beskriva processen i steg → <strong>Workflows</strong>. Vet ni bara målet → <strong>Cowork</strong>. De är inte konkurrenter – Cowork kan trigga Workflows som byggstenar.</div>
+    </div>
+
+    <h3 style="font-size: 22px; margin: 32px 0 16px;">3. B3:s egna agenter</h3>
+
+    <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 16px;">I sidomenyn på er Copilot ser ni redan flera B3-specifika agenter. Nya rullas ut löpande via AI-supportteamet.</p>
+
+    <div class="card-grid cols-3">
+      <div class="card">
+        <h4>B3 Insight advisor</h4>
+        <p>Strategisk insight för affärsanalys – konkurrentbevakning, marknadssyn, underlag för strategiska beslut.</p>
+      </div>
+      <div class="card">
+        <h4>Management B3</h4>
+        <p>Ledningsspecifika frågor och processer – styrelseunderlag, KLG-arbete, affärsområdesöverblick.</p>
+      </div>
+      <div class="card">
+        <h4>Microsoft 365 Admin</h4>
+        <p>Hanterar IT-administrativa frågor i M365-miljön – licens, åtkomst, konfiguration.</p>
+      </div>
+    </div>
+
+    <h3 style="font-size: 22px; margin: 32px 0 16px;">4. Bygg egna via Copilot Studio</h3>
+
+    <div class="card">
+      <p style="color: var(--text-muted); font-size: 14px;">För era specifika processer. Lägre kodtröskel än Claude Agent SDK men begränsad till M365-ekosystemet. Beställs från IT/AI-funktionen för större bygge, kan byggas av sub-admin för mindre. Bygget i detalj hör hemma i Modul 4.</p>
+    </div>
+
+    <div class="when-callout" style="background: #FFF1EC; border-left-color: var(--c-ppt); margin-top: 32px;">
+      <div class="label" style="color: var(--c-ppt);">Namnkollision att klargöra</div>
+      <div class="rule"><strong>"Cowork" finns på båda sidor men är inte samma sak.</strong> Claude Cowork = desktop-läge där Claude får tools och läser filer på er dator. Microsoft Cowork (Frontier) = agent i Copilot som orkestrerar över M365. Båda är "AI som jobbar mer autonomt" men olika produkter. Säg "Claude Cowork" eller "Cowork (Frontier)" när det finns risk att förvirra.</div>
+    </div>
+
     <div class="prompt-block">
-<span class="prompt-label">Exempel – aktivera Researcher</span>Researcher: ge mig en briefing om svenska konsultmarknaden 2026. Inkludera tillväxttakt per segment, top 5 aktörer, prisutveckling, och sätt det i kontrast mot vad våra Cinode-data säger om vår positionering. Leverera som strukturerad rapport.</div>
+<span class="prompt-label">Exempel – aktivera Cowork (Frontier)</span>Förbered mig inför nästa veckans möten. Gå igenom kalendern, hämta relevant kontext från mejl och SharePoint för varje möte med externa deltagare. Producera en kort briefing per möte med agenda, deltagares bakgrund, öppna frågor från senaste interaktion, och vad jag bör läsa innan.</div>
 
     <div class="when-callout">
       <div class="label">När använder jag agenter i Copilot?</div>
-      <div class="rule">När jobbet är större än en enkel fråga och kräver att Copilot tar tid på sig. Researcher för djupgrejer, Analyst för data, Studio-agenter för era egna processer. Bygget av Studio-agenter hör hemma i Modul 4.</div>
+      <div class="rule">Researcher för djupresearch, Analyst för data, Workflows för förutsägbar automation, Cowork när ni bara har målet, B3-specifika agenter för era egna processer. Bygg egna i Modul 4.</div>
     </div>
   </div>
 </section>
@@ -1407,8 +1453,24 @@
         <td><span class="pill pages">Pages / Notebook</span></td>
       </tr>
       <tr>
-        <td>Djupare research, autonom analys, egen process att automatisera</td>
-        <td><span class="pill agents">Agents</span></td>
+        <td>Djupare research som tar tid att göra rätt</td>
+        <td><span class="pill agents">Researcher</span></td>
+      </tr>
+      <tr>
+        <td>Komplex dataanalys eller scenario-modellering</td>
+        <td><span class="pill excel">Analyst</span></td>
+      </tr>
+      <tr>
+        <td>Förutsägbar automation, samma steg varje gång</td>
+        <td><span class="pill ppt">Workflows (Frontier)</span></td>
+      </tr>
+      <tr>
+        <td>Mål in över flera M365-system, AI hittar vägen</td>
+        <td><span class="pill agents">Cowork (Frontier)</span></td>
+      </tr>
+      <tr>
+        <td>Egen B3-specifik process att automatisera</td>
+        <td><span class="pill pages">Copilot Studio</span></td>
       </tr>
     </table>
   </div>
