@@ -211,9 +211,130 @@
     margin: 0;
   }
 
+  /* === FOUNDATION (Modul 0) === */
+  .foundation-section {
+    padding: 60px 0 0;
+  }
+
+  .foundation-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #B85C38;
+    background: #F3DCD0;
+    padding: 6px 14px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+  }
+
+  .foundation-tag::before {
+    content: "●";
+    font-size: 10px;
+  }
+
+  .foundation-card {
+    display: block;
+    background: linear-gradient(135deg, #ffffff 0%, #FDF6EF 100%);
+    border-radius: 16px;
+    padding: 40px 44px;
+    box-shadow: var(--shadow-md);
+    text-decoration: none;
+    color: var(--text-primary);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    border-top: 6px solid #B85C38;
+  }
+
+  .foundation-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .foundation-card .fc-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+
+  .foundation-card .fc-num {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #B85C38;
+  }
+
+  .foundation-card .fc-level {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 12px;
+    color: #fff;
+    background: #B85C38;
+  }
+
+  .foundation-card .fc-title {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    margin-bottom: 14px;
+  }
+
+  .foundation-card .fc-tagline {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.55;
+    margin-bottom: 24px;
+    max-width: 760px;
+  }
+
+  .foundation-card .fc-preview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .foundation-card .fc-preview-item {
+    font-size: 13px;
+    color: var(--text-primary);
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    border-left: 3px solid #B85C38;
+  }
+
+  .foundation-card .fc-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    border-top: 1px solid #E8D5C2;
+    font-size: 13px;
+    color: var(--text-muted);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .foundation-card .fc-cta {
+    font-weight: 700;
+    color: #B85C38;
+  }
+
   /* === MODULES === */
   .modules-section {
-    padding: 80px 0;
+    padding: 60px 0 80px;
     background: linear-gradient(180deg, var(--bg-page) 0%, #ECF0F8 100%);
   }
 
@@ -580,6 +701,9 @@
     .hero .subtitle { font-size: 18px; }
     .intro-grid { grid-template-columns: 1fr; gap: 40px; }
     .modules-grid { grid-template-columns: 1fr; }
+    .foundation-card { padding: 28px 24px; }
+    .foundation-card .fc-title { font-size: 28px; }
+    .foundation-card .fc-preview { grid-template-columns: 1fr; }
     .path-steps { flex-direction: column; }
     .path-arrow { transform: rotate(90deg); align-self: center; }
     .instructor-box { flex-direction: column; text-align: center; padding: 32px 24px; }
@@ -643,12 +767,36 @@
   </div>
 </section>
 
+<!-- ====== FOUNDATION (MODUL 0) ====== -->
+<section class="foundation-section">
+  <div class="container">
+    <div class="foundation-tag">Börja här · Obligatorisk grund för alla medarbetare</div>
+    <a href="modul0_deltagarguide.html" class="foundation-card">
+      <div class="fc-top">
+        <span class="fc-num">Modul 0</span>
+        <span class="fc-level">Obligatorisk grund</span>
+      </div>
+      <div class="fc-title">Ansvarsfull AI på B3</div>
+      <div class="fc-tagline">Det praktiska du behöver veta för att använda AI i ditt B3-arbete – utan att hamna fel mot lagen, kunden eller koncernens regler. Bygger på riktlinje D07 v2.0. Uppfyller EU AI Act Art. 4-krav om AI-litteracitet.</div>
+      <div class="fc-preview">
+        <div class="fc-preview-item">Tre grundregler · vad får jag skriva in i vilket verktyg · alltid förbjudet</div>
+        <div class="fc-preview-item">Granska utdata · märka AI-innehåll · personuppgifter · AI-agenter</div>
+        <div class="fc-preview-item">Snabbcheck · incidenter · kunskapscheck och bekräftelse</div>
+      </div>
+      <div class="fc-meta">
+        <span>~45 min · self-paced · genomförd dokumenteras per medarbetare</span>
+        <span class="fc-cta">Öppna guiden →</span>
+      </div>
+    </a>
+  </div>
+</section>
+
 <!-- ====== MODULES ====== -->
 <section class="modules-section">
   <div class="container">
     <div class="section-header">
-      <h2>Modulerna</h2>
-      <p class="lead">Klicka på en modul för att öppna deltagarguiden. Varje guide innehåller den fullständiga genomgången, hands-on-övningar, beslutsdiagram och ett promptbibliotek.</p>
+      <h2>Chefsmodulerna</h2>
+      <p class="lead">När ni har genomfört Modul 0 är ni redo att gå vidare. De fyra modulerna nedan riktar sig till chefer och ledare som ska driva AI-användningen i sin organisation – men är värdefulla för alla som vill djupare. Varje guide innehåller den fullständiga genomgången, hands-on-övningar, beslutsdiagram och ett promptbibliotek.</p>
     </div>
 
     <div class="modules-grid">
@@ -734,11 +882,19 @@
   <div class="container">
     <div class="section-header">
       <h2>Rekommenderad lärväg</h2>
-      <p class="lead">Modul 1 och 2 är parallella – välj den ni behöver först eller ta båda. Modul 3 förutsätter att ni klarat någon av grundmodulerna. Modul 4 förutsätter Modul 3.</p>
+      <p class="lead">Modul 0 är obligatorisk grund för alla medarbetare som använder AI på jobbet. Modul 1 och 2 är parallella chefsmoduler – välj den ni behöver först eller ta båda. Modul 3 förutsätter att ni klarat någon av grundmodulerna. Modul 4 förutsätter Modul 3.</p>
     </div>
 
     <div class="path-flow">
       <div class="path-steps">
+
+        <div class="path-step" style="border-top: 4px solid #B85C38; padding-top: 20px;">
+          <div class="path-step-num" style="color: #B85C38;">Obligatorisk · Alla medarbetare</div>
+          <div class="path-step-title">Modul 0</div>
+          <div class="path-step-desc">Ansvarsfull AI på B3. Bygger på riktlinje D07. EU AI Act Art. 4-krav.</div>
+        </div>
+
+        <div class="path-arrow">→</div>
 
         <div class="path-step dual">
           <div class="path-step-num">Grund · Välj en eller båda</div>
@@ -801,6 +957,7 @@
       </div>
       <div>
         <h5>Moduler</h5>
+        <a href="modul0_deltagarguide.html">Modul 0 – Ansvarsfull AI på B3</a>
         <a href="modul1_deltagarguide.html">Modul 1 – Claude för chefer</a>
         <a href="modul2_deltagarguide.html">Modul 2 – Copilot för chefer</a>
         <a href="modul3_deltagarguide.html">Modul 3 – Promptkvalitet och iteration</a>
