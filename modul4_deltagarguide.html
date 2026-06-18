@@ -153,6 +153,38 @@
     opacity: 0.6;
   }
 
+  .hero-prereq {
+    margin-top: 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 18px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    font-size: 13px;
+    flex-wrap: wrap;
+  }
+
+  .prereq-label {
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #C9A66B;
+    font-size: 11px;
+  }
+
+  .prereq-link {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: color 0.15s;
+    font-weight: 500;
+  }
+
+  .prereq-link:hover {
+    color: #fff;
+  }
+
   nav.sticky-nav {
     position: sticky;
     top: 0;
@@ -704,6 +736,10 @@
     <p class="subtitle">Från användare till byggare – paketera beteenden och låt dem köras själva</p>
     <div class="hero-divider"></div>
     <div class="hero-byline">Deltagarguide · Modul 4 · Halvdag</div>
+    <div class="hero-prereq">
+      <span class="prereq-label">Förkunskap</span>
+      <a href="modul0_deltagarguide.html" class="prereq-link">Modul 0–3 ska vara genomförda – Modul 4 är avancerat och förutsätter hela kedjan →</a>
+    </div>
   </div>
 </header>
 
@@ -1471,6 +1507,7 @@ Logga:
       </div>
       <div>
         <h5>Modulserie</h5>
+        <a href="modul0_deltagarguide.html">Modul 0 – Ansvarsfull AI på B3 (obligatorisk grund)</a>
         <a href="modul1_deltagarguide.html">Modul 1 – Claude för chefer</a>
         <a href="modul2_deltagarguide.html">Modul 2 – Copilot för chefer</a>
         <a href="modul3_deltagarguide.html">Modul 3 – Promptkvalitet och iteration</a>
