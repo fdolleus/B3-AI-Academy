@@ -3,37 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Skills och agenter – Modul 4 | B3 Consulting Group</title>
+<title>B3 Connectors, Plugins och MCP – Modul 4 | B3 AI Academy</title>
 <style>
   :root {
     --bg-dark: #0F1F3A;
     --bg-dark-2: #142a4d;
     --bg-page: #F4F6FA;
     --bg-card: #FFFFFF;
-    --bg-tint: #EBFAFA;
+    --bg-tint: #E7F1ED;
     --text-primary: #1A2540;
     --text-muted: #5A6478;
     --text-light: #8993A8;
     --border: #E1E6F0;
-    --accent: #0CCCCC;
-    --accent-soft: #DDF6F6;
+    --accent: #2E7D32;
+    --accent-soft: #D7EFD8;
     --b3-teal: #0CCCCC;
     --b3-pink: #DF668A;
     --b3-yellow: #EFBD47;
-    --c-skills-1: #0CCCCC;
-    --c-skills-2: #3D6CE7;
-    --c-skills-3: #7B5FC7;
-    --c-skills-4: #2ECC71;
-    --c-skills-5: #5B5FCE;
-    --c-skills-6: #066b6b;
-    --c-agents-1: #E07A5F;
-    --c-agents-2: #F39C12;
-    --c-agents-3: #95B500;
-    --c-agents-4: #D35400;
-    --c-agents-5: #DF668A;
-    --c-agents-6: #E74C3C;
-    --c-agents-7: #DAA520;
-    --c-agents-8: #0F1F3A;
+    --c-1: #3D6CE7;
+    --c-2: #0CCCCC;
+    --c-3: #7B5FC7;
+    --c-4: #F39C12;
+    --c-5: #2B579A;
+    --c-6: #6264A7;
+    --c-7: #7C3030;
+    --c-8: #E07A5F;
+    --c-9: #708238;
+    --c-10: #2E5266;
     --shadow-sm: 0 1px 3px rgba(15, 31, 58, 0.06);
     --shadow-md: 0 4px 12px rgba(15, 31, 58, 0.08);
     --shadow-lg: 0 10px 30px rgba(15, 31, 58, 0.12);
@@ -66,7 +62,7 @@
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 6px;
-    background: linear-gradient(90deg, var(--b3-teal) 0%, var(--c-skills-4) 33%, var(--c-agents-2) 66%, var(--b3-yellow) 100%);
+    background: linear-gradient(90deg, var(--c-1) 0%, var(--c-2) 33%, var(--c-4) 66%, var(--c-5) 100%);
   }
 
   .hero-meta {
@@ -87,16 +83,8 @@
     color: #fff;
     transition: opacity 0.15s;
   }
-
   .logo:hover { opacity: 0.85; }
-
-  nav.sticky-nav .nav-back {
-    color: var(--text-primary);
-    font-weight: 700;
-  }
-
   .logo-mark { color: var(--b3-teal); }
-
   .logo-text {
     color: #fff;
     font-weight: 400;
@@ -106,24 +94,17 @@
     margin-left: 12px;
     opacity: 0.7;
   }
-
-  .hero-meta-info {
-    font-size: 14px;
-    opacity: 0.65;
-    letter-spacing: 0.5px;
-  }
-
+  .hero-meta-info { font-size: 14px; opacity: 0.65; letter-spacing: 0.5px; }
   .hero .modnum {
     display: inline-block;
     font-size: 13px;
     font-weight: 600;
-    letter-spacing: 2px;
+    letter-spacing: 2.5px;
     text-transform: uppercase;
-    color: var(--b3-yellow);
+    color: var(--c-2);
     margin-bottom: 16px;
-    opacity: 0.9;
+    opacity: 0.95;
   }
-
   .hero h1 {
     font-size: 64px;
     font-weight: 800;
@@ -131,27 +112,21 @@
     line-height: 1.05;
     margin-bottom: 16px;
   }
-
   .hero .subtitle {
     font-size: 22px;
-    opacity: 0.75;
-    max-width: 720px;
+    opacity: 0.78;
+    max-width: 760px;
     font-weight: 300;
     margin-bottom: 32px;
   }
-
   .hero-divider {
     width: 120px;
     height: 4px;
-    background: var(--b3-teal);
+    background: var(--c-2);
     margin: 32px 0;
     border-radius: 2px;
   }
-
-  .hero-byline {
-    font-size: 14px;
-    opacity: 0.6;
-  }
+  .hero-byline { font-size: 14px; opacity: 0.6; }
 
   .hero-prereq {
     margin-top: 24px;
@@ -165,7 +140,6 @@
     font-size: 13px;
     flex-wrap: wrap;
   }
-
   .prereq-label {
     font-weight: 700;
     letter-spacing: 1.5px;
@@ -173,17 +147,13 @@
     color: #C9A66B;
     font-size: 11px;
   }
-
   .prereq-link {
     color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
     transition: color 0.15s;
     font-weight: 500;
   }
-
-  .prereq-link:hover {
-    color: #fff;
-  }
+  .prereq-link:hover { color: #fff; }
 
   nav.sticky-nav {
     position: sticky;
@@ -195,7 +165,6 @@
     z-index: 100;
     padding: 12px 0;
   }
-
   .nav-inner {
     display: flex;
     gap: 4px;
@@ -203,9 +172,7 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-
   .nav-inner::-webkit-scrollbar { display: none; }
-
   nav.sticky-nav a {
     color: var(--text-muted);
     text-decoration: none;
@@ -216,17 +183,9 @@
     white-space: nowrap;
     transition: all 0.15s;
   }
-
-  nav.sticky-nav a:hover {
-    background: var(--bg-tint);
-    color: var(--text-primary);
-  }
-
-  nav.sticky-nav a.active {
-    background: var(--accent);
-    color: var(--bg-dark);
-  }
-
+  nav.sticky-nav a:hover { background: var(--bg-tint); color: var(--text-primary); }
+  nav.sticky-nav a.active { background: var(--accent); color: #fff; }
+  nav.sticky-nav .nav-back { color: var(--text-primary); font-weight: 700; }
   nav.sticky-nav .nav-sep {
     width: 1px;
     background: var(--border);
@@ -234,69 +193,16 @@
     align-self: stretch;
   }
 
-  /* Part header (big section divider) */
-  .part-header {
-    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-dark-2) 100%);
-    color: #fff;
-    padding: 60px 0 50px;
-    margin-top: 40px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .part-header.part-skills::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--c-skills-1) 0%, var(--c-skills-4) 100%);
-  }
-
-  .part-header.part-agents::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--c-agents-1) 0%, var(--c-agents-7) 100%);
-  }
-
-  .part-header .part-label {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    opacity: 0.7;
-    margin-bottom: 8px;
-  }
-
-  .part-header.part-skills .part-label { color: var(--c-skills-1); }
-  .part-header.part-agents .part-label { color: var(--c-agents-2); }
-
-  .part-header h2 {
-    font-size: 48px;
-    font-weight: 800;
-    letter-spacing: -1px;
-    margin-bottom: 12px;
-  }
-
-  .part-header p {
-    font-size: 18px;
-    opacity: 0.75;
-    max-width: 800px;
-  }
-
   section.station {
-    padding: 60px 0 30px;
+    padding: 70px 0 30px;
     scroll-margin-top: 80px;
   }
-
   .station-header {
     display: flex;
     align-items: flex-start;
     gap: 24px;
-    margin-bottom: 40px;
+    margin-bottom: 36px;
   }
-
   .station-number {
     flex-shrink: 0;
     width: 52px;
@@ -310,16 +216,14 @@
     font-size: 18px;
     box-shadow: var(--shadow-sm);
   }
-
   .station-title-wrap h2 {
-    font-size: 32px;
+    font-size: 34px;
     font-weight: 700;
     letter-spacing: -0.5px;
     line-height: 1.2;
     margin-bottom: 4px;
     display: inline-block;
   }
-
   .station-title-wrap h2::after {
     content: "";
     display: block;
@@ -329,39 +233,31 @@
     margin-top: 8px;
     border-radius: 2px;
   }
-
   .station-title-wrap .station-tagline {
     font-size: 16px;
     color: var(--text-muted);
     margin-top: 16px;
+    max-width: 720px;
   }
 
-  .s-sk1 .station-number { background: var(--c-skills-1); color: var(--bg-dark); }
-  .s-sk1 .station-title-wrap h2::after { background: var(--c-skills-1); }
-  .s-sk2 .station-number { background: var(--c-skills-2); }
-  .s-sk2 .station-title-wrap h2::after { background: var(--c-skills-2); }
-  .s-sk3 .station-number { background: var(--c-skills-3); }
-  .s-sk3 .station-title-wrap h2::after { background: var(--c-skills-3); }
-  .s-sk4 .station-number { background: var(--c-skills-4); }
-  .s-sk4 .station-title-wrap h2::after { background: var(--c-skills-4); }
-  .s-sk5 .station-number { background: var(--c-skills-5); }
-  .s-sk5 .station-title-wrap h2::after { background: var(--c-skills-5); }
-  .s-sk6 .station-number { background: var(--c-skills-6); }
-  .s-sk6 .station-title-wrap h2::after { background: var(--c-skills-6); }
-  .s-ag1 .station-number { background: var(--c-agents-1); }
-  .s-ag1 .station-title-wrap h2::after { background: var(--c-agents-1); }
-  .s-ag2 .station-number { background: var(--c-agents-2); color: var(--bg-dark); }
-  .s-ag2 .station-title-wrap h2::after { background: var(--c-agents-2); }
-  .s-ag3 .station-number { background: var(--c-agents-3); color: var(--bg-dark); }
-  .s-ag3 .station-title-wrap h2::after { background: var(--c-agents-3); }
-  .s-ag4 .station-number { background: var(--c-agents-4); }
-  .s-ag4 .station-title-wrap h2::after { background: var(--c-agents-4); }
-  .s-ag5 .station-number { background: var(--c-agents-5); }
-  .s-ag5 .station-title-wrap h2::after { background: var(--c-agents-5); }
-  .s-ag6 .station-number { background: var(--c-agents-6); }
-  .s-ag6 .station-title-wrap h2::after { background: var(--c-agents-6); }
-  .s-ag7 .station-number { background: var(--c-agents-7); color: var(--bg-dark); }
-  .s-ag7 .station-title-wrap h2::after { background: var(--c-agents-7); }
+  .s-1 .station-number { background: var(--c-1); }
+  .s-1 .station-title-wrap h2::after { background: var(--c-1); }
+  .s-2 .station-number { background: var(--c-2); color: var(--bg-dark); }
+  .s-2 .station-title-wrap h2::after { background: var(--c-2); }
+  .s-3 .station-number { background: var(--c-3); }
+  .s-3 .station-title-wrap h2::after { background: var(--c-3); }
+  .s-4 .station-number { background: var(--c-4); color: var(--bg-dark); }
+  .s-4 .station-title-wrap h2::after { background: var(--c-4); }
+  .s-5 .station-number { background: var(--c-5); }
+  .s-5 .station-title-wrap h2::after { background: var(--c-5); }
+  .s-6 .station-number { background: var(--c-6); }
+  .s-6 .station-title-wrap h2::after { background: var(--c-6); }
+  .s-7 .station-number { background: var(--c-7); }
+  .s-7 .station-title-wrap h2::after { background: var(--c-7); }
+  .s-8 .station-number { background: var(--c-8); }
+  .s-8 .station-title-wrap h2::after { background: var(--c-8); }
+  .s-9 .station-number { background: var(--c-9); }
+  .s-9 .station-title-wrap h2::after { background: var(--c-9); }
 
   .lead {
     font-size: 18px;
@@ -375,9 +271,12 @@
     gap: 20px;
     margin: 24px 0;
   }
-
   .card-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
   .card-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .card-grid.cols-4 { grid-template-columns: repeat(2, 1fr); }
+  @media (min-width: 980px) {
+    .card-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+  }
 
   .card {
     background: var(--bg-card);
@@ -386,18 +285,8 @@
     box-shadow: var(--shadow-sm);
     border-top: 3px solid var(--accent);
   }
-
-  .card h4 {
-    font-size: 17px;
-    font-weight: 700;
-    margin-bottom: 10px;
-  }
-
-  .card p {
-    color: var(--text-muted);
-    font-size: 14px;
-  }
-
+  .card h4 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+  .card p { color: var(--text-muted); font-size: 14px; }
   .card .badge {
     display: inline-block;
     font-size: 11px;
@@ -410,6 +299,16 @@
     letter-spacing: 0.3px;
   }
 
+  .s-1 .card { border-top-color: var(--c-1); }
+  .s-2 .card { border-top-color: var(--c-2); }
+  .s-3 .card { border-top-color: var(--c-3); }
+  .s-4 .card { border-top-color: var(--c-4); }
+  .s-5 .card { border-top-color: var(--c-5); }
+  .s-6 .card { border-top-color: var(--c-6); }
+  .s-7 .card { border-top-color: var(--c-7); }
+  .s-8 .card { border-top-color: var(--c-8); }
+  .s-9 .card { border-top-color: var(--c-9); }
+
   .when-callout {
     background: var(--bg-tint);
     border-left: 4px solid var(--accent);
@@ -417,7 +316,6 @@
     border-radius: 0 8px 8px 0;
     margin: 28px 0;
   }
-
   .when-callout .label {
     font-size: 11px;
     font-weight: 700;
@@ -426,12 +324,30 @@
     color: var(--accent);
     margin-bottom: 8px;
   }
-
   .when-callout .rule {
     font-size: 17px;
     font-weight: 500;
     color: var(--text-primary);
   }
+
+  .s-1 .when-callout { border-left-color: var(--c-1); }
+  .s-1 .when-callout .label { color: var(--c-1); }
+  .s-2 .when-callout { border-left-color: var(--c-2); }
+  .s-2 .when-callout .label { color: #066b6b; }
+  .s-3 .when-callout { border-left-color: var(--c-3); }
+  .s-3 .when-callout .label { color: var(--c-3); }
+  .s-4 .when-callout { border-left-color: var(--c-4); }
+  .s-4 .when-callout .label { color: #B8860B; }
+  .s-5 .when-callout { border-left-color: var(--c-5); }
+  .s-5 .when-callout .label { color: var(--c-5); }
+  .s-6 .when-callout { border-left-color: var(--c-6); }
+  .s-6 .when-callout .label { color: var(--c-6); }
+  .s-7 .when-callout { border-left-color: var(--c-7); background: #FBF3F2; }
+  .s-7 .when-callout .label { color: var(--c-7); }
+  .s-8 .when-callout { border-left-color: var(--c-8); }
+  .s-8 .when-callout .label { color: var(--c-8); }
+  .s-9 .when-callout { border-left-color: var(--c-9); }
+  .s-9 .when-callout .label { color: var(--c-9); }
 
   .pro-tip {
     background: #FFF8E5;
@@ -440,9 +356,30 @@
     padding: 16px 20px;
     margin: 20px 0;
     font-size: 14px;
+    line-height: 1.55;
   }
-
   .pro-tip strong { color: #8B6914; }
+
+  .warning-box {
+    background: #FDF0F0;
+    border: 1px solid #F0C8C5;
+    border-left: 4px solid #C0392B;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  .warning-box strong { color: #C0392B; }
+  .warning-box .warn-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #C0392B;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    display: block;
+  }
 
   .hands-on {
     background: #ECFAF2;
@@ -452,7 +389,6 @@
     margin: 20px 0;
     font-size: 14px;
   }
-
   .hands-on .label {
     font-size: 11px;
     font-weight: 700;
@@ -462,40 +398,20 @@
     margin-bottom: 6px;
   }
 
-  .governance-card {
-    background: #FFF;
-    border: 2px solid var(--c-agents-6);
-    border-radius: 10px;
-    padding: 20px;
-    margin: 12px 0;
-  }
-
-  .governance-card h4 {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--c-agents-6);
-    margin-bottom: 8px;
-  }
-
-  .governance-card p {
-    font-size: 14px;
-    color: var(--text-muted);
-  }
-
-  .prompt-block {
+  .code-block {
     background: var(--bg-dark);
     color: #D7E0F2;
     padding: 20px 24px;
     border-radius: 8px;
     font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
     font-size: 13px;
-    line-height: 1.6;
+    line-height: 1.65;
     margin: 16px 0;
     overflow-x: auto;
     white-space: pre-wrap;
+    word-wrap: break-word;
   }
-
-  .prompt-block .prompt-label {
+  .code-block .code-label {
     display: block;
     font-family: Inter, sans-serif;
     font-size: 11px;
@@ -506,17 +422,64 @@
     margin-bottom: 10px;
   }
 
-  .level-table {
+  .step-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 24px 0;
+  }
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    background: var(--bg-card);
+    padding: 18px 22px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-sm);
+  }
+  .step-num {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: var(--accent);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .s-5 .step-num { background: var(--c-5); }
+  .s-6 .step-num { background: var(--c-6); }
+  .step-content h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .step-content p {
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+  .step-content code {
+    background: var(--bg-tint);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-family: 'SF Mono', Monaco, monospace;
+    font-size: 12px;
+    color: var(--text-primary);
+  }
+
+  .info-table {
     width: 100%;
     border-collapse: collapse;
-    margin: 24px 0;
-    background: #fff;
+    background: var(--bg-card);
     border-radius: 10px;
     overflow: hidden;
     box-shadow: var(--shadow-sm);
+    margin: 24px 0;
   }
-
-  .level-table th {
+  .info-table th {
     background: var(--bg-dark);
     color: #fff;
     text-align: left;
@@ -526,94 +489,24 @@
     letter-spacing: 0.5px;
     text-transform: uppercase;
   }
-
-  .level-table td {
+  .info-table td {
     padding: 16px 20px;
     border-top: 1px solid var(--border);
     font-size: 14px;
     color: var(--text-primary);
+    line-height: 1.55;
   }
-
-  .level-table td:first-child {
+  .info-table td:first-child {
     font-weight: 700;
-    color: var(--accent);
-    white-space: nowrap;
+    width: 35%;
   }
-
-  /* Recipe library */
-  .recipe-card {
-    background: var(--bg-card);
-    border-radius: 12px;
-    padding: 28px;
-    margin-bottom: 20px;
-    box-shadow: var(--shadow-sm);
-    border-left: 4px solid var(--accent);
-  }
-
-  .recipe-card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 16px;
-    margin-bottom: 8px;
-    flex-wrap: wrap;
-  }
-
-  .recipe-card-title {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--text-primary);
-    flex: 1;
-    min-width: 60%;
-  }
-
-  .recipe-card-badge {
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    padding: 5px 12px;
-    border-radius: 12px;
-    white-space: nowrap;
-    color: #fff;
-  }
-
-  .rec-skill { background: var(--c-skills-1); color: var(--bg-dark); }
-  .rec-agent { background: var(--c-agents-2); color: var(--bg-dark); }
-
-  .recipe-card.skill-recipe { border-left-color: var(--c-skills-1); }
-  .recipe-card.agent-recipe { border-left-color: var(--c-agents-2); }
-
-  .recipe-card-when {
-    font-size: 14px;
-    color: var(--text-muted);
-    margin-bottom: 16px;
-  }
-
-  .recipe-card-block {
-    background: var(--bg-dark);
-    color: #D7E0F2;
-    padding: 20px 24px;
-    border-radius: 8px;
-    font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
-    font-size: 13px;
-    line-height: 1.65;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    margin: 0;
-    overflow-x: auto;
-  }
-
-  .library-intro {
+  .info-table code {
     background: var(--bg-tint);
-    border-radius: 10px;
-    padding: 24px 28px;
-    margin-bottom: 32px;
-    font-size: 15px;
-    color: var(--text-primary);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-family: 'SF Mono', Monaco, monospace;
+    font-size: 12px;
   }
-
-  .library-intro strong { color: var(--accent); }
 
   .commitments {
     background: linear-gradient(135deg, var(--bg-dark) 0%, #1a3460 100%);
@@ -622,19 +515,16 @@
     padding: 48px;
     margin: 40px 0;
   }
-
   .commitments h3 {
     font-size: 28px;
     font-weight: 700;
     margin-bottom: 12px;
   }
-
   .commitments .lead-light {
     opacity: 0.75;
     margin-bottom: 32px;
     font-size: 16px;
   }
-
   .commitment-row {
     display: flex;
     align-items: center;
@@ -642,19 +532,16 @@
     padding: 20px 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
-
   .commitment-row:last-child { border-bottom: none; }
-
   .commitment-when {
     flex-shrink: 0;
     width: 130px;
     font-size: 13px;
     font-weight: 700;
-    color: var(--b3-teal);
+    color: var(--c-2);
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
-
   .commitment-text {
     flex: 1;
     font-size: 15px;
@@ -667,23 +554,20 @@
     padding: 60px 0 40px;
     margin-top: 40px;
   }
-
   footer .footer-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 40px;
     margin-bottom: 40px;
   }
-
   footer h5 {
     font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: var(--b3-teal);
+    color: var(--c-2);
     margin-bottom: 16px;
   }
-
   footer a {
     color: #D7E0F2;
     text-decoration: none;
@@ -691,10 +575,9 @@
     margin-bottom: 8px;
     font-size: 14px;
     opacity: 0.85;
+    transition: opacity 0.15s;
   }
-
   footer a:hover { opacity: 1; color: #fff; }
-
   footer .copy {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 24px;
@@ -708,11 +591,11 @@
     .hero .subtitle { font-size: 18px; }
     .card-grid.cols-2, .card-grid.cols-3 { grid-template-columns: 1fr; }
     .station-header { flex-direction: column; gap: 16px; }
+    .info-table td:first-child { width: auto; }
     .commitment-row { flex-direction: column; align-items: flex-start; gap: 8px; }
     .commitment-when { width: auto; }
     footer .footer-grid { grid-template-columns: 1fr; }
     .container { padding: 0 20px; }
-    .part-header h2 { font-size: 36px; }
   }
 
   @media print {
@@ -731,14 +614,14 @@
       </a>
       <div class="hero-meta-info">Koncernledningen · 2026</div>
     </div>
-    <span class="modnum">Modul 4 · Avancerat</span>
-    <h1>Skills och agenter</h1>
-    <p class="subtitle">Från användare till byggare – paketera beteenden och låt dem köras själva</p>
+    <span class="modnum">Modul 4 · Tillämpning</span>
+    <h1>B3 Connectors, Plugins och MCP</h1>
+    <p class="subtitle">Hur ni kopplar Claude och Copilot till era system – det vanliga fallet (det funkar bara), och undantagen där ni själva måste sätta upp</p>
     <div class="hero-divider"></div>
-    <div class="hero-byline">Deltagarguide · Modul 4 · Halvdag</div>
+    <div class="hero-byline">Deltagarguide · Modul 4 · Tillämpning · 2 timmar</div>
     <div class="hero-prereq">
       <span class="prereq-label">Förkunskap</span>
-      <a href="modul0_deltagarguide.html" class="prereq-link">Modul 0–3 ska vara genomförda – Modul 4 är avancerat och förutsätter hela kedjan →</a>
+      <a href="modul0_deltagarguide.html" class="prereq-link">Modul 0 ska vara genomförd · Modul 1 eller 2 rekommenderad →</a>
     </div>
   </div>
 </header>
@@ -748,727 +631,702 @@
     <div class="nav-inner">
       <a href="index.html" class="nav-back">← Alla moduler</a>
       <span class="nav-sep"></span>
-      <a href="#part-skills">DEL A · Skills</a>
-      <a href="#sk1">1 · Vad är skill</a>
-      <a href="#sk2">2 · Anatomi</a>
-      <a href="#sk3">3 · När</a>
-      <a href="#sk4">4 · Skill-creator</a>
-      <a href="#sk5">5 · Testa</a>
-      <a href="#sk6">6 · Deploy</a>
-      <a href="#part-agents">DEL B · Agenter</a>
-      <a href="#ag1">7 · Vad är agent</a>
-      <a href="#ag2">8 · Mönster</a>
-      <a href="#ag3">9 · Low-code</a>
-      <a href="#ag4">10 · Cowork agency</a>
-      <a href="#ag5">11 · SDK/Studio</a>
-      <a href="#ag6">12 · Governance</a>
-      <a href="#bibliotek">Recept</a>
+      <a href="#oversikt">1 · Översikt</a>
+      <a href="#ekosystem">2 · B3-ekosystemet</a>
+      <a href="#plugins">3 · Plugins</a>
+      <a href="#custom">4 · När custom MCP</a>
+      <a href="#claude-cinode">5 · Cinode i Claude</a>
+      <a href="#copilot-cinode">6 · Cinode i Copilot Studio</a>
+      <a href="#sakerhet">7 · Säkerhet</a>
+      <a href="#felsokning">8 · Felsökning</a>
+      <a href="#bestallning">9 · Beställning</a>
     </div>
   </div>
 </nav>
 
-<!-- DEL A: SKILLS -->
-<div class="part-header part-skills" id="part-skills">
-  <div class="container">
-    <div class="part-label">Del A · Halvdag första halvan</div>
-    <h2>Skills</h2>
-    <p>Paketerade beteenden som triggas automatiskt. Det här är skillnaden mellan att skriva samma instruktion 200 gånger och att skriva den en gång.</p>
-  </div>
-</div>
-
-<section class="station s-sk1" id="sk1">
+<!-- Station 1 -->
+<section class="station s-1" id="oversikt">
   <div class="container">
     <div class="station-header">
       <div class="station-number">1</div>
       <div class="station-title-wrap">
-        <h2>Vad är en skill på djupet</h2>
-        <p class="station-tagline">Modul 1 sa att en skill är paketerat beteende. Här är längre versionen.</p>
+        <h2>Översikt: Connector, Plugin och MCP</h2>
+        <p class="station-tagline">Tre begrepp som ofta blandas ihop – och som kostar tid i kommunikation med IT när de gör det. Här är vad var och en är.</p>
       </div>
     </div>
 
     <div class="card-grid cols-3">
       <div class="card">
-        <h4>Instruerar</h4>
-        <p>Ger Claude kontext, regler, exempel, tonläge som krävs för en specifik typ av uppgift.</p>
+        <span class="badge">Begrepp 1</span>
+        <h4>Connector</h4>
+        <p>En koppling som AI-verktyget redan vet hur den ska prata med. Typiskt grundat i Microsoft Graph eller liknande standardprotokoll. Oftast pre-konfigurerad av IT/AI-supportteamet – ni aktiverar bara åtkomst.</p>
       </div>
       <div class="card">
-        <h4>Triggas automatiskt</h4>
-        <p>Baserat på nyckelord eller kontextigenkänning. Användaren behöver inte aktivera skillen explicit.</p>
+        <span class="badge">Begrepp 2</span>
+        <h4>Plugin</h4>
+        <p>Ett paket som innehåller skills, verktyg och connectors tillsammans. Plugins distribueras via en marknadsplats eller central installation. Tänk: "färdig leverans från Anthropic, Microsoft eller B3:s AI-supportteam".</p>
       </div>
       <div class="card">
-        <h4>Återanvänds</h4>
-        <p>Samma skill, samma beteende, varje gång. Över team, över projekt, över tid.</p>
+        <span class="badge">Begrepp 3</span>
+        <h4>MCP (Model Context Protocol)</h4>
+        <p>Öppen standard för hur AI-modeller pratar med externa system. Kräver ibland att ni själva sätter upp anslutningen (API-nycklar, server-URL, auth-headers). Mer flexibel men mer arbete.</p>
       </div>
     </div>
 
-    <table class="level-table">
-      <tr>
-        <th>Alternativ</th>
-        <th>Skillnad mot skill</th>
-      </tr>
-      <tr>
-        <td>Projekt-instruktion</td>
-        <td>Gäller bara inom ett projekt. Skill gäller överallt där den triggas.</td>
-      </tr>
-      <tr>
-        <td>Prompt-mall</td>
-        <td>Måste copy-pastas manuellt. Skill aktiveras automatiskt på rätt nyckelord.</td>
-      </tr>
-      <tr>
-        <td>Connector</td>
-        <td>Connector kopplar data. Skill kopplar beteende. Ofta kombineras de.</td>
-      </tr>
-    </table>
+    <div class="when-callout">
+      <div class="label">Den centrala distinktionen</div>
+      <div class="rule"><strong>I 80 % av fallen ska ni inte behöva sätta upp något själva.</strong> Connectors är pre-konfigurerade. Plugins är installerade. Det är när ni hamnar i de 20 % – ofta för att en kunds system eller ett B3-system inte täcks av standardconnectors – som MCP-self-setup kommer in.</p>
+      </div>
+    </div>
+
+    <p class="lead"><strong>Pedagogiskt sammanfattning:</strong> Connector = "kabel som redan är dragen". Plugin = "låda med kablar och verktyg". MCP = "standardprotokoll för att dra egna kablar när behov finns". I vardagen pratar ni mest om connectors. När ni behöver något specialspecifikt – då blir MCP relevant.</p>
   </div>
 </section>
 
-<section class="station s-sk2" id="sk2">
+<!-- Station 2 -->
+<section class="station s-2" id="ekosystem">
   <div class="container">
     <div class="station-header">
       <div class="station-number">2</div>
       <div class="station-title-wrap">
-        <h2>Skill-anatomi</h2>
-        <p class="station-tagline">SKILL.md är hjärtat. References är detaljerna. Assets är de statiska delarna.</p>
+        <h2>B3:s connector-ekosystem</h2>
+        <p class="station-tagline">Vad finns redan installerat? Vad når Claude och Copilot utan att ni rör en knapp?</p>
       </div>
     </div>
 
-    <div class="prompt-block"><span class="prompt-label">Filstruktur för en skill</span>my-skill/
-├── SKILL.md              # huvudfil – instruktioner och frontmatter
-├── references/           # detaljerade subdokument
-│   ├── workflow.md
-│   └── templates.md
-└── assets/               # statiskt material som mallar, exempel
-    └── template.docx</div>
+    <table class="info-table">
+      <tr>
+        <th>Connector</th>
+        <th>Vad den når</th>
+      </tr>
+      <tr>
+        <td>Microsoft Graph (Outlook, Teams, SharePoint, OneDrive, kalender)</td>
+        <td>Pre-konfigurerad i både Claude Enterprise och Microsoft 365 Copilot. Ni aktiverar bara åtkomst per användare. Standardvägen för "hämta från min M365-värld".</td>
+      </tr>
+      <tr>
+        <td>Cinode</td>
+        <td>Konsult-, kompetens-, beläggning- och kundprojektdata. Available i båda verktygen men kräver MCP-setup per användare – se station 5 och 6.</td>
+      </tr>
+      <tr>
+        <td>Plugins från Anthropic (Operations, Legal, Productivity)</td>
+        <td>Färdiga paket med skills och verktyg installerade på koncernnivå. Aktiveras per behov.</td>
+      </tr>
+      <tr>
+        <td>B3:s egna plugins och skills</td>
+        <td>KLG-protokollformatering, brand-applicator, presentation-builder, consultant-toolkit, prompt-optimizer. Se Modul 5 för djupare genomgång.</td>
+      </tr>
+    </table>
 
-    <h3 style="font-size: 20px; margin: 24px 0 12px;">SKILL.md frontmatter – det som styr triggning</h3>
-
-    <div class="prompt-block"><span class="prompt-label">Frontmatter-mall</span>---
-name: skill-name
-description: >
-  Detaljerad beskrivning som listar triggers. Trigga när användaren nämner:
-  X, Y, Z. Trigga även vid kombinationen A + B. Alla nyckelord som ska
-  aktivera skillen ska finnas här.
----</div>
-
-    <div class="when-callout">
-      <div class="label">Designprinciper för triggning</div>
-      <div class="rule">Lista alla relevanta nyckelord. Inkludera synonymer. Inkludera sammanhang – inte bara "protokoll" utan "skapa protokoll", "gör protokoll av detta", "KLG-protokoll". Trigger-text är på det språk användarna pratar – svenska för interna B3-skills.</div>
+    <div class="pro-tip">
+      <strong>Var ser ni vad som är aktivt?</strong> I Claude: <em>Settings → Connectors</em> visar vad ni har åtkomst till. I Copilot: sidomenyn under <em>Agenter</em> visar tillgängliga och era egna. I båda fallen: vad ni ser styrs av tenant-nivå-konfiguration plus er individuella behörighet.
     </div>
 
-    <p class="lead"><strong>Body i SKILL.md</strong> är den faktiska instruktionen. Skriv det som om ni instruerade en kollega som ska göra uppgiften åt er. Använd progressive disclosure: huvudinstruktioner i SKILL.md, detaljer i references/, statiskt material i assets/.</p>
+    <div class="when-callout">
+      <div class="label">Den vanligaste missuppfattningen</div>
+      <div class="rule">"Connectors måste sättas upp en gång till för Claude OCH Copilot." Nej – Microsoft Graph fungerar i båda utan dubbelarbete eftersom det är samma underliggande identitetslager (er B3-inloggning). Däremot kräver tredjepartssystem som Cinode setup per verktyg och ofta per användare.</div>
+    </div>
   </div>
 </section>
 
-<section class="station s-sk3" id="sk3">
+<!-- Station 3 -->
+<section class="station s-3" id="plugins">
   <div class="container">
     <div class="station-header">
       <div class="station-number">3</div>
       <div class="station-title-wrap">
-        <h2>När bygger jag en skill</h2>
-        <p class="station-tagline">Inte allt ska vara en skill. Här är beslutsregeln.</p>
+        <h2>Plugins och deras roll</h2>
+        <p class="station-tagline">Plugins är paketleveranser. När någon annan har gjort jobbet åt er.</p>
       </div>
     </div>
 
     <div class="card-grid cols-2">
-      <div class="card" style="border-top-color: #2ECC71;">
-        <h4>Bygg en skill när</h4>
-        <p>Ni har gjort uppgiften 2+ gånger med samma struktur. Andra i organisationen gör samma uppgift. Beteendet ska vara konsekvent över tid och personer. Tonalitet, format eller domänkonventioner måste sitta exakt.</p>
+      <div class="card">
+        <h4>Anthropic standard-plugins</h4>
+        <p>Operations-plugin (RACI, runbooks, risk-assessment, vendor-review). Legal-plugin (NDA-triage, contract review, compliance-check). Productivity-plugin (task management, memory). Installerade på koncernnivå för relevanta funktioner.</p>
       </div>
-      <div class="card" style="border-top-color: #E74C3C;">
-        <h4>Bygg INTE en skill när</h4>
-        <p>Engångsuppgift. Bara ni själv kommer använda det (mall i projekt räcker). Beteendet ändras ofta (skillen blir snabbt fel). Tekniskt komplext flöde med tools/connectors – det är en agent, inte en skill.</p>
+      <div class="card">
+        <h4>B3:s egna plugins</h4>
+        <p>Paketerade samlingar av våra interna skills och connectors. Bygger AI-supportteamet baserat på återkommande behov. Modul 5 går igenom de skills som finns just nu.</p>
       </div>
     </div>
 
-    <div class="pro-tip">
-      <strong>B3-relevanta kandidater att fundera över:</strong> förvärvsanalys-PM, riskbedömning enligt B3-mall, säljkvalificering, kundofferter, lönerevision-feedback, månadsrapport-introduktion, styrelsesammanfattning, due diligence-checklista.
+    <div class="when-callout">
+      <div class="label">Plugin vs Skill – distinktionen</div>
+      <div class="rule">Plugin = paket. Skill = enskild komponent inom paketet. Ett plugin kan innehålla flera skills plus connectors plus verktyg. Som chef behöver ni sällan tänka på distinktionen – men förstå den när AI-supportteamet pratar om "vi har installerat Operations-pluginen" eller "vi har lagt till en ny skill till B3-pluginen".</div>
     </div>
   </div>
 </section>
 
-<section class="station s-sk4" id="sk4">
+<!-- Station 4 -->
+<section class="station s-4" id="custom">
   <div class="container">
     <div class="station-header">
       <div class="station-number">4</div>
       <div class="station-title-wrap">
-        <h2>Skill-creator hands-on</h2>
-        <p class="station-tagline">Den största stationen i passet. Ni bygger en riktig skill från start.</p>
+        <h2>När behöver jag custom MCP?</h2>
+        <p class="station-tagline">De 20 % av fallen där det inte räcker med befintliga connectors. Här är mönstret för att känna igen dem.</p>
       </div>
     </div>
 
-    <p class="lead">Aktivera <strong>skill-creator</strong>-skillen i Claude. Den ställer rätt frågor och drar utkast till SKILL.md åt er. Ni levererar input – den levererar struktur.</p>
+    <p class="lead">Custom MCP-setup blir relevant när minst en av tre saker stämmer:</p>
 
-    <div class="prompt-block"><span class="prompt-label">Så aktiverar ni skill-creator</span>Använd skill-creator för att hjälpa mig bygga en ny skill.
-
-Skillen ska:
-- Heta: [NAMN]
-- Göra: [VAD]
-- Triggas när användaren nämner: [NYCKELORD/SCENARIER]
-- Producera: [OUTPUT-FORMAT]
-
-Här är ett exempel på en typisk input jag ger:
-[EXEMPEL-INPUT]
-
-Här är hur jag vill att output ska se ut:
-[ÖNSKAD OUTPUT]
-
-Ställ frågor du behöver för att skriva en bra SKILL.md.</div>
-
-    <div class="hands-on">
-      <div class="label">Hands-on – 22 min</div>
-      Bygg en egen skill för en av era medhavda återkommande uppgifter. Skill-creator guidar er – följ dialogen. När SKILL.md är klar, spara skillen lokalt i Claude.
-    </div>
-
-    <h3 style="font-size: 18px; margin: 24px 0 8px;">Vanliga problem och lösningar</h3>
-    <table class="level-table">
-      <tr><th>Problem</th><th>Lösning</th></tr>
-      <tr><td>Triggern är för bred</td><td>Fokusera på 2–3 specifika nyckelord, inte 10 generiska</td></tr>
-      <tr><td>Skillen gör för mycket</td><td>Splita i två skills, en uppgift per skill</td></tr>
-      <tr><td>Tonen blir fel</td><td>Lägg till explicit ton-instruktion i body, inte i description</td></tr>
-      <tr><td>Triggas inte alls</td><td>Description måste innehålla exakta orden användaren skriver</td></tr>
-    </table>
-  </div>
-</section>
-
-<section class="station s-sk5" id="sk5">
-  <div class="container">
-    <div class="station-header">
-      <div class="station-number">5</div>
-      <div class="station-title-wrap">
-        <h2>Testa och iterera</h2>
-        <p class="station-tagline">En skill är inte klar förrän den passerat fyra tester.</p>
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-num">A</div>
+        <div class="step-content">
+          <h4>Systemet är inte standardconnected i ert tenant</h4>
+          <p>Ni vill nå Cinode, en kunds Salesforce, ett internt Power BI-konto, eller ett ekonomisystem som inte är pre-konfigurerat. Då måste ni eller en kollega sätta upp MCP-anslutningen själva.</p>
+        </div>
       </div>
-    </div>
-
-    <div class="card-grid cols-2">
-      <div class="card">
-        <h4>Test 1: Exakt trigger</h4>
-        <p>Trigga skillen med exakt nyckelord ni designat för. Fungerar den? Om inte: description är fel formulerad.</p>
+      <div class="step-item">
+        <div class="step-num">B</div>
+        <div class="step-content">
+          <h4>Ni behöver egna API-nycklar</h4>
+          <p>Vissa system tillåter inte gemensam tenant-anslutning utan kräver att varje användare har sin egen nyckel. Cinode är typexempel – nyckeln är personlig och kopplad till ert konto, inte till tenantet.</p>
+        </div>
       </div>
-      <div class="card">
-        <h4>Test 2: Variant av trigger</h4>
-        <p>Trigga med synonym eller omformulering. Fungerar den fortfarande? Om inte: lägg till synonymer i description.</p>
-      </div>
-      <div class="card">
-        <h4>Test 3: Negativ trigger</h4>
-        <p>Trigga vid uppgift där skillen INTE ska aktiveras. Aktiveras den felaktigt? Om ja: snäva in description.</p>
-      </div>
-      <div class="card">
-        <h4>Test 4: Output-konsistens</h4>
-        <p>Kör skillen på tre olika input-varianter. Konsekvent output? Om inte: instruktionen i body är otydlig – skärp.</p>
-      </div>
-    </div>
-
-    <div class="hands-on">
-      <div class="label">Hands-on – 8 min</div>
-      Testa skillen ni byggde enligt processen. Justera tills den passerar alla fyra tester.
-    </div>
-  </div>
-</section>
-
-<section class="station s-sk6" id="sk6">
-  <div class="container">
-    <div class="station-header">
-      <div class="station-number">6</div>
-      <div class="station-title-wrap">
-        <h2>Deploy till org</h2>
-        <p class="station-tagline">En skill som bara du har är värd 10 % av en skill som hela koncernen har.</p>
-      </div>
-    </div>
-
-    <table class="level-table">
-      <tr><th>Stage</th><th>Beskrivning</th></tr>
-      <tr><td>Stage 1: Personlig</td><td>Skillen ligger i ditt eget Claude-konto, du använder den själv. Tidsram: 1–2 veckor av användning.</td></tr>
-      <tr><td>Stage 2: Team-pilot</td><td>Föredra i AI-supportteamets weekly review. De granskar mot governance-checklista, gör ev. justeringar. Pilot med 3–5 kollegor.</td></tr>
-      <tr><td>Stage 3: Org-wide</td><td>Godkända skills läggs i koncernens skill-bibliotek. Marknadsförs via Teams-kanal #ai-chefer, läggs i onboarding-material.</td></tr>
-    </table>
-
-    <div class="when-callout">
-      <div class="label">Vad AI-supportteamet granskar</div>
-      <div class="rule">Säkerhet (hanterar känslig data korrekt?), konsistens (matchar B3-standard?), bredd (användbar för fler?), tekniskt (oavsiktlig triggning?), underhåll (vem äger uppdateringen?).</div>
-    </div>
-  </div>
-</section>
-
-<!-- DEL B: AGENTER -->
-<div class="part-header part-agents" id="part-agents">
-  <div class="container">
-    <div class="part-label">Del B · Halvdag andra halvan</div>
-    <h2>Agenter</h2>
-    <p>En agent är samma byggstenar – tools, skills, connectors – men där AI:n själv bestämmer ordningen för att nå ett mål. Detta är där paketet på riktigt börjar arbeta åt er.</p>
-  </div>
-</div>
-
-<section class="station s-ag1" id="ag1">
-  <div class="container">
-    <div class="station-header">
-      <div class="station-number">7</div>
-      <div class="station-title-wrap">
-        <h2>Vad är en agent på djupet</h2>
-        <p class="station-tagline">Skill = paketerat beteende. Agent = beteende som styr sig själv.</p>
-      </div>
-    </div>
-
-    <table class="level-table">
-      <tr><th>Typ</th><th>Beskrivning</th></tr>
-      <tr><td>Workflow</td><td>Ni styr ordningen. Gör A, sedan B, sedan C.</td></tr>
-      <tr><td>Skill</td><td>Ni triggar med kommando, skillen utför enligt sin instruktion.</td></tr>
-      <tr><td>Agent</td><td>Ni ger ett mål. Agenten väljer själv ordning, tools, stopppunkter.</td></tr>
-    </table>
-
-    <h3 style="font-size: 20px; margin: 32px 0 12px;">Komponenter i en agent</h3>
-    <div class="card-grid cols-3">
-      <div class="card">
-        <h4>Mål</h4>
-        <p>Tydligt formulerad outcome.</p>
-      </div>
-      <div class="card">
-        <h4>Tools</h4>
-        <p>Vad agenten får använda – skills, connectors, kod.</p>
-      </div>
-      <div class="card">
-        <h4>Loop</h4>
-        <p>Tankecykel där agenten avgör nästa steg.</p>
-      </div>
-      <div class="card">
-        <h4>Stoppvillkor</h4>
-        <p>När är det klart, när ska människan in.</p>
-      </div>
-      <div class="card">
-        <h4>Minne</h4>
-        <p>Vad agenten håller koll på över stegen.</p>
-      </div>
-      <div class="card">
-        <h4>Eskalering</h4>
-        <p>När och hur agenten överlämnar till människa.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="station s-ag2" id="ag2">
-  <div class="container">
-    <div class="station-header">
-      <div class="station-number">8</div>
-      <div class="station-title-wrap">
-        <h2>Agent-mönster</h2>
-        <p class="station-tagline">Tre mönster räcker långt. Avancerad agentdesign är nästan alltid en kombination.</p>
-      </div>
-    </div>
-
-    <div class="card-grid cols-3">
-      <div class="card">
-        <h4>Mönster 1: Enkel agent-loop</h4>
-        <p>Agenten får ett mål, kör en cykel tänk → agera → kolla → klart. Bra för engångsuppgifter med beslut i flödet. Enkelt att bygga, lätt att felsöka.</p>
-      </div>
-      <div class="card">
-        <h4>Mönster 2: Multi-step / chained</h4>
-        <p>Agenten kedjar flera skills och bestämmer ordningen utifrån vad varje steg hittar. Bra för "hantera inkommande förfrågan från första kontakt till offertutkast". Kräver väldefinierade skills.</p>
-      </div>
-      <div class="card">
-        <h4>Mönster 3: Human-in-the-loop</h4>
-        <p>Agenten gör steg autonomt men eskalerar vid definierade punkter. Bra för chefsanvändning där ni vill ha sista ordet. Säkrast för produktion.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="station s-ag3" id="ag3">
-  <div class="container">
-    <div class="station-header">
-      <div class="station-number">9</div>
-      <div class="station-title-wrap">
-        <h2>Low-code agent</h2>
-        <p class="station-tagline">Scheduled + Skill + Connector. Den enklaste agenten i B3-kontext – och oftast tillräcklig.</p>
-      </div>
-    </div>
-
-    <p class="lead">Kombinera en schemalagd task, en eller flera skills och en eller flera connectors. Inget bygge, bara konfiguration. Den här typen av agent räcker för 80 % av användningsfallen.</p>
-
-    <div class="prompt-block"><span class="prompt-label">Exempel-agent: Måndags-veckobrief</span>Komponenter:
-1. Trigger:     Scheduled task, varje måndag 08:00
-2. Connector 1: Teams (hämta meddelanden från ledningsgrupp-kanalen)
-3. Skill 1:     "Klassificera meddelanden efter brådska"
-4. Connector 2: SharePoint (skriva resultat till Veckobrief-dokument)
-5. Stoppvillkor: Dokumentet sparat = klart
-6. Eskalering: Om något bedöms "AKUT" – pinga chef i Teams</div>
-
-    <div class="hands-on">
-      <div class="label">Hands-on – 12 min</div>
-      Bygg en egen low-code-agent. Förslag: morgonbrief med olästa mejl + dagens kalender, veckoöversikt över kundpipeline, bevakning av SharePoint-mapp, sammanställning av action items från senaste veckans möten.
-    </div>
-  </div>
-</section>
-
-<section class="station s-ag4" id="ag4">
-  <div class="container">
-    <div class="station-header">
-      <div class="station-number">10</div>
-      <div class="station-title-wrap">
-        <h2>Cowork agency mode</h2>
-        <p class="station-tagline">När ni vill att Claude jobbar autonomt åt er i en konversation snarare än som schemalagd task.</p>
-      </div>
-    </div>
-
-    <p class="lead">I en Cowork-session ger ni Claude ett bredare mål och en uppsättning verktyg. Claude loopar tills målet är uppnått eller en stopp-regel triggas. Skillnaden mot vanlig Cowork: ni initierar inte varje steg.</p>
-
-    <div class="prompt-block"><span class="prompt-label">Exempel – Cowork agency mode</span>Gå igenom alla offerter i mappen Documents/Offerter senaste 3 månaderna.
-
-Mål: Identifiera de tre med svagast prissättning relativt liknande affärer och producera en analys som .docx i samma mapp.
-
-Tools du får använda:
-- Filhantering i Documents/Offerter
-- Word-skapande
-
-Stoppvillkor: dokumentet sparat. Eskalera till mig och fråga om du upptäcker att en offert saknar prisuppgifter helt.</div>
-
-    <div class="when-callout">
-      <div class="label">När Cowork agency vs schemalagd low-code-agent?</div>
-      <div class="rule">Cowork agency när det är en engångsuppgift som behöver autonomi. Schemalagd agent när uppgiften ska köras återkommande. Bygg Cowork-versionen först – om den funkar och behovet återkommer, paketera den som schemalagd.</div>
-    </div>
-  </div>
-</section>
-
-<section class="station s-ag5" id="ag5">
-  <div class="container">
-    <div class="station-header">
-      <div class="station-number">11</div>
-      <div class="station-title-wrap">
-        <h2>SDK och Copilot Studio</h2>
-        <p class="station-tagline">När dev-team behövs. Och när de inte behövs.</p>
-      </div>
-    </div>
-
-    <div class="card-grid cols-2">
-      <div class="card">
-        <h4>Claude Agent SDK</h4>
-        <p>Python/TypeScript-bibliotek för produktionsagenter. Kan köras headless, event-styrt, integrerat i B3:s egna system. Används för: agenter i kundleveranser, automationer som kräver hög tillförlitlighet, agenter med specifika compliance-krav. Beställs från IT/AI-funktionen.</p>
-      </div>
-      <div class="card">
-        <h4>Copilot Studio</h4>
-        <p>Microsofts plattform för att bygga agenter i M365-ekosystemet. Lägre kodtröskel än Agent SDK, men begränsad till Microsoft-stack. Bra för: agenter som automatiserar processer inom Office, Teams, SharePoint. Beställs från IT/AI-funktionen om större bygge.</p>
+      <div class="step-item">
+        <div class="step-num">C</div>
+        <div class="step-content">
+          <h4>Ni bygger något internt som inte ska hängas på koncernens centrala connector</h4>
+          <p>Prototyper, kundspecifika lösningar, agenter i kundleverans. Ofta tillfälligt och avvecklas när inget längre behövs.</p>
+        </div>
       </div>
     </div>
 
     <div class="when-callout">
       <div class="label">Beslutsregel</div>
-      <div class="rule">Bygg själv (low-code, Cowork agency) först. Eskalera till dev-team först när ni stött på konkret begränsning – inte i förebyggande syfte.</div>
+      <div class="rule"><strong>Standardfall:</strong> connector eller plugin finns – aktivera och kör. <strong>Tveksamt:</strong> fråga IT/AI-supportteamet om något kan rullas ut till tenantet istället för per användare. <strong>Custom MCP:</strong> bara när inget av ovan funkar.</div>
     </div>
   </div>
 </section>
 
-<section class="station s-ag6" id="ag6">
+<!-- Station 5 -->
+<section class="station s-5" id="claude-cinode">
   <div class="container">
     <div class="station-header">
-      <div class="station-number">12</div>
+      <div class="station-number">5</div>
       <div class="station-title-wrap">
-        <h2>Governance för agenter</h2>
-        <p class="station-tagline">Den här stationen är obligatorisk. Autonomi kräver styrning – och det är ert ansvar.</p>
+        <h2>Worked example: Cinode MCP i Claude Desktop</h2>
+        <p class="station-tagline">Steg-för-steg-installationen. ~10 minuter när allt är på plats.</p>
       </div>
     </div>
 
-    <p class="lead">Fem governance-frågor att besvara för varje agent ni driftar.</p>
-
-    <div class="governance-card">
-      <h4>1. Vilken data har agenten tillgång till?</h4>
-      <p>Minsta nödvändiga rättighet. Inte "alla mejl och dokument", utan "ledningsgruppens kanal och denna SharePoint-mapp".</p>
-    </div>
-    <div class="governance-card">
-      <h4>2. Var i flödet är människan?</h4>
-      <p>Ren autonomi för extern leverans är förbjudet enligt B3:s AI-policy. Definiera explicit var ni granskar.</p>
-    </div>
-    <div class="governance-card">
-      <h4>3. Vad loggas och var?</h4>
-      <p>Alla agent-körningar ska kunna granskas i efterhand. Loggning är defaultkrav, inte option.</p>
-    </div>
-    <div class="governance-card">
-      <h4>4. Vad är failure-läget?</h4>
-      <p>Om agenten gör fel – vad händer? Notifieras ni? Stoppas agenten automatiskt? Eskaleras till support?</p>
-    </div>
-    <div class="governance-card">
-      <h4>5. Vem äger den?</h4>
-      <p>En agent måste ha en ansvarig människa. När den personen lämnar B3 – vad händer?</p>
+    <div class="pro-tip">
+      <strong>Förutsättningar:</strong> Node.js (LTS) installerat (npx ingår), Claude Desktop installerat, Cinode-konto med API-åtkomst. Saknar ni något – kontakta IT innan ni börjar.
     </div>
 
-    <div class="when-callout" style="background: #FDF0F0; border-left-color: var(--c-agents-6);">
-      <div class="label" style="color: var(--c-agents-6);">B3:s tre regler för agentdrift</div>
-      <div class="rule">Aldrig fullt autonom leverans externt utan mänsklig granskning. Tydlig data- och systemaccess med minsta nödvändiga rättighet. Loggning av allt agenten gör så ni kan revidera.</div>
+    <h3 style="font-size: 20px; margin: 28px 0 12px;">Steg 1 – Skapa API-nyckel i Cinode</h3>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>Logga in på Cinode i webbläsaren</h4>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>Klicka på profilbilden längst upp till höger → <code>Mitt konto</code></h4>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>Scrolla till API-nycklar → <code>Skapa API-nyckel</code></h4>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h4>Kopiera värdet under <code>Kodade uppgifter</code> – det är din personliga nyckel</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="warning-box">
+      <span class="warn-label">Viktigt om kopieringen</span>
+      Nyckeln är <strong>personlig</strong> och kopplad till ditt konto. Dela den inte med andra. Cinode visar "Kodade uppgifter" radbruten över flera rader, <strong>men det är en enda obruten sträng</strong>. Kopiera så att du inte får med radbrytningar eller blanksteg.
+    </div>
+
+    <h3 style="font-size: 20px; margin: 28px 0 12px;">Steg 2 – Konfigurera Claude Desktop</h3>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>Öppna Claude Desktop</h4>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>Settings (kugghjulet) → Developer → Edit Config</h4>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>Filen <code>claude_desktop_config.json</code> öppnas – ersätt eller lägg till blocket nedan</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-block"><span class="code-label">claude_desktop_config.json</span>{
+  "mcpServers": {
+    "cinode": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://mcp.cinode.com/_mcp",
+        "--header",
+        "Authorization: Basic DITT_CINODE_ID_HÄR"
+      ]
+    }
+  }
+}</div>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h4>Ersätt <code>DITT_CINODE_ID_HÄR</code> med din nyckel från Cinode</h4>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <h4>Spara filen och starta om Claude Desktop</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="pro-tip">
+      <strong>Om ni redan har andra MCP-servrar:</strong> lägg till <code>"cinode": { ... }</code>-blocket inuti det befintliga <code>"mcpServers"</code>-objektet. Kontrollera att det finns kommatecken mellan blocken.
+    </div>
+
+    <h3 style="font-size: 20px; margin: 28px 0 12px;">Steg 3 – Verifiera och använd</h3>
+
+    <p class="lead">Efter omstart syns "cinode" i listan under Settings → Developer. Om det listas utan felmeddelande är ni igång.</p>
+
+    <table class="info-table">
+      <tr>
+        <th>Vad ni vill veta</th>
+        <th>Exempelfråga</th>
+      </tr>
+      <tr>
+        <td>Sök konsulter</td>
+        <td>"Visa alla konsulter i teamet B3 Elevate"</td>
+      </tr>
+      <tr>
+        <td>Beläggning</td>
+        <td>"Vilka konsulter är tillgängliga de närmaste 4 veckorna?"</td>
+      </tr>
+      <tr>
+        <td>Kompetenssökning</td>
+        <td>"Hitta konsulter med erfarenhet av Azure DevOps"</td>
+      </tr>
+      <tr>
+        <td>Kundöversikt</td>
+        <td>"Visa aktiva projekt hos Volvo"</td>
+      </tr>
+      <tr>
+        <td>Konsultprofil</td>
+        <td>"Hämta profilen för Anna Andersson"</td>
+      </tr>
+      <tr>
+        <td>Matchning</td>
+        <td>"Matcha våra konsulter mot den här förfrågan: [klistra in]"</td>
+      </tr>
+    </table>
+
+    <div class="hands-on">
+      <div class="label">Hands-on – 15 min</div>
+      Sätt upp Cinode MCP i er egen Claude Desktop. När anslutningen är klar, ställ tre frågor från tabellen ovan. Notera vilken som ger mest värde i er roll – det är där ni återkommer.
     </div>
   </div>
 </section>
 
-<section class="station s-ag7" id="ag7">
+<!-- Station 6 -->
+<section class="station s-6" id="copilot-cinode">
   <div class="container">
     <div class="station-header">
-      <div class="station-number">13</div>
+      <div class="station-number">6</div>
       <div class="station-title-wrap">
-        <h2>Från prototyp till produktion</h2>
-        <p class="station-tagline">Agenten ni byggde är en prototyp. Vägen vidare.</p>
+        <h2>Worked example: Cinode MCP i Copilot Studio</h2>
+        <p class="station-tagline">Mer komplext än Claude Desktop. Den här guiden räddar timmar för den som annars hade gått fel väg.</p>
       </div>
     </div>
 
-    <table class="level-table">
-      <tr><th>Steg</th><th>Vad händer</th></tr>
-      <tr><td>1. Privat testning</td><td>1–2 veckor. Ni kör den, mäter, justerar.</td></tr>
-      <tr><td>2. Pilot med kollegor</td><td>2 veckor. Två andra användare, andra perspektiv, andra felfall.</td></tr>
-      <tr><td>3. AI-supportteam granskning</td><td>Granskning mot governance-checklista. Justeringar.</td></tr>
-      <tr><td>4. Org-wide drift</td><td>Marknadsförs, dokumenteras, ägare utses. Underhållsplan på plats.</td></tr>
+    <div class="warning-box">
+      <span class="warn-label">Viktigaste principen</span>
+      Använd <strong>den nativa MCP-integrationen</strong> i Copilot Studio (Tools → Add Tool → New tool → Model Context Protocol). <strong>Bygg INTE en egen connector i Power Automate.</strong> MCP kräver en specifik handskakning (JSON-RPC över streamable HTTP, korrekta Accept-headers, ett initialt initialize-anrop som returnerar ett sessions-id). Den nativa integrationen sköter det åt er. Handbyggd connector leder till <code>405 Method Not Allowed</code>.
+    </div>
+
+    <div class="pro-tip">
+      <strong>Förutsättningar:</strong> Copilot Studio User License (per byggare), Copilot Studio License på tenant-nivå (organisationslicens), Cinode "Kodade uppgifter"-nyckel. Slutanvändare av agenten behöver ingen egen Cinode-licens.
+    </div>
+
+    <h3 style="font-size: 20px; margin: 28px 0 12px;">Steg 1 – Token-format</h3>
+
+    <table class="info-table">
+      <tr>
+        <th>Du har</th>
+        <th>Format i Authorization-fältet</th>
+      </tr>
+      <tr>
+        <td>Client credentials (accessId + accessSecret)</td>
+        <td><code>Basic &lt;kodad-sträng&gt;</code></td>
+      </tr>
+      <tr>
+        <td>JWT / API-token</td>
+        <td><code>Bearer &lt;token&gt;</code></td>
+      </tr>
+    </table>
+
+    <p class="lead">Vid client credentials, använd raden "Kodade uppgifter" rakt av med <code>Basic</code> framför (ordet <code>Basic</code> + ett mellanslag + strängen). Klistra inte in accessId eller accessSecret separat, och inte Company Id (det är bara informativt).</p>
+
+    <div class="warning-box">
+      <span class="warn-label">Vanlig fallgrop</span>
+      Cinode visar "Kodade uppgifter" radbruten över flera rader men det är en enda obruten sträng. Kopiera så att du inte får med radbrytningar eller blanksteg inuti strängen. En Authorization-header tål inga radslut eller mellanslag i token.
+    </div>
+
+    <h3 style="font-size: 20px; margin: 28px 0 12px;">Steg 2 – Skapa MCP-verktyget</h3>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>Öppna agenten i Copilot Studio → <code>Tools</code></h4>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>Add Tool → New tool → Model Context Protocol</h4>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>Fyll i fälten enligt tabellen nedan</h4>
+        </div>
+      </div>
+    </div>
+
+    <table class="info-table">
+      <tr>
+        <th>Fält</th>
+        <th>Värde</th>
+      </tr>
+      <tr>
+        <td>Namn / beskrivning</td>
+        <td>Valfritt, t.ex. "Cinode MCP"</td>
+      </tr>
+      <tr>
+        <td>Server URL</td>
+        <td><code>https://mcp.cinode.com/_mcp</code></td>
+      </tr>
+      <tr>
+        <td>Authentication</td>
+        <td>API Key</td>
+      </tr>
+      <tr>
+        <td>Parameternamn (Header name)</td>
+        <td><code>Authorization</code> ← måste fyllas</td>
+      </tr>
+      <tr>
+        <td>Parameterplats</td>
+        <td>Sidhuvud (Header)</td>
+      </tr>
+      <tr>
+        <td>Parameteretikett</td>
+        <td>Kosmetisk, t.ex. "Cinode-token"</td>
+      </tr>
+    </table>
+
+    <h3 style="font-size: 20px; margin: 28px 0 12px;">Steg 3 – Anslut med token</h3>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>Verktyget skapas och visas som "Ej ansluten / Not connected" – klicka på det</h4>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>Skapa en ny anslutning. Ett enda fält för nyckeln visas</h4>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>Klistra in <code>Basic &lt;kodad-sträng&gt;</code> (allt i samma fält: Basic + mellanslag + obruten sträng)</h4>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h4>Klicka <code>Anslut</code></h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="warning-box">
+      <span class="warn-label">Obs om felaktig nyckel</span>
+      En befintlig anslutnings nyckel går inte att redigera i efterhand. Skrev du fel – skapa en ny anslutning och välj den under "Markerad anslutning". Den trasiga raderar du separat i <code>make.powerautomate.com → Anslutningar</code>.
+    </div>
+
+    <h3 style="font-size: 20px; margin: 28px 0 12px;">Steg 4 – Aktivera anslutningen i agenten</h3>
+
+    <p class="lead">En giltig anslutning är <strong>inte automatiskt aktiverad</strong> i den specifika agenten. Kontrollera att verktyget/anslutningen är aktiverat i agenten, inte bara skapat. Detta är en vanlig orsak till att allt ser rätt ut men inget fungerar.</p>
+
+    <h3 style="font-size: 20px; margin: 28px 0 12px;">Steg 5 – Testa kopplingen</h3>
+
+    <p class="lead">Publicering krävs inte för att testa. Använd testpanelen.</p>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>Ställ en fråga som tvingar fram ett Cinode-anrop</h4>
+          <p>T.ex. om en namngiven konsult eller beläggning ett visst datum.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>Verifiera att svaret är verklig data</h4>
+          <p>Inte ett plausibelt påhittat svar. Lyckad anslutning visar Cinodes verktyg listade i verktygsvyn.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-size: 20px; margin: 28px 0 12px;">Steg 6 – Publicering och åtkomst (solo-användning)</h3>
+
+    <p class="lead">Publicering och delning är två separata saker. Som skapare har ni alltid åtkomst utan att stå på någon delningslista. Så här gör ni för att bara ni ska ha åtkomst:</p>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>Publicera agenten</h4>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>Lägg till kanalen Microsoft 365 Copilot</h4>
+          <p>Klicka <code>Lägg till kanal</code>.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>Rör inte valen under "Visa i butiken"</h4>
+          <p>Lämna dem orörda – då exponeras agenten inte bredare än ni vill.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h4>Håll delningslistan tom</h4>
+          <p>Ingen annan får åtkomst innan ni medvetet lagt till dem.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <h4>Kom åt agenten via "Kopiera länk" eller via er agentlista i M365 Copilot</h4>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-size: 20px; margin: 28px 0 12px;">Steg 7 – Auktorisering i körläge</h3>
+
+    <p class="lead">Första gången agenten körs skarpt ber den om auktorisering av anslutningen i körläge ("Öppna anslutningshanteraren"). Detta är separat från byggarens uppsättning och förväntat.</p>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>Klicka <code>Öppna anslutningshanteraren</code></h4>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>Hitta Cinode-kopplingen och auktorisera</h4>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>Gå tillbaka, klicka <code>Försök igen</code></h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="warning-box">
+      <span class="warn-label">GDPR och sekretess – kritiskt att förstå</span>
+      Anslutningen autentiserar mot Cinode med <strong>din nyckel</strong>, så alla anrop körs med <strong>dina behörigheter</strong>, oavsett vem som använder agenten. Agenten exponerar hela Cinode mot var och en som får köra den. Bestäm publiceringskanal och delning <strong>medvetet</strong>. En odelad agent är säkrast under uppbyggnad. Detta är just sådan användning som regleras i <a href="modul0_deltagarguide.html" style="color: var(--c-7); font-weight: 600;">Modul 0 / riktlinje D07</a>.
+    </div>
+
+    <div class="hands-on">
+      <div class="label">Hands-on – 25 min</div>
+      Sätt upp Cinode MCP i Copilot Studio enligt steg 1–5. Testa att kopplingen funkar i testpanelen. Bestäm publicerings- och delningsmodell <em>innan</em> ni delar agenten med andra.
+    </div>
+  </div>
+</section>
+
+<!-- Station 7 -->
+<section class="station s-7" id="sakerhet">
+  <div class="container">
+    <div class="station-header">
+      <div class="station-number">7</div>
+      <div class="station-title-wrap">
+        <h2>Säkerhet och behörigheter vid egna MCP</h2>
+        <p class="station-tagline">När ni sätter upp själva blir ni ansvariga själva. Tre regler.</p>
+      </div>
+    </div>
+
+    <div class="card-grid cols-3">
+      <div class="card">
+        <h4>API-nycklar i klartext</h4>
+        <p>Det klassiska felet. Lägg aldrig in en API-nyckel i en chat, i ett delat dokument, i en GitHub-commit eller i ett Teams-meddelande. När en nyckel läckt – be Cinode/leverantören om en ny direkt och avaktivera den gamla.</p>
+      </div>
+      <div class="card">
+        <h4>Behörigheter följer nyckeln</h4>
+        <p>Som GDPR-varningen i Copilot Studio-sektionen säger: nyckeln har dina behörigheter. Om er agent delas med en kollega som inte borde se all Cinode-data – är det ett problem ni måste lösa via delningsinställningar, inte via att ignorera det.</p>
+      </div>
+      <div class="card">
+        <h4>Uppdatering och rotation</h4>
+        <p>API-nycklar bör roteras periodiskt. Vid byte av roll, vid säkerhetsincidenter eller vid årsöversyn. Notera när ni satte upp er nyckel och planera rotation. AI-supportteamet kan hjälpa med policy.</p>
+      </div>
+    </div>
+
+    <div class="when-callout">
+      <div class="label">Koppling till Modul 0</div>
+      <div class="rule">Custom MCP-uppkopplingar är sådan AI-användning som riktlinje D07 (Modul 0) reglerar. Behandling av personuppgifter via egen MCP kräver dokumenterad anledning och rättslig grund. Vid tveksamhet – fråga DPO innan ni kopplar upp.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Station 8 -->
+<section class="station s-8" id="felsokning">
+  <div class="container">
+    <div class="station-header">
+      <div class="station-number">8</div>
+      <div class="station-title-wrap">
+        <h2>Felsökning</h2>
+        <p class="station-tagline">De vanligaste problemen och vad ni gör åt dem.</p>
+      </div>
+    </div>
+
+    <h3 style="font-size: 20px; margin: 16px 0 12px;">Claude Desktop</h3>
+
+    <table class="info-table">
+      <tr>
+        <th>Problem</th>
+        <th>Lösning</th>
+      </tr>
+      <tr>
+        <td>"cinode" syns inte i Settings → Developer</td>
+        <td>Kontrollera att JSON-filen är korrekt sparad (inga syntaxfel). Starta om Claude Desktop helt (Cmd+Q på Mac, inte bara stäng fönstret).</td>
+      </tr>
+      <tr>
+        <td>Felmeddelande om npx eller Node</td>
+        <td>Installera Node.js från nodejs.org och starta om datorn.</td>
+      </tr>
+      <tr>
+        <td>"Unauthorized" eller liknande</td>
+        <td>Dubbelkolla att du kopierade hela värdet från "Kodade uppgifter" i Cinode. Verifiera att det är en obruten sträng utan radbrytningar.</td>
+      </tr>
+      <tr>
+        <td>Inga resultat vid sökning</td>
+        <td>Verifiera att ditt Cinode-konto har rätt behörigheter/roller.</td>
+      </tr>
+    </table>
+
+    <h3 style="font-size: 20px; margin: 28px 0 12px;">Copilot Studio</h3>
+
+    <table class="info-table">
+      <tr>
+        <th>Symptom</th>
+        <th>Trolig orsak</th>
+      </tr>
+      <tr>
+        <td><code>401 / 403</code></td>
+        <td>Token fel: saknat Basic-prefix eller fel sträng. Lägg till <code>Basic</code> + mellanslag, verifiera strängen.</td>
+      </tr>
+      <tr>
+        <td><code>405 Method Not Allowed</code></td>
+        <td>Handbyggd connector i Power Automate. Byt till nativa MCP-vägen (Add Tool → Model Context Protocol).</td>
+      </tr>
+      <tr>
+        <td>Auktorisering loopar i körläge</td>
+        <td>Radbrytning eller blanksteg i kodade strängen. Klistra in som en obruten rad.</td>
+      </tr>
+      <tr>
+        <td>Agenten svarar men utan data</td>
+        <td>Verktyget ej aktiverat i agenten. Aktivera anslutningen i agenten (Steg 4 ovan).</td>
+      </tr>
+      <tr>
+        <td>Agenten syns inte i M365 Copilot</td>
+        <td>Propageringsfördröjning eller admingodkännande krävs. Vänta, kontrollera Integrerade appar i M365 admin center.</td>
+      </tr>
     </table>
   </div>
 </section>
 
-<!-- Recipe library -->
-<section class="station" id="bibliotek">
+<!-- Station 9 -->
+<section class="station s-9" id="bestallning">
   <div class="container">
     <div class="station-header">
+      <div class="station-number">9</div>
       <div class="station-title-wrap">
-        <h2>Recept för skills och agenter</h2>
-        <p class="station-tagline">Fem skill-recept och fem agent-recept att starta från.</p>
+        <h2>Beställningsprocess för ny connector</h2>
+        <p class="station-tagline">När era egna fall inte täcks av det som finns – så här går ni vidare.</p>
       </div>
     </div>
 
-    <div class="library-intro">
-      Recepten är inte färdiga produkter – de är <strong>byggstenar</strong>. Kopiera, anpassa till er kontext, testa. Skicka skarpa varianter till AI-supportteamet så lägger vi dem i org-biblioteket.
-    </div>
-
-    <h3 style="font-size: 22px; margin: 32px 0 16px; color: var(--c-skills-1);">Skill-recept</h3>
-
-    <div class="recipe-card skill-recipe">
-      <div class="recipe-card-header">
-        <div class="recipe-card-title">1. Standard SKILL.md-mall</div>
-        <span class="recipe-card-badge rec-skill">Skill</span>
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>Definiera behovet</h4>
+          <p>Vilket system ska kopplas? Vad ska AI:n kunna göra med det? Hur ofta? Vilken data är inblandad? Detta är input till diskussionen med IT/AI-supportteamet.</p>
+        </div>
       </div>
-      <p class="recipe-card-when">Grundmallen att starta från för i princip alla skills.</p>
-      <pre class="recipe-card-block">---
-name: [skill-name-kebab-case]
-description: >
-  [En mening om vad skillen gör]. Trigga när användaren nämner:
-  [nyckelord 1], [nyckelord 2], [nyckelord 3]. Trigga även vid kombinationen
-  [scenario A] + [scenario B]. Trigga inte när [oönskat scenario].
----
-
-# [Skill-namn]
-
-[Kort beskrivning av syftet och målgruppen.]
-
-## När skillen är aktiverad
-
-[Vad Claude ska göra. Skriv som instruktion till en kollega.]
-
-## Output-format
-
-[Exakt format på det Claude ska leverera.]
-
-## Edge cases
-
-[Vad ska Claude göra om input är ofullständigt, oklart eller ovanligt.]</pre>
-    </div>
-
-    <div class="recipe-card skill-recipe">
-      <div class="recipe-card-header">
-        <div class="recipe-card-title">2. Skill med references-mappen</div>
-        <span class="recipe-card-badge rec-skill">Skill</span>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>Anmäl via help@b3.se eller AI-supportteamet</h4>
+          <p>Beskriv behovet med svaren från steg 1. Be om bedömning: kan det rullas ut som connector på tenant-nivå, eller blir det MCP per användare?</p>
+        </div>
       </div>
-      <p class="recipe-card-when">När instruktionerna blir så omfattande att SKILL.md tappar fokus. Lägg detaljer i references/, läs vid behov.</p>
-      <pre class="recipe-card-block">my-skill/
-├── SKILL.md
-└── references/
-    ├── workflow.md      # detaljerat steg-för-steg-flöde
-    ├── examples.md      # input/output-exempel
-    ├── tone.md          # tonregler för olika sammanhang
-    └── b3-conventions.md # branschspecifika regler
-
-# I SKILL.md:
-"För djupare steg-för-steg, se references/workflow.md. För
-B3-specifika konventioner, se references/b3-conventions.md.
-Du läser dessa referensfiler när uppgiften kräver det."</pre>
-    </div>
-
-    <div class="recipe-card skill-recipe">
-      <div class="recipe-card-header">
-        <div class="recipe-card-title">3. Skill med assets-mappen</div>
-        <span class="recipe-card-badge rec-skill">Skill</span>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>Klassificering och bedömning</h4>
+          <p>AI Council (om större initiativ) eller IT-chef bedömer säkerhet, GDPR och teknisk lösning. Om personuppgifter är inblandade kopplas DPO in.</p>
+        </div>
       </div>
-      <p class="recipe-card-when">När skillen ska producera filer som följer en mall – Word-mallar, PowerPoint-templates, Excel-strukturer.</p>
-      <pre class="recipe-card-block">my-skill/
-├── SKILL.md
-└── assets/
-    ├── b3-pm-template.docx
-    ├── styrelseunderlag-template.docx
-    └── exempel-output.docx
-
-# I SKILL.md:
-"Använd mallen assets/b3-pm-template.docx som utgångspunkt
-för output. Behåll headers, formatering och B3-typografi
-exakt. Fyll endast in i de markerade {{platshållarna}}."</pre>
-    </div>
-
-    <div class="recipe-card skill-recipe">
-      <div class="recipe-card-header">
-        <div class="recipe-card-title">4. Trigger-keyword design pattern</div>
-        <span class="recipe-card-badge rec-skill">Skill</span>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h4>Införande och dokumentation</h4>
+          <p>När bedömningen är klar och beslut är fattat: AI-supportteamet rullar ut connector, plugin eller MCP-mall. Dokumenterar i listan över godkända AI-tjänster.</p>
+        </div>
       </div>
-      <p class="recipe-card-when">Hur ni skriver en description som triggar rätt och inte fel.</p>
-      <pre class="recipe-card-block">BRA description:
-"Producerar [specifik output] enligt [specifikt format].
-Trigga när användaren skriver: 'skapa protokoll',
-'gör mötesprotokoll', 'KLG-protokoll av detta',
-'formatera anteckningarna', eller när användaren klistrar
-in mötesanteckningar från Teams Facilitator.
-Trigga INTE när användaren bara nämner ordet protokoll
-i en allmän diskussion utan att begära ett."
-
-DÅLIG description:
-"En skill för protokoll." (för vag – triggar fel ständigt)
-
-DÅLIG description:
-"Skapar protokoll." (för smal – missar synonymer)</pre>
     </div>
 
-    <div class="recipe-card skill-recipe">
-      <div class="recipe-card-header">
-        <div class="recipe-card-title">5. B3-branded skill med brand-applicator-integration</div>
-        <span class="recipe-card-badge rec-skill">Skill</span>
-      </div>
-      <p class="recipe-card-when">När skillen producerar customer-facing material som måste följa B3:s grafiska profil.</p>
-      <pre class="recipe-card-block">---
-name: b3-customer-deliverable
-description: >
-  Producerar kundleveranser med korrekt B3-branding. Trigga när
-  användaren skapar [kundoffert / kundrapport / kundpresentation].
-  Använd alltid tillsammans med brand-applicator.
----
-
-# Customer Deliverable
-
-När skillen är aktiverad:
-1. Producera innehållet enligt B3-mallen
-2. Anropa brand-applicator-skillen för att applicera:
-   - Logotyp på rätt plats
-   - B3-färgpalett (teal #0CCCCC, pink #DF668A, blå #426DA9)
-   - Korrekt typografi
-   - Footer med B3-information
-3. Levererade fil i SharePoint-mappen för kundleveranser</pre>
+    <div class="pro-tip">
+      <strong>Pro tip:</strong> Innan ni anmäler – kolla om någon kollega redan löst samma sak. Teams-kanal AI @ B3 är där sådana saker delas. Spar tid om någon redan gjort jobbet.
     </div>
-
-    <h3 style="font-size: 22px; margin: 40px 0 16px; color: var(--c-agents-2);">Agent-recept</h3>
-
-    <div class="recipe-card agent-recipe">
-      <div class="recipe-card-header">
-        <div class="recipe-card-title">1. Enkel agent-loop (Cowork agency)</div>
-        <span class="recipe-card-badge rec-agent">Agent</span>
-      </div>
-      <p class="recipe-card-when">Engångsuppgift med autonoma beslut i flödet. Säg åt Claude i Cowork.</p>
-      <pre class="recipe-card-block">Mål: [TYDLIG OUTCOME]
-
-Tools du får använda:
-- [TOOL 1]
-- [TOOL 2]
-- [TOOL 3]
-
-Stoppvillkor: [VAD INNEBÄR KLART]
-
-Eskalera till mig om:
-- [VILLKOR 1]
-- [VILLKOR 2]
-
-Börja nu. Beskriv din plan kort innan du börjar utföra
-om uppgiften är komplex.</pre>
-    </div>
-
-    <div class="recipe-card agent-recipe">
-      <div class="recipe-card-header">
-        <div class="recipe-card-title">2. Schemalagd agent (cron + skill + connector)</div>
-        <span class="recipe-card-badge rec-agent">Agent</span>
-      </div>
-      <p class="recipe-card-when">Återkommande jobb som ska köras autonomt. Den vanligaste agent-typen för chefer.</p>
-      <pre class="recipe-card-block">Schedule: [CRON-ELLER-NATURAL-LANGUAGE-CADENCE]
-T.ex. "varje måndag kl 08:00", "varje vardag kl 07:30"
-
-Steg som körs:
-1. [CONNECTOR-ANROP] – hämta data från [SYSTEM]
-2. [SKILL] – bearbeta enligt skillens instruktion
-3. [CONNECTOR-ANROP] – skriv resultat till [DESTINATION]
-4. [NOTIFIERING] – ping mig om [VILLKOR]
-
-Output-destination: [SHAREPOINT-MAPP / TEAMS-KANAL / MEJL]
-Failure-läge: notifiera ai-support@b3.se vid 3 misslyckade körningar</pre>
-    </div>
-
-    <div class="recipe-card agent-recipe">
-      <div class="recipe-card-header">
-        <div class="recipe-card-title">3. Event-driven agent</div>
-        <span class="recipe-card-badge rec-agent">Agent</span>
-      </div>
-      <p class="recipe-card-when">Triggar på att något händer i ett system, inte på en tidpunkt.</p>
-      <pre class="recipe-card-block">Trigger: [EVENT]
-T.ex. "ny fil läggs i SharePoint-mapp X",
-     "mejl ankommer med ämnesrad innehållande Y",
-     "Cinode-status ändras för konsult Z"
-
-Vid event:
-1. Verifiera att event verkligen är relevant ([FILTER])
-2. Hämta kontext om eventet ([CONNECTOR-ANROP])
-3. Kör [SKILL] mot kontext
-4. Producera output till [DESTINATION]
-5. Logga eventet och resultatet
-
-Ramar:
-- Max [N] körningar per dag
-- Vid avvikande input: eskalera istället för att gissa</pre>
-    </div>
-
-    <div class="recipe-card agent-recipe">
-      <div class="recipe-card-header">
-        <div class="recipe-card-title">4. Multi-step agent (chained skills)</div>
-        <span class="recipe-card-badge rec-agent">Agent</span>
-      </div>
-      <p class="recipe-card-when">När en komplex uppgift kräver flera skills i sekvens, där varje skill beror på föregående output.</p>
-      <pre class="recipe-card-block">Mål: [STÖRRE OUTCOME, t.ex. "från kundförfrågan till offertutkast"]
-
-Steg-kedja:
-Steg 1: [SKILL A] – t.ex. "kvalificera kundförfrågan"
-   ↓ output: kvalificerad förfrågan med bedömning
-Steg 2: [SKILL B] – t.ex. "matcha mot Cinode"
-   ↓ output: tre konsultkandidater
-Steg 3: [SKILL C] – t.ex. "anpassa CV per kandidat"
-   ↓ output: tre anpassade CV
-Steg 4: [SKILL D] – t.ex. "producera offertutkast i B3-mall"
-   ↓ output: färdigt offertutkast som .docx
-
-Stoppvillkor per steg: om något steg returnerar låg konfidence
-(< 70 %), eskalera till mig istället för att fortsätta blint.</pre>
-    </div>
-
-    <div class="recipe-card agent-recipe">
-      <div class="recipe-card-header">
-        <div class="recipe-card-title">5. Human-in-the-loop agent</div>
-        <span class="recipe-card-badge rec-agent">Agent</span>
-      </div>
-      <p class="recipe-card-when">När agenten ska jobba autonomt men ni vill ha sista ordet. Standard för all extern leverans.</p>
-      <pre class="recipe-card-block">Mål: [OUTCOME]
-
-Autonoma steg:
-- Steg 1: [GÖR AUTONOMT]
-- Steg 2: [GÖR AUTONOMT]
-- Steg 3: [GÖR AUTONOMT]
-
-HUMAN CHECKPOINT 1:
-Innan steg 4, pausa och visa mig resultatet hittills.
-Vänta på mitt godkännande innan du fortsätter.
-
-- Steg 4: [GÖR AUTONOMT, efter godkännande]
-- Steg 5: [GÖR AUTONOMT]
-
-HUMAN CHECKPOINT 2 (final):
-Innan extern leverans, presentera komplett utkast.
-Skicka inte iväg utan mitt explicita "Skicka".
-
-Logga:
-- Mina godkännanden vid varje checkpoint
-- Eventuella ändringar jag gör mellan checkpoint och leverans</pre>
-    </div>
-
   </div>
 </section>
 
@@ -1477,19 +1335,19 @@ Logga:
   <div class="container">
     <div class="commitments">
       <h3>Tre commitments innan ni stänger guiden</h3>
-      <p class="lead-light">Modul 4 är slutet på grundcurriculum för chefer. Era egna skapelser är vad som händer härnäst.</p>
+      <p class="lead-light">Modul 4 är praktisk tillämpning. Era egna setup blir leveransen.</p>
 
       <div class="commitment-row">
         <div class="commitment-when">Inom 24 h</div>
-        <div class="commitment-text">Skillen jag byggde har triggerregler som funkar – verifierad mot fyra tester: <em>_____________________</em></div>
+        <div class="commitment-text">Connector eller MCP jag satt upp eller verifierat fungerar: <em>_____________________</em></div>
       </div>
       <div class="commitment-row">
         <div class="commitment-when">Inom 1 vecka</div>
-        <div class="commitment-text">Agenten jag byggde är i privat testning, jag har skrivit governance-summering: <em>_____________________</em></div>
+        <div class="commitment-text">Återkommande uppgift jag flyttat in i ett flöde som använder connectors: <em>_____________________</em></div>
       </div>
       <div class="commitment-row">
         <div class="commitment-when">Inom 1 månad</div>
-        <div class="commitment-text">Min skill eller agent har gått till Stage 2 (team-pilot), eller jag har bytt fokus efter testning – inget kvarliggande prototypspöke: <em>_____________________</em></div>
+        <div class="commitment-text">Behov av connector som behöver beställas till AI-supportteamet (om något): <em>_____________________</em></div>
       </div>
     </div>
   </div>
@@ -1499,11 +1357,11 @@ Logga:
   <div class="container">
     <div class="footer-grid">
       <div>
-        <h5>Fördjupning</h5>
-        <a href="https://docs.claude.com/en/docs/build-with-claude/skills" target="_blank" rel="noopener">Claude Skills docs →</a>
-        <a href="https://docs.claude.com/en/api/agent-sdk" target="_blank" rel="noopener">Claude Agent SDK →</a>
-        <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/" target="_blank" rel="noopener">Copilot Studio →</a>
-        <a href="https://anthropic.skilljar.com/claude-101/" target="_blank" rel="noopener">Anthropic Claude 101 →</a>
+        <h5>Tekniska referenser</h5>
+        <a href="https://nodejs.org" target="_blank" rel="noopener">Node.js (LTS) →</a>
+        <a href="https://claude.ai/download" target="_blank" rel="noopener">Claude Desktop →</a>
+        <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">Model Context Protocol docs →</a>
+        <a href="https://learn.microsoft.com/microsoft-copilot-studio" target="_blank" rel="noopener">Copilot Studio docs →</a>
       </div>
       <div>
         <h5>Modulserie</h5>
@@ -1511,22 +1369,24 @@ Logga:
         <a href="modul1_deltagarguide.html">Modul 1 – Claude för chefer</a>
         <a href="modul2_deltagarguide.html">Modul 2 – Copilot för chefer</a>
         <a href="modul3_deltagarguide.html">Modul 3 – Promptkvalitet och iteration</a>
+        <a href="modul5_deltagarguide.html">Modul 5 – B3 Skills i praktiken →</a>
+        <a href="modul6_deltagarguide.html">Modul 6 – Skills och agenter →</a>
       </div>
       <div>
         <h5>Support</h5>
-        <a href="#">Teams-kanal #ai-chefer</a>
-        <a href="mailto:ai-support@b3.se">ai-support@b3.se</a>
-        <a href="mailto:fredrik.dolleus@b3.se">fredrik.dolleus@b3.se</a>
+        <a href="#">Teams-kanal AI @ B3</a>
+        <a href="mailto:help@b3.se">help@b3.se</a>
+        <a href="mailto:help@b3.se">help@b3.se (IT)</a>
       </div>
     </div>
     <div class="copy">
-      © 2026 B3 Consulting Group · Modul 4 – Skills och agenter · Producerad av koncernledningen
+      © 2026 B3 Consulting Group · Modul 4 – B3 Connectors, Plugins och MCP · Producerad av koncernledningen
     </div>
   </div>
 </footer>
 
 <script>
-  const sections = document.querySelectorAll('section[id], div.part-header[id]');
+  const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('nav.sticky-nav a');
   function highlightNav() {
     const scrollPos = window.scrollY + 120;

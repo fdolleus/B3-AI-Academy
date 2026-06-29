@@ -27,8 +27,12 @@
     --c-m2-soft: #DDECFC;
     --c-m3: #DF668A;
     --c-m3-soft: #F8DDE7;
-    --c-m4: #DAA520;
-    --c-m4-soft: #FAEFCB;
+    --c-m4: #2E7D32;
+    --c-m4-soft: #D7EFD8;
+    --c-m5: #F39C12;
+    --c-m5-soft: #FDEACC;
+    --c-m6: #DAA520;
+    --c-m6-soft: #FAEFCB;
     --shadow-sm: 0 1px 3px rgba(15, 31, 58, 0.06);
     --shadow-md: 0 4px 12px rgba(15, 31, 58, 0.08);
     --shadow-lg: 0 10px 30px rgba(15, 31, 58, 0.12);
@@ -397,6 +401,8 @@
   .module-card.mc-2 { border-top-color: var(--c-m2); }
   .module-card.mc-3 { border-top-color: var(--c-m3); }
   .module-card.mc-4 { border-top-color: var(--c-m4); }
+  .module-card.mc-5 { border-top-color: var(--c-m5); }
+  .module-card.mc-6 { border-top-color: var(--c-m6); }
 
   .mc-top {
     display: flex;
@@ -417,6 +423,8 @@
   .module-card.mc-2 .mc-num { color: var(--c-m2); }
   .module-card.mc-3 .mc-num { color: var(--c-m3); }
   .module-card.mc-4 .mc-num { color: var(--c-m4); }
+  .module-card.mc-5 .mc-num { color: var(--c-m5); }
+  .module-card.mc-6 .mc-num { color: var(--c-m6); }
 
   .mc-level {
     font-size: 11px;
@@ -431,7 +439,9 @@
   .module-card.mc-1 .mc-level { background: var(--c-m1); color: var(--bg-dark); }
   .module-card.mc-2 .mc-level { background: var(--c-m2); }
   .module-card.mc-3 .mc-level { background: var(--c-m3); }
-  .module-card.mc-4 .mc-level { background: var(--c-m4); color: var(--bg-dark); }
+  .module-card.mc-4 .mc-level { background: var(--c-m4); }
+  .module-card.mc-5 .mc-level { background: var(--c-m5); color: var(--bg-dark); }
+  .module-card.mc-6 .mc-level { background: var(--c-m6); color: var(--bg-dark); }
 
   .mc-title {
     font-size: 28px;
@@ -476,6 +486,8 @@
   .module-card.mc-2 .mc-preview li::before { color: var(--c-m2); }
   .module-card.mc-3 .mc-preview li::before { color: var(--c-m3); }
   .module-card.mc-4 .mc-preview li::before { color: var(--c-m4); }
+  .module-card.mc-5 .mc-preview li::before { color: var(--c-m5); }
+  .module-card.mc-6 .mc-preview li::before { color: var(--c-m6); }
 
   .mc-meta {
     display: flex;
@@ -496,6 +508,8 @@
   .module-card.mc-2 .mc-cta { color: var(--c-m2); }
   .module-card.mc-3 .mc-cta { color: var(--c-m3); }
   .module-card.mc-4 .mc-cta { color: var(--c-m4); }
+  .module-card.mc-5 .mc-cta { color: var(--c-m5); }
+  .module-card.mc-6 .mc-cta { color: var(--c-m6); }
 
   /* === LEARNING PATH === */
   .path-section {
@@ -858,6 +872,42 @@
       <a href="modul4_deltagarguide.html" class="module-card mc-4">
         <div class="mc-top">
           <span class="mc-num">Modul 4</span>
+          <span class="mc-level">Tillämpning</span>
+        </div>
+        <div class="mc-title">B3 Connectors, Plugins och MCP</div>
+        <div class="mc-tagline">Hur ni kopplar Claude och Copilot till era system – det vanliga fallet och undantagen där ni själva måste sätta upp.</div>
+        <ul class="mc-preview">
+          <li>Skillnaden mellan connector, plugin och MCP – och när vilket gäller</li>
+          <li>B3:s connector-ekosystem (Microsoft Graph, Cinode, B3-skills)</li>
+          <li>Worked example: Cinode MCP i Claude Desktop och Copilot Studio</li>
+        </ul>
+        <div class="mc-meta">
+          <span>2 timmar · max 12 deltagare</span>
+          <span class="mc-cta">Öppna guiden →</span>
+        </div>
+      </a>
+
+      <a href="modul5_deltagarguide.html" class="module-card mc-5">
+        <div class="mc-top">
+          <span class="mc-num">Modul 5</span>
+          <span class="mc-level">Tillämpning</span>
+        </div>
+        <div class="mc-title">B3 Skills i praktiken</div>
+        <div class="mc-tagline">Genomgång av B3:s installerade skills – vad de gör, hur de triggas, när de sparar timmar i ert arbete.</div>
+        <ul class="mc-preview">
+          <li>Cinode Consultant Toolkit – tre lägen för konsultchefer</li>
+          <li>KLG-protokoll, Presentation Builder, Brand Applicator, Prompt Optimizer</li>
+          <li>Hur ni hittar nya skills och föreslår era egna</li>
+        </ul>
+        <div class="mc-meta">
+          <span>90 min · max 12 deltagare</span>
+          <span class="mc-cta">Öppna guiden →</span>
+        </div>
+      </a>
+
+      <a href="modul6_deltagarguide.html" class="module-card mc-6">
+        <div class="mc-top">
+          <span class="mc-num">Modul 6</span>
           <span class="mc-level">Avancerat</span>
         </div>
         <div class="mc-title">Skills och agenter</div>
@@ -882,7 +932,7 @@
   <div class="container">
     <div class="section-header">
       <h2>Rekommenderad lärväg</h2>
-      <p class="lead">Modul 0 är obligatorisk grund för alla medarbetare som använder AI på jobbet. Modul 1 och 2 är parallella chefsmoduler – välj den ni behöver först eller ta båda. Modul 3 förutsätter att ni klarat någon av grundmodulerna. Modul 4 förutsätter Modul 3.</p>
+      <p class="lead">Modul 0 är obligatorisk grund för alla medarbetare som använder AI på jobbet. Modul 1 och 2 är parallella chefsmoduler – välj den ni behöver först eller ta båda. Modul 3, 4 och 5 är tillämpningsmoduler som kan tas parallellt i valfri ordning. Modul 6 är avancerat och förutsätter resten.</p>
     </div>
 
     <div class="path-flow">
@@ -913,17 +963,30 @@
 
         <div class="path-arrow">→</div>
 
-        <div class="path-step">
-          <div class="path-step-num" style="color: var(--c-m3);">Tillämpning</div>
-          <div class="path-step-title">Modul 3</div>
-          <div class="path-step-desc">Promptkvalitet och iteration. Hantverket som gör allt ovanstående markant skarpare.</div>
+        <div class="path-step dual">
+          <div class="path-step-num">Tillämpning · Valfri ordning, parallellt</div>
+          <div class="path-dual-grid" style="grid-template-columns: 1fr 1fr 1fr;">
+            <div class="path-dual-item" style="border-top: 3px solid var(--c-m3);">
+              <div class="pdi-num" style="color: var(--c-m3);">Modul 3</div>
+              <div class="pdi-title">Promptkvalitet</div>
+            </div>
+            <div class="path-dual-item" style="border-top: 3px solid var(--c-m4);">
+              <div class="pdi-num" style="color: var(--c-m4);">Modul 4</div>
+              <div class="pdi-title">Connectors / MCP</div>
+            </div>
+            <div class="path-dual-item" style="border-top: 3px solid var(--c-m5);">
+              <div class="pdi-num" style="color: var(--c-m5);">Modul 5</div>
+              <div class="pdi-title">B3 Skills</div>
+            </div>
+          </div>
+          <div class="path-dual-or">tre parallella spår</div>
         </div>
 
         <div class="path-arrow">→</div>
 
         <div class="path-step">
-          <div class="path-step-num" style="color: var(--c-m4);">Avancerat</div>
-          <div class="path-step-title">Modul 4</div>
+          <div class="path-step-num" style="color: var(--c-m6);">Avancerat</div>
+          <div class="path-step-title">Modul 6</div>
           <div class="path-step-desc">Skills och agenter. För dem som ska driva AI-användningen i organisationen.</div>
         </div>
 
@@ -939,7 +1002,7 @@
       <div class="instructor-icon">i</div>
       <div class="instructor-content">
         <h3>För instruktörer och programledning</h3>
-        <p>Facilitator-guider, övningsmallar och förberedelsechecklistor finns på <strong>B3:s SharePoint under AI Academy</strong>. Logga in på B3 SharePoint och navigera till mappen <em>Internt &gt; AI Academy &gt; Facilitator-material</em>. Saknar du behörighet – kontakta AI-supportteamet via #ai-chefer i Teams.</p>
+        <p>Facilitator-guider, övningsmallar och förberedelsechecklistor finns på <strong>B3:s SharePoint under AI Academy</strong>. Logga in på B3 SharePoint och navigera till mappen <em>Internt &gt; AI Academy &gt; Facilitator-material</em>. Saknar du behörighet – kontakta AI-supportteamet via AI @ B3 i Teams.</p>
       </div>
     </div>
   </div>
@@ -961,12 +1024,14 @@
         <a href="modul1_deltagarguide.html">Modul 1 – Claude för chefer</a>
         <a href="modul2_deltagarguide.html">Modul 2 – Copilot för chefer</a>
         <a href="modul3_deltagarguide.html">Modul 3 – Promptkvalitet och iteration</a>
-        <a href="modul4_deltagarguide.html">Modul 4 – Skills och agenter</a>
+        <a href="modul4_deltagarguide.html">Modul 4 – B3 Connectors, Plugins och MCP</a>
+        <a href="modul5_deltagarguide.html">Modul 5 – B3 Skills i praktiken</a>
+        <a href="modul6_deltagarguide.html">Modul 6 – Skills och agenter</a>
       </div>
       <div>
         <h5>Support</h5>
-        <a href="#">Teams-kanal #ai-chefer</a>
-        <a href="mailto:ai-support@b3.se">ai-support@b3.se</a>
+        <a href="#">Teams-kanal AI @ B3</a>
+        <a href="mailto:help@b3.se">help@b3.se</a>
         <a href="mailto:fredrik.dolleus@b3.se">fredrik.dolleus@b3.se</a>
       </div>
     </div>

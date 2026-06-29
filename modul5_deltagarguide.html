@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B3 Skills i praktiken – Modul 5 | B3 AI Academy</title>
+<style>
+  :root {
+    --bg-dark: #0F1F3A;
+    --bg-dark-2: #142a4d;
+    --bg-page: #F4F6FA;
+    --bg-card: #FFFFFF;
+    --bg-tint: #DDF6F6;
+    --text-primary: #1A2540;
+    --text-muted: #5A6478;
+    --text-light: #8993A8;
+    --border: #E1E6F0;
+    --accent: #0CCCCC;
+    --accent-soft: #DDF6F6;
+    --b3-teal: #0CCCCC;
+    --b3-pink: #DF668A;
+    --b3-yellow: #EFBD47;
+    --b3-blue: #426DA9;
+    --c-1: #0CCCCC;
+    --c-2: #F39C12;
+    --c-3: #2B579A;
+    --c-4: #7B5FC7;
+    --c-5: #DF668A;
+    --c-6: #2ECC71;
+    --c-7: #5B5FCE;
+    --c-8: #EFBD47;
+    --shadow-sm: 0 1px 3px rgba(15, 31, 58, 0.06);
+    --shadow-md: 0 4px 12px rgba(15, 31, 58, 0.08);
+    --shadow-lg: 0 10px 30px rgba(15, 31, 58, 0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg-page);
+    color: var(--text-primary);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+  .hero {
+    background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-dark-2) 100%);
+    color: #fff;
+    padding: 80px 0 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--b3-teal) 0%, var(--b3-pink) 50%, var(--b3-yellow) 100%);
+  }
+  .hero-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 80px;
+  }
+  .logo {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 4px;
+    font-weight: 800;
+    font-size: 28px;
+    letter-spacing: -0.5px;
+    text-decoration: none;
+    color: #fff;
+    transition: opacity 0.15s;
+  }
+  .logo:hover { opacity: 0.85; }
+  .logo-mark { color: var(--b3-teal); }
+  .logo-text {
+    color: #fff;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-left: 12px;
+    opacity: 0.7;
+  }
+  .hero-meta-info { font-size: 14px; opacity: 0.65; letter-spacing: 0.5px; }
+  .hero .modnum {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--b3-pink);
+    margin-bottom: 16px;
+    opacity: 0.95;
+  }
+  .hero h1 {
+    font-size: 64px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .hero .subtitle {
+    font-size: 22px;
+    opacity: 0.78;
+    max-width: 760px;
+    font-weight: 300;
+    margin-bottom: 32px;
+  }
+  .hero-divider {
+    width: 120px;
+    height: 4px;
+    background: var(--b3-teal);
+    margin: 32px 0;
+    border-radius: 2px;
+  }
+  .hero-byline { font-size: 14px; opacity: 0.6; }
+
+  .hero-prereq {
+    margin-top: 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 18px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    font-size: 13px;
+    flex-wrap: wrap;
+  }
+  .prereq-label {
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #C9A66B;
+    font-size: 11px;
+  }
+  .prereq-link {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: color 0.15s;
+    font-weight: 500;
+  }
+  .prereq-link:hover { color: #fff; }
+
+  nav.sticky-nav {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+    padding: 12px 0;
+  }
+  .nav-inner {
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  nav.sticky-nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.15s;
+  }
+  nav.sticky-nav a:hover { background: var(--bg-tint); color: var(--text-primary); }
+  nav.sticky-nav a.active { background: var(--accent); color: var(--bg-dark); }
+  nav.sticky-nav .nav-back { color: var(--text-primary); font-weight: 700; }
+  nav.sticky-nav .nav-sep {
+    width: 1px;
+    background: var(--border);
+    margin: 2px 8px;
+    align-self: stretch;
+  }
+
+  section.station {
+    padding: 70px 0 30px;
+    scroll-margin-top: 80px;
+  }
+  .station-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 36px;
+  }
+  .station-number {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+    box-shadow: var(--shadow-sm);
+  }
+  .station-title-wrap h2 {
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    margin-bottom: 4px;
+    display: inline-block;
+  }
+  .station-title-wrap h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--accent);
+    margin-top: 8px;
+    border-radius: 2px;
+  }
+  .station-title-wrap .station-tagline {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-top: 16px;
+    max-width: 720px;
+  }
+
+  .s-1 .station-number { background: var(--c-1); color: var(--bg-dark); }
+  .s-1 .station-title-wrap h2::after { background: var(--c-1); }
+  .s-2 .station-number { background: var(--c-2); color: var(--bg-dark); }
+  .s-2 .station-title-wrap h2::after { background: var(--c-2); }
+  .s-3 .station-number { background: var(--c-3); }
+  .s-3 .station-title-wrap h2::after { background: var(--c-3); }
+  .s-4 .station-number { background: var(--c-4); }
+  .s-4 .station-title-wrap h2::after { background: var(--c-4); }
+  .s-5 .station-number { background: var(--c-5); }
+  .s-5 .station-title-wrap h2::after { background: var(--c-5); }
+  .s-6 .station-number { background: var(--c-6); }
+  .s-6 .station-title-wrap h2::after { background: var(--c-6); }
+  .s-7 .station-number { background: var(--c-7); }
+  .s-7 .station-title-wrap h2::after { background: var(--c-7); }
+  .s-8 .station-number { background: var(--c-8); color: var(--bg-dark); }
+  .s-8 .station-title-wrap h2::after { background: var(--c-8); }
+
+  .lead {
+    font-size: 18px;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+    max-width: 800px;
+  }
+
+  /* Skill card – the canonical "this is a B3 skill" block */
+  .skill-card {
+    background: var(--bg-card);
+    border-radius: 14px;
+    padding: 0;
+    box-shadow: var(--shadow-md);
+    margin: 24px 0;
+    overflow: hidden;
+  }
+  .skill-card-header {
+    padding: 24px 28px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .skill-card-name {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin-bottom: 4px;
+  }
+  .skill-card-purpose {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+  .skill-card-badge {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 12px;
+    white-space: nowrap;
+    color: #fff;
+    background: var(--accent);
+  }
+
+  .skill-section {
+    padding: 20px 28px;
+    border-bottom: 1px solid var(--border);
+  }
+  .skill-section:last-child { border-bottom: none; }
+  .skill-section h4 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+  .skill-section p, .skill-section li {
+    font-size: 15px;
+    color: var(--text-primary);
+    line-height: 1.6;
+  }
+  .skill-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  .skill-section ul li {
+    padding: 5px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .skill-section ul li::before {
+    content: "→";
+    flex-shrink: 0;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .skill-section .triggers {
+    font-family: 'SF Mono', Monaco, monospace;
+    font-size: 13px;
+    background: var(--bg-tint);
+    padding: 4px 10px;
+    border-radius: 6px;
+    display: inline-block;
+    margin: 2px 4px 2px 0;
+    color: var(--text-primary);
+  }
+
+  /* Apply section accent to skill cards */
+  .s-2 .skill-card-badge { background: var(--c-2); color: var(--bg-dark); }
+  .s-2 .skill-section ul li::before { color: var(--c-2); }
+  .s-3 .skill-card-badge { background: var(--c-3); }
+  .s-3 .skill-section ul li::before { color: var(--c-3); }
+  .s-4 .skill-card-badge { background: var(--c-4); }
+  .s-4 .skill-section ul li::before { color: var(--c-4); }
+  .s-5 .skill-card-badge { background: var(--c-5); }
+  .s-5 .skill-section ul li::before { color: var(--c-5); }
+  .s-6 .skill-card-badge { background: var(--c-6); }
+  .s-6 .skill-section ul li::before { color: var(--c-6); }
+
+  .card-grid {
+    display: grid;
+    gap: 20px;
+    margin: 24px 0;
+  }
+  .card-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .card-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+
+  .card {
+    background: var(--bg-card);
+    border-radius: 10px;
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    border-top: 3px solid var(--accent);
+  }
+  .card h4 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+  .card p { color: var(--text-muted); font-size: 14px; }
+
+  .when-callout {
+    background: var(--bg-tint);
+    border-left: 4px solid var(--accent);
+    padding: 20px 24px;
+    border-radius: 0 8px 8px 0;
+    margin: 28px 0;
+  }
+  .when-callout .label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .when-callout .rule {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+  .s-1 .when-callout { border-left-color: var(--c-1); }
+  .s-1 .when-callout .label { color: #066b6b; }
+  .s-2 .when-callout { border-left-color: var(--c-2); }
+  .s-2 .when-callout .label { color: #B8860B; }
+  .s-3 .when-callout { border-left-color: var(--c-3); }
+  .s-3 .when-callout .label { color: var(--c-3); }
+  .s-4 .when-callout { border-left-color: var(--c-4); }
+  .s-4 .when-callout .label { color: var(--c-4); }
+  .s-5 .when-callout { border-left-color: var(--c-5); }
+  .s-5 .when-callout .label { color: var(--c-5); }
+  .s-6 .when-callout { border-left-color: var(--c-6); }
+  .s-6 .when-callout .label { color: var(--c-6); }
+  .s-7 .when-callout { border-left-color: var(--c-7); }
+  .s-7 .when-callout .label { color: var(--c-7); }
+  .s-8 .when-callout { border-left-color: var(--c-8); }
+  .s-8 .when-callout .label { color: #8B7510; }
+
+  .pro-tip {
+    background: #FFF8E5;
+    border: 1px solid #F5E0A0;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  .pro-tip strong { color: #8B6914; }
+
+  .hands-on {
+    background: #ECFAF2;
+    border: 1px solid #B7E4C7;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 14px;
+  }
+  .hands-on .label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #2ECC71;
+    margin-bottom: 6px;
+  }
+
+  .prompt-block {
+    background: var(--bg-dark);
+    color: #D7E0F2;
+    padding: 20px 24px;
+    border-radius: 8px;
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 16px 0;
+    overflow-x: auto;
+  }
+  .prompt-block .prompt-label {
+    display: block;
+    font-family: Inter, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--b3-teal);
+    margin-bottom: 10px;
+  }
+
+  .commitments {
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #1a3460 100%);
+    color: #fff;
+    border-radius: 16px;
+    padding: 48px;
+    margin: 40px 0;
+  }
+  .commitments h3 { font-size: 28px; font-weight: 700; margin-bottom: 12px; }
+  .commitments .lead-light { opacity: 0.75; margin-bottom: 32px; font-size: 16px; }
+  .commitment-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .commitment-row:last-child { border-bottom: none; }
+  .commitment-when {
+    flex-shrink: 0;
+    width: 130px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--b3-teal);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .commitment-text { flex: 1; font-size: 15px; opacity: 0.9; }
+
+  footer {
+    background: var(--bg-dark);
+    color: #fff;
+    padding: 60px 0 40px;
+    margin-top: 40px;
+  }
+  footer .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  footer h5 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--b3-teal);
+    margin-bottom: 16px;
+  }
+  footer a {
+    color: #D7E0F2;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    opacity: 0.85;
+    transition: opacity 0.15s;
+  }
+  footer a:hover { opacity: 1; color: #fff; }
+  footer .copy {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 24px;
+    font-size: 12px;
+    opacity: 0.5;
+    text-align: center;
+  }
+
+  @media (max-width: 880px) {
+    .hero h1 { font-size: 44px; }
+    .hero .subtitle { font-size: 18px; }
+    .card-grid.cols-2, .card-grid.cols-3 { grid-template-columns: 1fr; }
+    .station-header { flex-direction: column; gap: 16px; }
+    .commitment-row { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .commitment-when { width: auto; }
+    footer .footer-grid { grid-template-columns: 1fr; }
+    .container { padding: 0 20px; }
+    .skill-card-header { flex-direction: column; }
+  }
+
+  @media print {
+    nav.sticky-nav { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="container">
+    <div class="hero-meta">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">B</span><span class="logo-mark">3</span>
+        <span class="logo-text">Consulting Group</span>
+      </a>
+      <div class="hero-meta-info">Koncernledningen · 2026</div>
+    </div>
+    <span class="modnum">Modul 5 · Tillämpning</span>
+    <h1>B3 Skills i praktiken</h1>
+    <p class="subtitle">Genomgång av B3:s installerade skills – vad de gör, hur de triggas, när de sparar timmar i ert arbete</p>
+    <div class="hero-divider"></div>
+    <div class="hero-byline">Deltagarguide · Modul 5 · Tillämpning · 90 minuter</div>
+    <div class="hero-prereq">
+      <span class="prereq-label">Förkunskap</span>
+      <a href="modul0_deltagarguide.html" class="prereq-link">Modul 0 ska vara genomförd · Modul 1 eller 2 rekommenderad →</a>
+    </div>
+  </div>
+</header>
+
+<nav class="sticky-nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-back">← Alla moduler</a>
+      <span class="nav-sep"></span>
+      <a href="#oversikt">1 · Översikt</a>
+      <a href="#cinode-toolkit">2 · Cinode Toolkit</a>
+      <a href="#klg-protokoll">3 · KLG-protokoll</a>
+      <a href="#presentation">4 · Presentation Builder</a>
+      <a href="#brand">5 · Brand Applicator</a>
+      <a href="#prompt-optimizer">6 · Prompt Optimizer</a>
+      <a href="#hitta-nya">7 · Hitta nya</a>
+      <a href="#foresla">8 · Föreslå nya</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Station 1 -->
+<section class="station s-1" id="oversikt">
+  <div class="container">
+    <div class="station-header">
+      <div class="station-number">1</div>
+      <div class="station-title-wrap">
+        <h2>Översikt: skills och hur de triggas</h2>
+        <p class="station-tagline">Modul 1 introducerade skills som koncept. Här djupdyker vi i de fem som B3 har installerade just nu – och hur ni får ut maximalt av dem.</p>
+      </div>
+    </div>
+
+    <p class="lead">En <strong>skill</strong> är ett paketerat beteende som triggas automatiskt när rätt nyckelord dyker upp i er konversation. Ni anropar inte skillen explicit – Claude ser kontexten och aktiverar rätt skill själv. Det är där hävstången ligger.</p>
+
+    <p class="lead">B3:s skills är byggda för specifika återkommande uppgifter i koncernen. De ersätter inte er omdöme – de paketerar hantverket så ni slipper skriva samma instruktioner gång på gång. De flesta skills triggas automatiskt; några (som Cinode Consultant Toolkit) kräver att en MCP är konfigurerad först (se Modul 4).</p>
+
+    <div class="card-grid cols-3">
+      <div class="card">
+        <h4>Hur skills triggas</h4>
+        <p>Nyckelord i er prompt aktiverar skillen. Skriv "gör protokoll av detta" och KLG-skillen aktiveras. Skriv "bygg en presentation" och Presentation Builder triggas. Specifika nyckelord per skill listas i varje sektion nedan.</p>
+      </div>
+      <div class="card">
+        <h4>Var skills lever</h4>
+        <p>Skills installeras i Claude Desktop eller centralt på koncernnivå. När de finns på plats är de aktiva för alla med rätt behörighet. Ni ser inte själva skill-filen – den jobbar i bakgrunden.</p>
+      </div>
+      <div class="card">
+        <h4>Skill kontra prompt-mall</h4>
+        <p>En prompt-mall är något ni kopierar och klistrar in. En skill är ett beteende som triggas automatiskt på rätt nyckelord. Mallen sitter i ert projekt – skillen sitter i verktyget.</p>
+      </div>
+    </div>
+
+    <div class="when-callout">
+      <div class="label">Modulens upplägg</div>
+      <div class="rule">Per skill går vi igenom: <em>vad den gör</em>, <em>nyckelord som triggar den</em>, <em>vad output blir</em>, och <em>när ni använder den</em>. Den största stationen är Cinode Consultant Toolkit eftersom den både kräver MCP-setup och har flest användningslägen.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Station 2 - Cinode Consultant Toolkit -->
+<section class="station s-2" id="cinode-toolkit">
+  <div class="container">
+    <div class="station-header">
+      <div class="station-number">2</div>
+      <div class="station-title-wrap">
+        <h2>Cinode Consultant Toolkit</h2>
+        <p class="station-tagline">Producerar färdiga PDF-rapporter i tre lägen: säljplan, intervjuförberedelse och utvecklingsplan. För konsultchefer den enskilt mest värdefulla skillen.</p>
+      </div>
+    </div>
+
+    <div class="pro-tip">
+      <strong>Förutsättning:</strong> Cinode MCP måste vara konfigurerat först. Se <a href="modul4_deltagarguide.html#claude-cinode" style="color: #B8860B; font-weight: 600;">Modul 4, station 5</a>. Skillen levereras som <code>cinode-consultant-toolkit.skill</code> – dra filen direkt in i Claude Desktop-fönstret för att installera (inga omstart krävs).
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <div>
+          <div class="skill-card-name">Läge 1: Säljplan</div>
+          <p class="skill-card-purpose">Komplett säljplan med uppdragsmatchning, 4-veckors aktivitetsplan, säljargument och pitch för en specifik konsult.</p>
+        </div>
+        <span class="skill-card-badge">Säljarbete</span>
+      </div>
+      <div class="skill-section">
+        <h4>Så triggar ni</h4>
+        <p><em>"Skapa en säljplan för Erik Johansson"</em> eller <em>"Positionera Anna Svensson mot clouduppdrag"</em></p>
+      </div>
+      <div class="skill-section">
+        <h4>Rapporten innehåller</h4>
+        <ul>
+          <li>Uppdragsmatchning – de 3 starkaste uppdragstyperna med motivering</li>
+          <li>4-veckors säljplan – veckovis aktiviteter med ansvarig och kanal</li>
+          <li>Kompetensutveckling vid obeläggning – 1–2 certifieringar med högst marknadsvärde</li>
+          <li>Säljargument – konkreta, kvantifierbara argument kopplade till profilen</li>
+          <li>Pitch – 3 meningar riktade till konsultmäklare eller slutkund</li>
+        </ul>
+      </div>
+      <div class="skill-section">
+        <h4>Triggerord</h4>
+        <span class="triggers">säljplan</span>
+        <span class="triggers">positionera</span>
+        <span class="triggers">säljargument</span>
+        <span class="triggers">pitch</span>
+        <span class="triggers">få ut konsulten</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <div>
+          <div class="skill-card-name">Läge 2: Intervjuförberedelse</div>
+          <p class="skill-card-purpose">Komplett intervjuförberedelsepaket mot en specifik kundförfrågan – med matchningsanalys, gapanalys och förberedda svar.</p>
+        </div>
+        <span class="skill-card-badge">Inskick</span>
+      </div>
+      <div class="skill-section">
+        <h4>Så triggar ni</h4>
+        <p><em>"Förbered Erik Johansson för intervju mot den här förfrågan: [klistra in förfrågan]"</em></p>
+      </div>
+      <div class="skill-section">
+        <h4>Rapporten innehåller</h4>
+        <ul>
+          <li>Matchningsanalys – poängsättning per krav i förfrågan (1–5)</li>
+          <li>Gapanalys och intervjustrategi – hur konsulten adresserar varje gap</li>
+          <li>5 intervjufrågor med STAR-formaterade svar – baserade på faktiska uppdrag i Cinode</li>
+          <li>3 strategiska frågor konsulten bör ställa till kund</li>
+          <li>B3:s kundhistorik – tidigare och pågående uppdrag hos kunden</li>
+        </ul>
+      </div>
+      <div class="skill-section">
+        <h4>Triggerord</h4>
+        <span class="triggers">förfrågan</span>
+        <span class="triggers">matcha</span>
+        <span class="triggers">intervju</span>
+        <span class="triggers">STAR</span>
+        <span class="triggers">gap</span>
+        <span class="triggers">intervjuprep</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <div>
+          <div class="skill-card-name">Läge 3: Utvecklingsplan</div>
+          <p class="skill-card-purpose">90-dagars utvecklingsplan med kompetensgapanalys, certifieringsförslag och profiloptimering.</p>
+        </div>
+        <span class="skill-card-badge">Konsultutveckling</span>
+      </div>
+      <div class="skill-section">
+        <h4>Så triggar ni</h4>
+        <p><em>"Skapa en utvecklingsplan för Erik Johansson – han vill rikta sig mot molnarkitektur"</em></p>
+      </div>
+      <div class="skill-section">
+        <h4>Rapporten innehåller</h4>
+        <ul>
+          <li>Kompetensgap mot marknad – konsultens nivå vs. marknadens efterfrågan</li>
+          <li>2–3 certifieringar/utbildningar – genomförbara inom 90 dagar, erkända av marknaden</li>
+          <li>Profiloptimering i Cinode – konkreta uppdateringar med formuleringsförslag</li>
+          <li>90-dagars plan i tre faser: snabbinsatser (dag 1–30), fördjupning (dag 31–60), marknadsredo (dag 61–90)</li>
+        </ul>
+      </div>
+      <div class="skill-section">
+        <h4>Triggerord</h4>
+        <span class="triggers">obelagd</span>
+        <span class="triggers">utvecklingsplan</span>
+        <span class="triggers">certifiering</span>
+        <span class="triggers">kompetensutveckling</span>
+        <span class="triggers">90 dagar</span>
+      </div>
+    </div>
+
+    <div class="pro-tip">
+      <strong>Tips för bästa resultat:</strong> Ange konsultens fullständiga namn som det står i Cinode. Vid intervjuprep – klistra in hela förfrågan (ju mer detaljer, desto bättre matchningsanalys). Vid utvecklingsplan – ange gärna konsultens önskade riktning så blir planen mer träffsäker. Alla rapporter levereras som PDF i professionellt format.
+    </div>
+
+    <div class="hands-on">
+      <div class="label">Hands-on – 10 min</div>
+      Trigga ett av de tre lägena mot en verklig konsult i Cinode. Säljansvariga: kör säljplan. Konsultchefer: kör utvecklingsplan. Säljare: kör intervjuförberedelse mot en aktuell förfrågan.
+    </div>
+  </div>
+</section>
+
+<!-- Station 3 - KLG-protokoll -->
+<section class="station s-3" id="klg-protokoll">
+  <div class="container">
+    <div class="station-header">
+      <div class="station-number">3</div>
+      <div class="station-title-wrap">
+        <h2>B3 KLG-protokoll</h2>
+        <p class="station-tagline">Formaterar råa mötesanteckningar från Teams Facilitator (eller egna stolpar) till färdiga B3 KLG-protokoll i Word-format.</p>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <div>
+          <div class="skill-card-name">b3-protokollformatering</div>
+          <p class="skill-card-purpose">Formell header, närvarolista, agendapunkter som rubriker, tydligt markerade beslut, uppföljningstabell med ansvariga och deadlines.</p>
+        </div>
+        <span class="skill-card-badge">Möten</span>
+      </div>
+      <div class="skill-section">
+        <h4>Så triggar ni</h4>
+        <p><em>"Gör protokoll av följande anteckningar: [klistra in från Teams Facilitator]"</em> eller <em>"Skapa KLG-protokoll från dessa stolpar..."</em></p>
+      </div>
+      <div class="skill-section">
+        <h4>Vad output blir</h4>
+        <ul>
+          <li>Formell header med mötesdatum, närvarande, mötesordförande, sekreterare</li>
+          <li>Agendapunkter som rubriker</li>
+          <li>Per punkt: kort sammanfattning, tydligt markerade beslut, eventuella reservationer</li>
+          <li>Uppföljningstabell: aktivitet | ansvarig | deadline</li>
+          <li>Leveras som .docx-fil enligt B3-mall</li>
+        </ul>
+      </div>
+      <div class="skill-section">
+        <h4>Triggerord</h4>
+        <span class="triggers">gör protokoll av detta</span>
+        <span class="triggers">KLG-protokoll</span>
+        <span class="triggers">skapa mötesprotokoll</span>
+        <span class="triggers">styrgruppsprotokoll</span>
+        <span class="triggers">format KLG</span>
+      </div>
+    </div>
+
+    <div class="when-callout">
+      <div class="label">När använder jag denna</div>
+      <div class="rule">Efter varje KLG-möte, styrgruppsmöte eller ledningsmöte där ni vill ha ett strukturerat protokoll. Funkar både på Teams Facilitator-anteckningar och på egna stolpar. Spar typiskt 30–45 minuter per möte jämfört med manuell formatering.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Station 4 - Presentation Builder -->
+<section class="station s-4" id="presentation">
+  <div class="container">
+    <div class="station-header">
+      <div class="station-number">4</div>
+      <div class="station-title-wrap">
+        <h2>B3 Presentation Builder</h2>
+        <p class="station-tagline">Guidar fram en presentationsoutline slide-för-slide via dialog i chatten – och genererar sedan en färdig prompt till Claude för PowerPoint som bygger decken i B3-mallen.</p>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <div>
+          <div class="skill-card-name">b3-presentation-builder</div>
+          <p class="skill-card-purpose">Tre-faseig workflow: intake → outline-utkast → färdig PowerPoint-prompt. Hoppa aldrig över outline-fasen.</p>
+        </div>
+        <span class="skill-card-badge">Produktion</span>
+      </div>
+      <div class="skill-section">
+        <h4>Så triggar ni</h4>
+        <p><em>"Skapa en presentation om Q1-resultatet till KLG"</em>, <em>"Bygg ett styrelsepack om förvärvet"</em>, <em>"Ta fram en pitch för Swedbank på fredag"</em>. Triggas även på "outline", "slide-by-slide", "presentationsbrief" eller bara nämnande av sammanhang som "KLG på fredag".</p>
+      </div>
+      <div class="skill-section">
+        <h4>Workflow</h4>
+        <ul>
+          <li>Fas 1 – Intake: kort dialog om syfte, publik, format, huvudbudskap, beslut, datakällor, språk</li>
+          <li>Fas 2 – Outline-utkast: slide-för-slide-genomgång i chatten. Ni bekräftar eller justerar</li>
+          <li>Fas 3 – PowerPoint-prompt: färdig prompt att klistra in i Claude för PowerPoint för nativ produktion i B3-mallen</li>
+        </ul>
+      </div>
+      <div class="skill-section">
+        <h4>Sex presentationstyper som stöds</h4>
+        <ul>
+          <li>Typ A – Koncernledning / styrelse (10–12 slides, 20–40 min)</li>
+          <li>Typ B – Affärsområdesgenomgång (10–15 slides, 30–45 min)</li>
+          <li>Typ C – Strategisk planering (15–20 slides, 45–90 min)</li>
+          <li>Typ D – Tvärkoncernligt initiativ (10–20 slides)</li>
+          <li>Typ E – Dotterbolagsledning / working session (8–12 slides)</li>
+          <li>Typ F – Extern / thought leadership (15–25 slides)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pro-tip">
+      <strong>Pro tip:</strong> Outline-fasen är inte ett mellansteg – det är där det riktiga arbetet sker. Test efter outline är klar: läs bara underrubrikerna (action titles) i ordning. Berättar de hela storyn? Om inte, skriv om dem innan ni går vidare till produktion.
+    </div>
+
+    <div class="when-callout">
+      <div class="label">När använder jag denna</div>
+      <div class="rule">Inför KLG-möten, styrelsemöten, kundpitchar, AO-genomgångar, strategimöten, externa events. Praktiskt taget alla situationer där en B3-presentation ska levereras. Använd alltid tillsammans med Brand Applicator för slutgiltig visuell identitet.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Station 5 - Brand Applicator -->
+<section class="station s-5" id="brand">
+  <div class="container">
+    <div class="station-header">
+      <div class="station-number">5</div>
+      <div class="station-title-wrap">
+        <h2>Brand Applicator</h2>
+        <p class="station-tagline">Applicerar B3:s kompletta grafiska profil på allt ni producerar – dokument, presentationer, PDF, webb-UI, LinkedIn-karuseller, dashboards, mejl, fakturor.</p>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <div>
+          <div class="skill-card-name">brand-applicator</div>
+          <p class="skill-card-purpose">Hela B3:s brand identity i en skill: färger, typografi, logotyper för B3 Consulting Group och alla 39 dotterbolag, voice, layout-regler.</p>
+        </div>
+        <span class="skill-card-badge">Visuell identitet</span>
+      </div>
+      <div class="skill-section">
+        <h4>Så triggar ni</h4>
+        <p><em>"Make this branded"</em>, <em>"Applicera B3-profilen"</em>, <em>"B3-style this"</em>, <em>"Make this on-brand"</em>, <em>"Use the B3 brand"</em>. Triggas också proaktivt när ni producerar kundvänd material och B3-branding skulle förbättra resultatet.</p>
+      </div>
+      <div class="skill-section">
+        <h4>Vad den hanterar</h4>
+        <ul>
+          <li>B3 Consulting Group (parent brand) plus 39 dotterbolags-logotyper</li>
+          <li>Färger: teal #0CCCCC, pink #DF668A, blå #426DA9, gul #EFBD47</li>
+          <li>Typografi och layout-regler</li>
+          <li>Voice and tone-riktlinjer</li>
+          <li>Applicering på dokument, decks, PDF, React/HTML-UI, mejl, social media, dashboards</li>
+        </ul>
+      </div>
+      <div class="skill-section">
+        <h4>Triggerord</h4>
+        <span class="triggers">applicera B3-profilen</span>
+        <span class="triggers">B3-style this</span>
+        <span class="triggers">make this branded</span>
+        <span class="triggers">on-brand</span>
+        <span class="triggers">use the B3 brand</span>
+      </div>
+    </div>
+
+    <div class="when-callout">
+      <div class="label">När använder jag denna</div>
+      <div class="rule">Vid all extern leverans där B3-varumärket exponeras. Vid kundoffert, kundleverans, styrelsemtaerial, marknadsföring, sociala medier, webbpublicering. Brand Applicator triggas ofta automatiskt tillsammans med Presentation Builder för slutproduktionen.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Station 6 - Prompt Optimizer -->
+<section class="station s-6" id="prompt-optimizer">
+  <div class="container">
+    <div class="station-header">
+      <div class="station-number">6</div>
+      <div class="station-title-wrap">
+        <h2>Prompt Optimizer</h2>
+        <p class="station-tagline">Förvandlar råa idéer eller utkast till precist formulerade prompts via en 4D-metodik: Deconstruct, Diagnose, Develop, Deliver.</p>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <div>
+          <div class="skill-card-name">prompt-optimizer</div>
+          <p class="skill-card-purpose">Tar er medelmåttiga prompt och levererar en skarpare version – plus förklaring av varje förändring så ni lär er mönstret.</p>
+        </div>
+        <span class="skill-card-badge">Hantverk</span>
+      </div>
+      <div class="skill-section">
+        <h4>Så triggar ni</h4>
+        <p><em>"Make this prompt better"</em>, <em>"Help me prompt"</em>, <em>"I need a prompt for..."</em>, <em>"Turn this into a prompt"</em>, eller bara: <em>"Använd prompt-optimizer för: [er prompt]"</em></p>
+      </div>
+      <div class="skill-section">
+        <h4>4D-metodiken</h4>
+        <ul>
+          <li><strong>Deconstruct</strong> – plocka isär ursprungsprompten, identifiera vad som finns och vad som saknas</li>
+          <li><strong>Diagnose</strong> – peka på var det otydligt, vad som driver dåligt resultat</li>
+          <li><strong>Develop</strong> – bygg om med rätt komponenter (roll, kontext, uppgift, format)</li>
+          <li><strong>Deliver</strong> – färdig prompt + motivering till varje förändring</li>
+        </ul>
+      </div>
+      <div class="skill-section">
+        <h4>Plattformar</h4>
+        <p>Funkar för Claude, ChatGPT/GPT-4, Gemini och andra. Inte begränsad till en LLM. Bra när ni ska bygga prompts som ska användas i olika verktyg.</p>
+      </div>
+    </div>
+
+    <div class="when-callout">
+      <div class="label">När använder jag denna</div>
+      <div class="rule">När era prompts ger ojämna eller medelmåttiga resultat. Innan ni paketerar en återkommande prompt till en mall. Innan ni bygger en system-prompt till en skill. Modul 3 går djupare på prompting i sin helhet – prompt-optimizer är "snabbverktyget" mellan modulerna.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Station 7 - Hitta nya -->
+<section class="station s-7" id="hitta-nya">
+  <div class="container">
+    <div class="station-header">
+      <div class="station-number">7</div>
+      <div class="station-title-wrap">
+        <h2>Hur ni hittar nya skills</h2>
+        <p class="station-tagline">Skills tillkommer löpande. Här är de tre platserna där ni ser vad som finns.</p>
+      </div>
+    </div>
+
+    <div class="card-grid cols-3">
+      <div class="card">
+        <h4>Teams-kanal AI @ B3</h4>
+        <p>AI-supportteamet annonserar nya skills här när de rullas ut. Också där kollegor delar tips och erfarenheter. Pinna kanalen om ni vill hänga med.</p>
+      </div>
+      <div class="card">
+        <h4>SharePoint – AI Academy</h4>
+        <p>B3:s SharePoint under AI Academy-mappen har en lista över alla aktiva skills med beskrivning och triggerord. Sanningens källa när ni vill verifiera om något finns.</p>
+      </div>
+      <div class="card">
+        <h4>Modul 5-uppdateringar</h4>
+        <p>Den här guiden uppdateras kvartalsvis med nya skills som tillkommit. Återbesök Modul 5 var tredje månad om ni vill se senaste tillskotten.</p>
+      </div>
+    </div>
+
+    <div class="pro-tip">
+      <strong>Pro tip:</strong> Om ni märker att en skill borde existera men ni inte hittar den – det är ofta inte att den saknas, utan att triggerorden ni använt inte matchar. Be Claude direkt: <em>"Finns det en skill för [er uppgift]?"</em> – Claude ser vilka skills som är installerade och kan svara.
+    </div>
+  </div>
+</section>
+
+<!-- Station 8 - Föreslå nya -->
+<section class="station s-8" id="foresla">
+  <div class="container">
+    <div class="station-header">
+      <div class="station-number">8</div>
+      <div class="station-title-wrap">
+        <h2>Hur ni föreslår nya skills</h2>
+        <p class="station-tagline">Om ni hittar ett behov som återkommer i koncernen – så här går ni vidare.</p>
+      </div>
+    </div>
+
+    <p class="lead">Skills som har störst genomslag är de som löser ett verkligt återkommande problem flera personer har. Era observationer från vardagen är där bra skill-idéer kommer ifrån.</p>
+
+    <div class="card-grid cols-2">
+      <div class="card">
+        <h4>Anmäl till AI-supportteamet</h4>
+        <p>Mejl help@b3.se eller posta i Teams-kanal AI @ B3. Beskriv: vad uppgiften är, hur ofta ni gör den, vilken struktur output bör ha, vilka som gör samma sak.</p>
+      </div>
+      <div class="card">
+        <h4>Bygg själv om ni vill</h4>
+        <p>Modul 6 (Skills och agenter) går igenom hur man bygger en skill från scratch med skill-creator. Egen byggnad accepteras, men granskning innan bredare utrullning sker via AI-supportteamet.</p>
+      </div>
+    </div>
+
+    <div class="when-callout">
+      <div class="label">Tumregel för skill-kandidat</div>
+      <div class="rule">Om ni har gjort samma typ av uppgift med samma struktur två gånger – det är en kandidat. Om andra i organisationen sannolikt gör samma sak – det är en stark kandidat. Om uppgiften involverar B3-specifika konventioner eller mallar – det är en akut kandidat.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Commitments -->
+<section class="station" id="commitments">
+  <div class="container">
+    <div class="commitments">
+      <h3>Tre commitments innan ni stänger guiden</h3>
+      <p class="lead-light">Användning är vad som gör skills värdefulla. De som inte används utvecklas inte.</p>
+
+      <div class="commitment-row">
+        <div class="commitment-when">Inom 24 h</div>
+        <div class="commitment-text">Skillen jag triggat och testat mot ett verkligt arbetsfall: <em>_____________________</em></div>
+      </div>
+      <div class="commitment-row">
+        <div class="commitment-when">Inom 1 vecka</div>
+        <div class="commitment-text">Återkommande uppgift där jag kommer använda en B3-skill regelbundet: <em>_____________________</em></div>
+      </div>
+      <div class="commitment-row">
+        <div class="commitment-when">Inom 1 månad</div>
+        <div class="commitment-text">Förslag på ny skill jag skickat till AI-supportteamet (om någon): <em>_____________________</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h5>Skill-referenser</h5>
+        <a href="#">Lista över B3:s skills (SharePoint)</a>
+        <a href="#">Skicka skill-förslag: help@b3.se</a>
+        <a href="modul6_deltagarguide.html">Modul 6 – Bygg er egen skill →</a>
+      </div>
+      <div>
+        <h5>Modulserie</h5>
+        <a href="modul0_deltagarguide.html">Modul 0 – Ansvarsfull AI på B3 (obligatorisk grund)</a>
+        <a href="modul1_deltagarguide.html">Modul 1 – Claude för chefer</a>
+        <a href="modul2_deltagarguide.html">Modul 2 – Copilot för chefer</a>
+        <a href="modul3_deltagarguide.html">Modul 3 – Promptkvalitet och iteration</a>
+        <a href="modul4_deltagarguide.html">Modul 4 – B3 Connectors, Plugins och MCP</a>
+        <a href="modul6_deltagarguide.html">Modul 6 – Skills och agenter →</a>
+      </div>
+      <div>
+        <h5>Support</h5>
+        <a href="#">Teams-kanal AI @ B3</a>
+        <a href="mailto:help@b3.se">help@b3.se</a>
+        <a href="mailto:help@b3.se">help@b3.se (IT)</a>
+      </div>
+    </div>
+    <div class="copy">
+      © 2026 B3 Consulting Group · Modul 5 – B3 Skills i praktiken · Producerad av koncernledningen
+    </div>
+  </div>
+</footer>
+
+<script>
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav.sticky-nav a');
+  function highlightNav() {
+    const scrollPos = window.scrollY + 120;
+    let current = '';
+    sections.forEach(s => { if (scrollPos >= s.offsetTop) current = s.id; });
+    navLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+  }
+  window.addEventListener('scroll', highlightNav, { passive: true });
+  highlightNav();
+</script>
+
+</body>
+</html>
