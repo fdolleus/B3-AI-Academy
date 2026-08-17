@@ -581,11 +581,12 @@
       <span class="nav-sep"></span>
       <a href="#oversikt">1 · Översikt</a>
       <a href="#cinode-toolkit">2 · Cinode Toolkit</a>
-      <a href="#presentation">3 · Presentation Builder</a>
-      <a href="#brand">4 · Brand Applicator</a>
-      <a href="#prompt-optimizer">5 · Prompt Optimizer</a>
-      <a href="#hitta-nya">6 · Hitta nya</a>
-      <a href="#foresla">7 · Föreslå nya</a>
+      <a href="#prospektering">3 · Prospektering</a>
+      <a href="#presentation">4 · Presentation Builder</a>
+      <a href="#brand">5 · Brand Applicator</a>
+      <a href="#prompt-optimizer">6 · Prompt Optimizer</a>
+      <a href="#hitta-nya">7 · Hitta nya</a>
+      <a href="#foresla">8 · Föreslå nya</a>
     </div>
   </div>
 </nav>
@@ -597,7 +598,7 @@
       <div class="station-number">1</div>
       <div class="station-title-wrap">
         <h2>Översikt: skills och hur de triggas</h2>
-        <p class="station-tagline">Modul 1 introducerade skills som koncept. Här djupdyker vi i de fyra som B3 har installerade just nu – och hur ni får ut maximalt av dem.</p>
+        <p class="station-tagline">Modul 1 introducerade skills som koncept. Här djupdyker vi i de fem som B3 har installerade just nu – och hur ni får ut maximalt av dem.</p>
       </div>
     </div>
 
@@ -791,11 +792,201 @@
   </div>
 </section>
 
-<!-- Station 3 - Presentation Builder -->
-<section class="station s-3" id="presentation">
+<!-- Station 3 - B3 Prospektering -->
+<section class="station s-3" id="prospektering">
   <div class="container">
     <div class="station-header">
       <div class="station-number">3</div>
+      <div class="station-title-wrap">
+        <h2>B3 Prospektering</h2>
+        <p class="station-tagline">Säljstöd för Säljsprint 2026 – läser era tilldelade konton i Cinode, avgör rätt drag per konto, hittar beslutsfattare och skriver utkast till mejl, LinkedIn eller telefonmanus.</p>
+      </div>
+    </div>
+
+    <div class="pro-tip">
+      <strong>Förutsättning:</strong> Cinode MCP måste vara konfigurerat först. Se <a href="modul4_deltagarguide.html#claude-cinode" style="color: #B8860B; font-weight: 600;">Modul 4, station 5</a>. Skillen levereras som <code>b3-prospektering.skill</code> – dra filen direkt in i Claude Desktop-fönstret för att installera. Utan Cinode-koppling funkar skillen i manuellt läge där ni matar in kundnamn själva.
+    </div>
+
+    <p class="lead">Skillen har fem lägen som körs i följd på samma konto. Ni går sällan in i alla fem samma dag – de flesta möten börjar i <strong>Kontobriefing</strong> och slutar i ett bokat intro-samtal via <strong>Outreach</strong>. Målgruppen är säljansvariga, KAM:ar, konsultchefer och VD:ar som bearbetar tilldelade konton under sprinten.</p>
+
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <div>
+          <div class="skill-card-name">Läge 1: Kontobriefing</div>
+          <p class="skill-card-purpose">Rangordnar era tilldelade konton, klassar varje som AKTIV, INTERN eller KALL, och tar fram beslutsunderlag per konto med ICP-poäng, köpsignaler och kundhistorik ur Cinode.</p>
+        </div>
+        <span class="skill-card-badge">Prioritering</span>
+      </div>
+      <div class="skill-section">
+        <h4>Så triggar ni</h4>
+        <p><em>"Vilka av mina tilldelade kunder ska jag börja med?"</em> eller <em>"Ge mig en kontobriefing på mina A-konton"</em></p>
+      </div>
+      <div class="skill-section">
+        <h4>Rapporten innehåller</h4>
+        <ul>
+          <li>Klassning per konto: AKTIV (befintlig kund – aldrig kall outreach), INTERN (aktivera via kundansvarig), KALL (rätt drag är prospektering)</li>
+          <li>ICP-poäng och köpsignaler (nyrekryteringar, org-förändringar) – webbsök bekräftar</li>
+          <li>Beskrivning av vad som är öppet nu på kontot (obesvarade RFI, utkast, förfallna uppgifter)</li>
+          <li>Sfär-identifiering: koncerner som ligger som separata konton bearbetas som en enhet</li>
+          <li>Aktivitetslogg och nästa steg per konto</li>
+        </ul>
+      </div>
+      <div class="skill-section">
+        <h4>Triggerord</h4>
+        <span class="triggers">mina tilldelade kunder</span>
+        <span class="triggers">kontolista</span>
+        <span class="triggers">A-konton</span>
+        <span class="triggers">prioritera</span>
+        <span class="triggers">ICP</span>
+        <span class="triggers">köpsignaler</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <div>
+          <div class="skill-card-name">Läge 2: Vinkel</div>
+          <p class="skill-card-purpose">Väljer ingång och beslutsfattare per konto, ankrad i en konsultprofil, ett insteg ur AI-menyn, en eventbjudning eller ett ramavtal.</p>
+        </div>
+        <span class="skill-card-badge">Ingång</span>
+      </div>
+      <div class="skill-section">
+        <h4>Så triggar ni</h4>
+        <p><em>"Vilken vinkel ska jag ha mot Volvo?"</em> eller <em>"Vem ska jag kontakta hos Skanska och varför?"</em></p>
+      </div>
+      <div class="skill-section">
+        <h4>Vad ni får</h4>
+        <ul>
+          <li>Arketypanalys (AI-mognad på kontot) mot AI-menyns insteg</li>
+          <li>Beslutsfattare med roll och rimlig ingångspunkt</li>
+          <li>Vinklar prioriterade efter äkthet – konsultprofil, event, ramavtal eller AI-insteg</li>
+          <li>Verifierat vs hypotes tydligt separerat så ni vet vad ni ska kontrollera</li>
+        </ul>
+      </div>
+      <div class="skill-section">
+        <h4>Triggerord</h4>
+        <span class="triggers">vinkel</span>
+        <span class="triggers">ingång</span>
+        <span class="triggers">vad ska jag säga till</span>
+        <span class="triggers">vem ska jag kontakta hos</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <div>
+          <div class="skill-card-name">Läge 3: Outreach</div>
+          <p class="skill-card-purpose">Skriver utkast till mejl, LinkedIn-meddelande eller telefonmanus enligt fem-meningsmodellen. Kör kvalitetsgrind innan ni får det.</p>
+        </div>
+        <span class="skill-card-badge">Utkast</span>
+      </div>
+      <div class="skill-section">
+        <h4>Så triggar ni</h4>
+        <p><em>"Skriv ett mejlutkast till Anna Andersson hos Volvo"</em> eller <em>"Ge mig ett telefonmanus för Skanska"</em></p>
+      </div>
+      <div class="skill-section">
+        <h4>Vad ni får</h4>
+        <ul>
+          <li>Utkast enligt fem-meningsmodellen – kopieringsbart block, klart att flytta rakt in i mejlklienten</li>
+          <li>Kvalitetsgrind som fångar generiskt språk, påhittade referenser och överlöften</li>
+          <li>Avidentifierade referenskunder om B3 inte har namnrätt – ni kan säga till om ni har godkänd referens</li>
+        </ul>
+      </div>
+      <div class="skill-section">
+        <h4>Triggerord</h4>
+        <span class="triggers">skriv ett mejl</span>
+        <span class="triggers">utkast</span>
+        <span class="triggers">kallmejl</span>
+        <span class="triggers">LinkedIn</span>
+        <span class="triggers">samtalsmanus</span>
+        <span class="triggers">telefonmanus</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <div>
+          <div class="skill-card-name">Läge 4: Uppföljning</div>
+          <p class="skill-card-purpose">Sätter två-tre touchpunkter med datum, formulerar dem i förväg och hanterar invändningar med scripts. Loggar aktiviteten i Cinode.</p>
+        </div>
+        <span class="skill-card-badge">Rytm</span>
+      </div>
+      <div class="skill-section">
+        <h4>Så triggar ni</h4>
+        <p><em>"Hen svarade inte, vad gör jag nu?"</em>, <em>"Vad är nästa touch mot Volvo?"</em> eller <em>"De sa att de redan har en leverantör – hur bemöter jag det?"</em></p>
+      </div>
+      <div class="skill-section">
+        <h4>Vad ni får</h4>
+        <ul>
+          <li>Uppföljningsrytm med datum för nästa två-tre touch-tillfällen</li>
+          <li>Förformulerade meddelanden per touchpunkt</li>
+          <li>Invändningshantering med konkreta motsvar</li>
+          <li>Loggrad att klistra in i Cinode</li>
+        </ul>
+      </div>
+      <div class="skill-section">
+        <h4>Triggerord</h4>
+        <span class="triggers">uppföljning</span>
+        <span class="triggers">nästa touch</span>
+        <span class="triggers">hen svarade inte</span>
+        <span class="triggers">invändning</span>
+        <span class="triggers">logga i Cinode</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <div>
+          <div class="skill-card-name">Läge 5: Säljpass</div>
+          <p class="skill-card-purpose">Bygger dagens lista – vilka konton ni tar just nu, i vilken ordning, och vilka utkast som ska ut denna vecka. Batch-läge för fokuserade säljpass.</p>
+        </div>
+        <span class="skill-card-badge">Dagslista</span>
+      </div>
+      <div class="skill-section">
+        <h4>Så triggar ni</h4>
+        <p><em>"Vad gör jag idag?"</em>, <em>"Dagens säljlista"</em> eller <em>"Sätt ihop ett säljpass för morgondagen"</em></p>
+      </div>
+      <div class="skill-section">
+        <h4>Vad ni får</h4>
+        <ul>
+          <li>Prioriterad lista med 5–10 konton att bearbeta i sitt-och-gör-pass</li>
+          <li>Per konto: förberedd åtgärd (ring, mejl, LinkedIn, boka intro)</li>
+          <li>Tidsuppskattning så passet ryms i den avsatta timmen</li>
+        </ul>
+      </div>
+      <div class="skill-section">
+        <h4>Triggerord</h4>
+        <span class="triggers">säljpass</span>
+        <span class="triggers">säljbatch</span>
+        <span class="triggers">dagens lista</span>
+        <span class="triggers">vad gör jag idag</span>
+      </div>
+    </div>
+
+    <div class="pro-tip">
+      <strong>Sanningsprincip – verifierat vs hypotes:</strong> Skillen märker varje påstående om ett kundbolag som verifierat (finns i Cinode eller webbsök), som uppgift ni själv angett, eller som hypotes. Är något märkt hypotes – kontrollera i intro-samtalet istället för att skriva det som fakta i ett mejl.
+    </div>
+
+    <div class="pro-tip">
+      <strong>Kundgrind är obligatorisk:</strong> Innan ni skriver utkast klassar skillen kontot som AKTIV, INTERN eller KALL. Ett kallt mejl till ett aktivt konto skadar en kollegas relation. Ett kontakförsök till ett INTERN-konto utan att gå via kundansvarig gör detsamma. Är kontot AKTIV → prat med kundansvarig, inte kunden. Är det INTERN → aktivera via kollegan.
+    </div>
+
+    <div class="pro-tip">
+      <strong>Skillnad mot Cinode Consultant Toolkit:</strong> Consultant Toolkit fokuserar på <em>konsulten</em> (säljplan, intervjuprep, utveckling, inskick). Prospektering fokuserar på <em>kontot/kunden</em> (briefing, vinkel, outreach, uppföljning). Båda bygger på Cinode – men olika ingångar i samma data.
+    </div>
+
+    <div class="when-callout">
+      <div class="label">När använder jag denna</div>
+      <div class="rule">Dagligen under Säljsprint 2026 om ni har tilldelade konton. Läge Kontobriefing – när sprinten startar och veckovis. Läge Vinkel + Outreach – när ni väljer drag på specifika konton. Läge Uppföljning – i stunden när en kund svarar (eller inte svarar). Läge Säljpass – som förberedelse inför fokuserade sitt-och-gör-timmar.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Station 4 - Presentation Builder -->
+<section class="station s-4" id="presentation">
+  <div class="container">
+    <div class="station-header">
+      <div class="station-number">4</div>
       <div class="station-title-wrap">
         <h2>B3 Presentation Builder</h2>
         <p class="station-tagline">Guidar fram en presentationsoutline slide-för-slide via dialog i chatten – och genererar sedan en färdig prompt till Claude för PowerPoint som bygger decken i B3-mallen.</p>
@@ -846,11 +1037,11 @@
   </div>
 </section>
 
-<!-- Station 4 - Brand Applicator -->
-<section class="station s-4" id="brand">
+<!-- Station 5 - Brand Applicator -->
+<section class="station s-5" id="brand">
   <div class="container">
     <div class="station-header">
-      <div class="station-number">4</div>
+      <div class="station-number">5</div>
       <div class="station-title-wrap">
         <h2>Brand Applicator</h2>
         <p class="station-tagline">Applicerar B3:s kompletta grafiska profil på allt ni producerar – dokument, presentationer, PDF, webb-UI, LinkedIn-karuseller, dashboards, mejl, fakturor.</p>
@@ -896,11 +1087,11 @@
   </div>
 </section>
 
-<!-- Station 5 - Prompt Optimizer -->
-<section class="station s-5" id="prompt-optimizer">
+<!-- Station 6 - Prompt Optimizer -->
+<section class="station s-6" id="prompt-optimizer">
   <div class="container">
     <div class="station-header">
-      <div class="station-number">5</div>
+      <div class="station-number">6</div>
       <div class="station-title-wrap">
         <h2>Prompt Optimizer</h2>
         <p class="station-tagline">Förvandlar råa idéer eller utkast till precist formulerade prompts via en 4D-metodik: Deconstruct, Diagnose, Develop, Deliver.</p>
@@ -941,11 +1132,11 @@
   </div>
 </section>
 
-<!-- Station 6 - Hitta nya -->
-<section class="station s-6" id="hitta-nya">
+<!-- Station 7 - Hitta nya -->
+<section class="station s-7" id="hitta-nya">
   <div class="container">
     <div class="station-header">
-      <div class="station-number">6</div>
+      <div class="station-number">7</div>
       <div class="station-title-wrap">
         <h2>Hur ni hittar nya skills</h2>
         <p class="station-tagline">Skills tillkommer löpande. Här är de tre platserna där ni ser vad som finns.</p>
@@ -973,11 +1164,11 @@
   </div>
 </section>
 
-<!-- Station 7 - Föreslå nya -->
-<section class="station s-7" id="foresla">
+<!-- Station 8 - Föreslå nya -->
+<section class="station s-8" id="foresla">
   <div class="container">
     <div class="station-header">
-      <div class="station-number">7</div>
+      <div class="station-number">8</div>
       <div class="station-title-wrap">
         <h2>Hur ni föreslår nya skills</h2>
         <p class="station-tagline">Om ni hittar ett behov som återkommer i koncernen – så här går ni vidare.</p>

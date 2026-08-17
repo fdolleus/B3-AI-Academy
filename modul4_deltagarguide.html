@@ -718,7 +718,7 @@
       </tr>
       <tr>
         <td>B3:s egna plugins och skills</td>
-        <td>Brand-applicator, presentation-builder, consultant-toolkit, prompt-optimizer. Se Modul 5 för djupare genomgång.</td>
+        <td>Brand-applicator, presentation-builder, consultant-toolkit, prospektering, prompt-optimizer. Se Modul 5 för djupare genomgång.</td>
       </tr>
     </table>
 
@@ -873,24 +873,20 @@
       <div class="step-item">
         <div class="step-num">3</div>
         <div class="step-content">
-          <h4>Filen <code>claude_desktop_config.json</code> öppnas – ersätt eller lägg till blocket nedan</h4>
+          <h4>Filen <code>claude_desktop_config.json</code> öppnas – klistra in blocket nedan inuti det befintliga <code>"mcpServers"</code>-objektet</h4>
         </div>
       </div>
     </div>
 
-    <div class="code-block"><span class="code-label">claude_desktop_config.json</span>{
-  "mcpServers": {
-    "cinode": {
-      "command": "npx",
-      "args": [
-        "mcp-remote",
-        "https://mcp.cinode.com/_mcp",
-        "--header",
-        "Authorization: Basic DITT_CINODE_ID_HÄR"
-      ]
-    }
-  }
-}</div>
+    <div class="code-block"><span class="code-label">Cinode-block att klistra in i "mcpServers"</span>"cinode": {
+  "command": "npx",
+  "args": [
+    "mcp-remote",
+    "https://mcp.cinode.com/_mcp",
+    "--header",
+    "Authorization: Basic DITT_CINODE_ID_HÄR"
+  ]
+},</div>
 
     <div class="step-list">
       <div class="step-item">
@@ -908,8 +904,22 @@
     </div>
 
     <div class="pro-tip">
-      <strong>Om ni redan har andra MCP-servrar:</strong> lägg till <code>"cinode": { ... }</code>-blocket inuti det befintliga <code>"mcpServers"</code>-objektet. Kontrollera att det finns kommatecken mellan blocken.
+      <strong>Om filen är tom eller <code>"mcpServers"</code> saknas:</strong> använd hela strukturen nedan istället. Om <code>"mcpServers"</code> redan finns med andra servrar – lägg bara till Cinode-blocket ovan mellan de befintliga med kommatecken emellan.
     </div>
+
+    <div class="code-block"><span class="code-label">Fullständig fil om claude_desktop_config.json är tom</span>{
+  "mcpServers": {
+    "cinode": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://mcp.cinode.com/_mcp",
+        "--header",
+        "Authorization: Basic DITT_CINODE_ID_HÄR"
+      ]
+    }
+  }
+}</div>
 
     <h3 style="font-size: 20px; margin: 28px 0 12px;">Steg 3 – Verifiera och använd</h3>
 
