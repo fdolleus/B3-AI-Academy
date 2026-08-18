@@ -915,7 +915,7 @@
       <a href="index.html" class="logo">
         <img src="b3_consulting_group_negative.png" alt="B3 Consulting Group" class="logo-img">
       </a>
-      <div class="hero-meta-info">Koncernledningen · 2026</div>
+      <div class="hero-meta-info">Chef/ledare · 2026</div>
     </div>
     <span class="modnum">Modul 2</span>
     <h1>Microsoft 365 Copilot</h1>
@@ -981,6 +981,11 @@
     </div>
 
     <p class="lead">Tre saker att förstå direkt. <strong>Grounding</strong> styr vad Copilot ser: work grounding = er M365-data, web grounding = öppna webben, ni togglar. <strong>Sensitivity labels</strong> respekteras – Copilot kan inte exportera "Confidential" till lägre klassad output. <strong>Compliance</strong> stannar inom ert tenant: Copilot tränar inte modeller på er data.</p>
+
+    <div class="when-callout">
+      <div class="label">Nytt sedan sommaren 2026</div>
+      <div class="rule"><strong>Copilot Cowork</strong> har blivit ett eget förstahandsläge (toggle i Copilot 365-appen mellan Chat och Cowork). <strong>Word, Excel och PowerPoint</strong> kan anropas som <code>@Word</code>, <code>@Excel</code>, <code>@PowerPoint</code> direkt i Copilot Chat. Via <strong>Frontier-programmet</strong> finns <strong>Claude Opus</strong> som modellval i Copilot Chat vid sidan av GPT-5.6. Multi-modell i mainline Copilot är alltså här.</div>
+    </div>
 
     <div class="when-callout">
       <div class="label">Meta-budskap</div>
@@ -1055,12 +1060,15 @@
       </div>
       <div class="card">
         <h4>Bra att veta</h4>
-        <p>Använd "@" för att referera personer, filer eller möten direkt. Toggla work/web efter behov. Bifoga filer i Chat för punktuppgifter. Webbsök är inbyggt och kompletteras automatiskt när relevant.</p>
+        <p>Använd "@" för att referera personer, filer eller möten direkt. Nytt: <code>@Word</code>, <code>@Excel</code> och <code>@PowerPoint</code> triggar app-agenterna utan att ni lämnar chatten – ni får dokument skapade från Chat. Toggla work/web efter behov. Bifoga filer i Chat för punktuppgifter. Webbsök är inbyggt och kompletteras automatiskt när relevant. Modellval (GPT-5.6 eller Claude Opus via Frontier) syns i chattfönstret.</p>
       </div>
     </div>
 
     <div class="prompt-block">
 <span class="prompt-label">Exempel – work grounding</span>Sammanfatta de viktigaste mejlen och chattarna senaste veckan från min ledningsgrupp. Vad är öppna frågor jag behöver ta tag i, och vilka beslut väntar på mig?</div>
+
+    <div class="prompt-block">
+<span class="prompt-label">Exempel – @mention-agent i Chat</span>@Word skapa ett kundmötesprotokoll från det här mötets transkript i Teams. Använd vår standardmall från SharePoint.</div>
 
     <div class="prompt-block">
 <span class="prompt-label">Exempel – kombinerat work + web</span>Vad har sagts i svensk affärsmedia om Skanska senaste månaden? Sätt det i kontrast mot status i vårt eget arbete med dem – hämta från SharePoint-mappen "Skanska 2026" och mejlkonversationerna.</div>
@@ -1337,11 +1345,18 @@
       </div>
     </div>
 
-    <p class="lead">Agentlagret består av <strong>standardagenter från Microsoft</strong>, <strong>Frontier-agenter</strong> (early access), <strong>B3:s egna agenter</strong> och möjligheten att <strong>bygga egna</strong> via Copilot Studio. Här är hela kartan.</p>
+    <p class="lead">Agentlagret består av <strong>Copilot Cowork</strong> som eget läge, <strong>standardagenter från Microsoft</strong>, <strong>Frontier-agenter</strong> (early access), <strong>B3:s egna agenter</strong> och möjligheten att <strong>bygga egna</strong> via Copilot Studio. Här är hela kartan.</p>
 
-    <h3 style="font-size: 22px; margin: 32px 0 16px;">1. Standardagenter från Microsoft</h3>
+    <h3 style="font-size: 22px; margin: 32px 0 16px;">1. Copilot Cowork – eget läge sedan sommaren 2026</h3>
 
-    <div class="card-grid cols-2">
+    <div class="card">
+      <h4>Copilot Cowork</h4>
+      <p>Mål-driven AI-orkestrering över M365. Ni säger målet, agenten planerar och utför över Outlook, Teams, SharePoint, Word/Excel/PowerPoint. Sedan juni 2026 är detta ett eget förstahandsläge – <strong>toggle i Copilot 365-appen mellan Chat och Cowork</strong>. Kör på GPT-5.6 och Claude Opus (via Frontier-modellval). Bra för "förbered mig inför nästa veckans möten", "organisera min inkorg", "undersök det här företaget".</p>
+    </div>
+
+    <h3 style="font-size: 22px; margin: 32px 0 16px;">2. Standardagenter från Microsoft</h3>
+
+    <div class="card-grid cols-3">
       <div class="card">
         <h4>Researcher</h4>
         <p>Färdig agent för djupare research. Jobbar i bakgrunden längre tid, syntetiserar både er data och webben, levererar strukturerade rapporter. Bra för: marknadsanalyser, konkurrentbevakning, due diligence-research.</p>
@@ -1350,27 +1365,31 @@
         <h4>Analyst</h4>
         <p>Färdig agent för dataanalys. Kombinerar Python in Excel med agentic reasoning. Bra för: kvartalsanalyser, pipeline-läge, finansiella jämförelser och scenario-modellering.</p>
       </div>
+      <div class="card">
+        <h4>@Word / @Excel / @PowerPoint</h4>
+        <p>App-agenterna anropas direkt i Copilot Chat med @mention. Skapar dokument, kalkylblad eller decks från chatten utan att ni öppnar appen. Nytt sedan juli 2026.</p>
+      </div>
     </div>
 
-    <h3 style="font-size: 22px; margin: 32px 0 16px;">2. Frontier-agenter (Microsofts early-access-program)</h3>
+    <h3 style="font-size: 22px; margin: 32px 0 16px;">3. Frontier-programmet</h3>
 
     <div class="card-grid cols-2">
       <div class="card">
-        <h4>Workflows (Frontier)</h4>
-        <p>Regel-baserad automation. Fördefinierade flöden som körs likadant varje gång. Bra för rapporter, onboarding-mejl, standardbrev, kvartalsuppdateringar. Paketerat motsvarighet till Power Automate.</p>
+        <h4>Multi-modell (Claude i Copilot)</h4>
+        <p>Frontier-programmet ger tidig åtkomst till nya funktioner – bland annat modellval där <strong>Claude Opus</strong> kan användas i Copilot Chat vid sidan av GPT-5.6. Aktiveras av admin. Real-time voice agents och nya Studio-funktioner släpps också först här.</p>
       </div>
       <div class="card">
-        <h4>Cowork (Frontier)</h4>
-        <p>Mål-driven AI-orkestrering över M365. Ni säger målet, agenten planerar och utför över Outlook, Teams, SharePoint. Bra för "förbered mig inför nästa veckans möten", "organisera min inkorg", "undersök det här företaget", "ordna min vecka".</p>
+        <h4>Workflows (Frontier)</h4>
+        <p>Regel-baserad automation. Fördefinierade flöden som körs likadant varje gång. Bra för rapporter, onboarding-mejl, standardbrev, kvartalsuppdateringar. Paketerat motsvarighet till Power Automate.</p>
       </div>
     </div>
 
     <div class="when-callout">
       <div class="label">Beslutsregel: Workflows vs Cowork</div>
-      <div class="rule">Kan ni beskriva processen i steg → <strong>Workflows</strong>. Vet ni bara målet → <strong>Cowork</strong>. De är inte konkurrenter – Cowork kan trigga Workflows som byggstenar.</div>
+      <div class="rule">Kan ni beskriva processen i steg → <strong>Workflows</strong>. Vet ni bara målet → <strong>Copilot Cowork</strong>. De är inte konkurrenter – Cowork kan trigga Workflows som byggstenar.</div>
     </div>
 
-    <h3 style="font-size: 22px; margin: 32px 0 16px;">3. B3:s egna agenter</h3>
+    <h3 style="font-size: 22px; margin: 32px 0 16px;">4. B3:s egna agenter</h3>
 
     <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 16px;">I sidomenyn på er Copilot ser ni redan flera B3-specifika agenter. Nya rullas ut löpande via AI-supportteamet.</p>
 
@@ -1389,23 +1408,23 @@
       </div>
     </div>
 
-    <h3 style="font-size: 22px; margin: 32px 0 16px;">4. Bygg egna via Copilot Studio</h3>
+    <h3 style="font-size: 22px; margin: 32px 0 16px;">5. Bygg egna via Copilot Studio</h3>
 
     <div class="card">
-      <p style="color: var(--text-muted); font-size: 14px;">För era specifika processer. Lägre kodtröskel än Claude Agent SDK men begränsad till M365-ekosystemet. Beställs från IT/AI-funktionen för större bygge, kan byggas av sub-admin för mindre. Bygget i detalj hör hemma i Modul 4.</p>
+      <p style="color: var(--text-muted); font-size: 14px;">För era specifika processer. Lägre kodtröskel än Claude Agent SDK men begränsad till M365-ekosystemet. Studio har fått <strong>real-time voice agents</strong> som ny kapabilitet under 2026. Beställs från IT/AI-funktionen för större bygge, kan byggas av sub-admin för mindre. Bygget i detalj hör hemma i Modul 6.</p>
     </div>
 
     <div class="when-callout" style="background: #FFF1EC; border-left-color: var(--c-ppt); margin-top: 32px;">
       <div class="label" style="color: var(--c-ppt);">Namnkollision att klargöra</div>
-      <div class="rule"><strong>"Cowork" finns på båda sidor men är inte samma sak.</strong> Claude Cowork = desktop-läge där Claude får tools och läser filer på er dator. Microsoft Cowork (Frontier) = agent i Copilot som orkestrerar över M365. Båda är "AI som jobbar mer autonomt" men olika produkter. Säg "Claude Cowork" eller "Cowork (Frontier)" när det finns risk att förvirra.</div>
+      <div class="rule"><strong>"Cowork" finns på båda sidor och är inte samma sak.</strong> Claude Cowork = desktop-läge där Claude får tools och läser filer på er dator. Copilot Cowork = eget läge i Copilot 365-appen som orkestrerar över M365 mot ett mål. Båda är "AI som jobbar mer autonomt" men olika produkter i olika ekosystem. Säg "Claude Cowork" eller "Copilot Cowork" när risk för förväxling.</div>
     </div>
 
     <div class="prompt-block">
-<span class="prompt-label">Exempel – aktivera Cowork (Frontier)</span>Förbered mig inför nästa veckans möten. Gå igenom kalendern, hämta relevant kontext från mejl och SharePoint för varje möte med externa deltagare. Producera en kort briefing per möte med agenda, deltagares bakgrund, öppna frågor från senaste interaktion, och vad jag bör läsa innan.</div>
+<span class="prompt-label">Exempel – aktivera Copilot Cowork</span>Förbered mig inför nästa veckans möten. Gå igenom kalendern, hämta relevant kontext från mejl och SharePoint för varje möte med externa deltagare. Producera en kort briefing per möte med agenda, deltagares bakgrund, öppna frågor från senaste interaktion, och vad jag bör läsa innan.</div>
 
     <div class="when-callout">
       <div class="label">När använder jag agenter i Copilot?</div>
-      <div class="rule">Researcher för djupresearch, Analyst för data, Workflows för förutsägbar automation, Cowork när ni bara har målet, B3-specifika agenter för era egna processer. Bygg egna i Modul 4.</div>
+      <div class="rule">Copilot Cowork när ni bara har målet, Researcher för djupresearch, Analyst för data, Workflows för förutsägbar automation, @Word/@Excel/@PowerPoint för dokumentgenerering från Chat, B3-specifika agenter för era egna processer. Bygg egna i Modul 6.</div>
     </div>
   </div>
 </section>
@@ -1452,7 +1471,7 @@
       </div>
 
       <div class="vs-rule">
-        Tumregel när båda funkar: <strong>välj det verktyg som har ert källmaterial</strong>. Material i SharePoint/Outlook/Teams → Copilot. Material spritt eller behöver B3-skills → Claude.
+        Tumregel när båda funkar: <strong>välj det verktyg som har ert källmaterial</strong>. Material i SharePoint/Outlook/Teams → Copilot. Material spritt eller behöver B3-skills → Claude. Not: sedan 2026 kan ni köra Claude Opus direkt i Copilot Chat via Frontier – gränsen mellan verktygen är alltså inte längre "olika modeller" utan "olika ekosystem".
       </div>
     </div>
   </div>
@@ -1507,7 +1526,7 @@
       </tr>
       <tr>
         <td>Mål in över flera M365-system, AI hittar vägen</td>
-        <td><span class="pill agents">Cowork (Frontier)</span></td>
+        <td><span class="pill agents">Copilot Cowork</span></td>
       </tr>
       <tr>
         <td>Egen B3-specifik process att automatisera</td>
@@ -1742,7 +1761,7 @@ Strukturera kort och tydligt. Slutsats per sektion först, detaljer sedan. Max 4
       </div>
     </div>
     <div class="copy">
-      © 2026 B3 Consulting Group · Modul 2 – Komma igång med Microsoft 365 Copilot · Producerad av koncernledningen
+      © 2026 B3 Consulting Group · Modul 2 – Komma igång med Microsoft 365 Copilot
     </div>
   </div>
 </footer>

@@ -1007,7 +1007,7 @@
       <a href="index.html" class="logo">
         <img src="b3_consulting_group_negative.png" alt="B3 Consulting Group" class="logo-img">
       </a>
-      <div class="hero-meta-info">Koncernledningen · 2026</div>
+      <div class="hero-meta-info">Chef/ledare · 2026</div>
     </div>
     <h1>Claude AI</h1>
     <p class="subtitle">En guidad tur genom verktyget – från första prompten till daglig användning</p>
@@ -1118,7 +1118,7 @@
         <div class="step-num">4</div>
         <div class="step-content">
           <h4>Default model</h4>
-          <p>Sonnet räcker för det mesta. Byt till <strong>Opus</strong> för djupare analys eller M&A-material. <strong>Haiku</strong> för snabba enkla frågor.</p>
+          <p><strong>Sonnet</strong> räcker för det mesta. Byt till <strong>Opus</strong> för djupare analys, M&A-material eller komplexa beslutsunderlag. <strong>Haiku</strong> för snabba enkla frågor. På Opus/Sonnet kan ni styra hur djupt Claude tänker via <strong>effort-inställningen</strong> (låg/medel/hög) – höj den när svaret behöver eftertanke, sänk den för snabbare svar.</p>
         </div>
       </div>
       <div class="step-item">
@@ -1131,7 +1131,7 @@
     </div>
 
     <div class="pro-tip">
-      <strong>Exempel på preferenser för en koncernchef:</strong> <em>"Jag är affärsområdeschef på B3 Consulting Group i koncernledningen. Mina motparter är typiskt VD:ar, styrelser, kunder och förvärvskandidater. Svara på samma språk jag skriver. Slutsats först, sedan underbyggnad. Behandla mig som ledningskollega, inte elev. Inga emojis, inga AI-disclaimers, inga grundläggande affärsbegrepp behöver förklaras."</em>
+      <strong>Exempel på preferenser för en VD/konsultchef i ett dotterbolag:</strong> <em>"Jag är [VD/konsultchef/säljansvarig] i ett dotterbolag i B3 Consulting Group. Vi är cirka 25 konsulter inom expertkonsulting. Mina motparter är typiskt kunder, medarbetare, kollegor i koncernen och tidsplaner. Svara på samma språk jag skriver. Slutsats först, sedan underbyggnad. Behandla mig som ledningskollega, inte elev. Inga emojis, inga AI-disclaimers, inga grundläggande affärsbegrepp behöver förklaras."</em>
     </div>
 
     <div class="when-callout">
@@ -1223,7 +1223,7 @@
       </div>
       <div class="card">
         <h4>Bra att veta</h4>
-        <p>Varje konversation är fristående – kontexten är borta nästa gång ni öppnar verktyget. Iterera i samma chatt tills det är rätt; ge inte upp efter första svaret. Modellväljaren sitter i konversationen – Sonnet räcker för det mesta, Opus för djupare analys.</p>
+        <p>Varje konversation är fristående – kontexten är borta nästa gång ni öppnar verktyget. Iterera i samma chatt tills det är rätt; ge inte upp efter första svaret. Modellväljaren sitter i konversationen – Sonnet räcker för det mesta, Opus för djupare analys. Effort-inställningen styr hur mycket Claude tänker innan svar.</p>
       </div>
     </div>
 
@@ -1492,7 +1492,12 @@
 
     <p class="lead">En skill är en instruktion som Claude följer när rätt nyckelord triggar den. När ni märker att ni skriver in samma instruktioner gång på gång – då är det dags att paketera det som en skill. Tredje gången den används betalar den tillbaka tiden ni la på att bygga den.</p>
 
-    <h3 style="font-size: 20px; margin: 32px 0 16px;">B3:s installerade skills</h3>
+    <div class="when-callout">
+      <div class="label">Enterprise eller Teams – vad gäller i ert bolag?</div>
+      <div class="rule">B3 kör <strong>Claude Enterprise</strong> centralt – där rullas gemensamma skills ut av AI-supportteamet med koncernstyrning. En del dotterbolag och team använder <strong>Claude Teams</strong> – där avgör teamet själv vilka skills som ska delas. Skills som visas nedan är B3:s koncerngemensamma – om ni sitter på Teams kan uppsättningen se annorlunda ut. Ni ser era faktiskt installerade skills i Claude-gränssnittet under Skills/Plugins. Hör av er till AI-supportteamet om något saknas.</div>
+    </div>
+
+    <h3 style="font-size: 20px; margin: 32px 0 16px;">B3:s gemensamma skills</h3>
 
     <div class="skills-list">
       <div class="skill-row">
@@ -1511,16 +1516,20 @@
         <div class="skill-name">B3 Consultant Toolkit (Cinode)</div>
         <div class="skill-desc">Fyra lägen för konsultchefer: Säljplan (positionering), Intervjuprep (matchning mot förfrågan), Utvecklingsplan (90-dagars kompetensutveckling), Inskick (CV-anpassning och säljmotivering).</div>
       </div>
+      <div class="skill-row">
+        <div class="skill-name">B3 Prospektering</div>
+        <div class="skill-desc">Fem lägen för säljansvariga och konsultchefer under Säljsprint 2026: Kontobriefing, Vinkel, Outreach, Uppföljning, Säljpass. Bearbetar tilldelade konton mot ICP och köpsignaler.</div>
+      </div>
     </div>
 
     <div class="prompt-block">
-<span class="prompt-label">Exempel – skill triggas automatiskt</span>Gör protokoll av följande anteckningar: [klistra in råa Facilitator-anteckningar]
+<span class="prompt-label">Exempel – skill triggas automatiskt</span>Skapa en säljplan för konsult [namn] med utgångspunkt i deras Cinode-profil.
 
-→ KLG-skillen triggas automatiskt, läser anteckningarna, producerar färdigt protokoll i B3-format med närvarolista, beslutspunkter och uppföljningstabell.</div>
+→ B3 Consultant Toolkit triggas automatiskt på "säljplan" + "konsult", hämtar Cinode-data via MCP, producerar en positioneringsanalys med rätt målroller och säljargument.</div>
 
     <div class="when-callout">
       <div class="label">När bygger jag en skill?</div>
-      <div class="rule">Tumregel: när ni har gjort samma sak två gånger med samma struktur. Bygg själv via skill-creator eller beställ från AI-supportteamet. Hantverket lär ni er i Modul 4.</div>
+      <div class="rule">Tumregel: när ni har gjort samma sak två gånger med samma struktur. Bygg själv via skill-creator eller beställ från AI-supportteamet. Hantverket lär ni er i Modul 6.</div>
     </div>
   </div>
 </section>
@@ -1996,7 +2005,7 @@ Underlag jag har:
       </div>
     </div>
     <div class="copy">
-      © 2026 B3 Consulting Group · Modul 1 – Komma igång med Claude · Producerad av koncernledningen
+      © 2026 B3 Consulting Group · Modul 1 – Komma igång med Claude
     </div>
   </div>
 </footer>
