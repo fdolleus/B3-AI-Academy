@@ -883,20 +883,42 @@
       <div class="step-item">
         <div class="step-num">3</div>
         <div class="step-content">
-          <h4>Filen <code>claude_desktop_config.json</code> öppnas – klistra in blocket nedan inuti det befintliga <code>"mcpServers"</code>-objektet</h4>
+          <h4>Filen <code>claude_desktop_config.json</code> öppnas – klistra in blocket för ert operativsystem <strong>direkt efter första klammer</strong> (<code>{</code>) i filen</h4>
         </div>
       </div>
     </div>
 
-    <div class="code-block"><span class="code-label">Cinode-block att klistra in i "mcpServers"</span>"cinode": {
-  "command": "npx",
-  "args": [
-    "mcp-remote",
-    "https://mcp.cinode.com/_mcp",
-    "--header",
-    "Authorization: Basic DITT_CINODE_ID_HÄR"
-  ]
-},</div>
+    <div class="pro-tip">
+      <strong>Mac vs PC:</strong> Blocken är identiska så när som på <code>command</code>-fältet. På Mac är det <code>npx</code>, på Windows <code>npx.cmd</code>. Blocket avslutas med <code>},</code> – kommatecknet gör att JSON:en förblir valid oavsett om filen är tom eller har annat innehåll efter.
+    </div>
+
+    <h4 style="font-size: 17px; margin: 24px 0 10px; color: var(--text-primary);">Mac</h4>
+
+    <div class="code-block"><span class="code-label">Cinode-block för Mac – klistra in direkt efter första {</span>  "mcpServers": {
+    "cinode": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://mcp.cinode.com/_mcp",
+        "--header",
+        "Authorization: Basic DITT_CINODE_ID_HÄR"
+      ]
+    }
+  },</div>
+
+    <h4 style="font-size: 17px; margin: 24px 0 10px; color: var(--text-primary);">Windows / PC</h4>
+
+    <div class="code-block"><span class="code-label">Cinode-block för Windows – klistra in direkt efter första {</span>  "mcpServers": {
+    "cinode": {
+      "command": "npx.cmd",
+      "args": [
+        "mcp-remote",
+        "https://mcp.cinode.com/_mcp",
+        "--header",
+        "Authorization: Basic DITT_CINODE_ID_HÄR"
+      ]
+    }
+  },</div>
 
     <div class="step-list">
       <div class="step-item">
@@ -913,23 +935,14 @@
       </div>
     </div>
 
-    <div class="pro-tip">
-      <strong>Om filen är tom eller <code>"mcpServers"</code> saknas:</strong> använd hela strukturen nedan istället. Om <code>"mcpServers"</code> redan finns med andra servrar – lägg bara till Cinode-blocket ovan mellan de befintliga med kommatecken emellan.
+    <div class="warning-box">
+      <span class="warn-label">Windows / PC – viktigt vid omstart</span>
+      Att stänga Claude-fönstret räcker <strong>inte</strong> – appen ligger kvar i bakgrunden. Öppna <strong>Aktivitetshanteraren</strong> (Ctrl+Shift+Esc), leta upp <em>Claude</em> under Processer, högerklicka och välj <strong>Avsluta aktivitet</strong>. Starta sedan Claude Desktop på nytt. Utan detta läser Claude inte den uppdaterade konfigurationsfilen.
     </div>
 
-    <div class="code-block"><span class="code-label">Fullständig fil om claude_desktop_config.json är tom</span>{
-  "mcpServers": {
-    "cinode": {
-      "command": "npx",
-      "args": [
-        "mcp-remote",
-        "https://mcp.cinode.com/_mcp",
-        "--header",
-        "Authorization: Basic DITT_CINODE_ID_HÄR"
-      ]
-    }
-  }
-}</div>
+    <div class="pro-tip">
+      <strong>Om <code>"mcpServers"</code> redan finns i filen</strong> med andra servrar – klistra då bara in själva <code>"cinode": { ... },</code>-blocket inuti det befintliga <code>"mcpServers"</code>-objektet istället för hela <code>"mcpServers"</code>-strukturen.
+    </div>
 
     <h3 style="font-size: 20px; margin: 28px 0 12px;">Steg 3 – Verifiera och använd</h3>
 
