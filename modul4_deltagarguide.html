@@ -822,131 +822,92 @@
     <div class="station-header">
       <div class="station-number">5</div>
       <div class="station-title-wrap">
-        <h2>Worked example: Cinode MCP i Claude Desktop</h2>
-        <p class="station-tagline">Steg-för-steg-installationen. ~10 minuter när allt är på plats.</p>
+        <h2>Worked example: Cinode i Claude Desktop</h2>
+        <p class="station-tagline">Cinode har lanserat OAuth-baserad inloggning. Uppsättningen tar 2 minuter – ingen konfigfil, ingen API-nyckel, ingen Node.js.</p>
       </div>
     </div>
 
     <div class="pro-tip">
-      <strong>Förutsättningar:</strong> Node.js (LTS) installerat (npx ingår), Claude Desktop installerat, Cinode-konto med API-åtkomst. Saknar ni något – kontakta IT innan ni börjar.
+      <strong>Förutsättningar:</strong> Claude Desktop installerat och Cinode-konto på betald plan. Inget mer – Cinode sköter autentiseringen via browser-baserad OAuth (Dynamic Client Registration). <a href="https://support.cinode.com/en/articles/330884-mcp-server" target="_blank" rel="noopener">Cinodes egen dokumentation →</a>
     </div>
 
-    <h3 style="font-size: 20px; margin: 28px 0 12px;">Steg 1 – Skapa API-nyckel i Cinode</h3>
+    <div class="when-callout">
+      <div class="label">Två vägar beroende på licens</div>
+      <div class="rule"><strong>Claude Enterprise</strong> (koncerncentralt konto på B3) – connectorn är redan tillagd av admin. Ni går bara till Settings → Connectors, hittar Cinode i listan och klickar Connect. <strong>Claude Teams</strong> (eget team-konto) – ni lägger själva till connectorn en gång via "Add custom connector".</div>
+    </div>
+
+    <h3 style="font-size: 20px; margin: 28px 0 12px;">Väg A – Claude Enterprise (connectorn finns redan)</h3>
 
     <div class="step-list">
       <div class="step-item">
         <div class="step-num">1</div>
         <div class="step-content">
-          <h4>Logga in på Cinode i webbläsaren</h4>
+          <h4>Öppna Claude Desktop → Settings → Connectors</h4>
         </div>
       </div>
       <div class="step-item">
         <div class="step-num">2</div>
         <div class="step-content">
-          <h4>Klicka på profilbilden längst upp till höger → <code>Mitt konto</code></h4>
+          <h4>Leta upp <strong>Cinode</strong> i listan över tillgängliga connectors</h4>
+          <p>Har redan lagts till av B3:s AI-supportteam. Ligger blandat med Anthropics standardconnectors.</p>
         </div>
       </div>
       <div class="step-item">
         <div class="step-num">3</div>
         <div class="step-content">
-          <h4>Scrolla till API-nycklar → <code>Skapa API-nyckel</code></h4>
-        </div>
-      </div>
-      <div class="step-item">
-        <div class="step-num">4</div>
-        <div class="step-content">
-          <h4>Kopiera värdet under <code>Kodade uppgifter</code> – det är din personliga nyckel</h4>
+          <h4>Klicka <strong>Connect</strong></h4>
+          <p>Ett webbfönster öppnas. Logga in på Cinode med era vanliga uppgifter och godkänn åtkomsten. Klart – Cinode-verktygen är nu tillgängliga i alla era Claude-konversationer.</p>
         </div>
       </div>
     </div>
 
-    <div class="warning-box">
-      <span class="warn-label">Viktigt om kopieringen</span>
-      Nyckeln är <strong>personlig</strong> och kopplad till ditt konto. Dela den inte med andra. Cinode visar "Kodade uppgifter" radbruten över flera rader, <strong>men det är en enda obruten sträng</strong>. Kopiera så att du inte får med radbrytningar eller blanksteg.
-    </div>
-
-    <h3 style="font-size: 20px; margin: 28px 0 12px;">Steg 2 – Konfigurera Claude Desktop</h3>
+    <h3 style="font-size: 20px; margin: 28px 0 12px;">Väg B – Claude Teams (lägg till custom connector själv)</h3>
 
     <div class="step-list">
       <div class="step-item">
         <div class="step-num">1</div>
         <div class="step-content">
-          <h4>Öppna Claude Desktop</h4>
+          <h4>Öppna Claude Desktop → Settings → Connectors → <strong>Add custom connector</strong></h4>
         </div>
       </div>
       <div class="step-item">
         <div class="step-num">2</div>
         <div class="step-content">
-          <h4>Settings (kugghjulet) → Developer → Edit Config</h4>
+          <h4>Fyll i följande fält</h4>
+          <p><strong>Name:</strong> <code>Cinode</code> (eller <code>CINO</code>)<br>
+          <strong>Server URL:</strong> <code>https://mcp.cinode.com/_mcp</code></p>
         </div>
       </div>
       <div class="step-item">
         <div class="step-num">3</div>
         <div class="step-content">
-          <h4>Filen <code>claude_desktop_config.json</code> öppnas – klistra in blocket för ert operativsystem <strong>direkt efter första klammer</strong> (<code>{</code>) i filen</h4>
+          <h4>Under <strong>Advanced settings</strong> – lämna som är</h4>
+          <p>OAuth Client ID och Client Secret lämnas tomma. Cinode registrerar klienten automatiskt via Dynamic Client Registration (RFC 7591) när ni ansluter.</p>
         </div>
       </div>
-    </div>
-
-    <div class="pro-tip">
-      <strong>Mac vs PC:</strong> Blocken är identiska så när som på <code>command</code>-fältet. På Mac är det <code>npx</code>, på Windows <code>npx.cmd</code>. Blocket avslutas med <code>},</code> – kommatecknet gör att JSON:en förblir valid oavsett om filen är tom eller har annat innehåll efter.
-    </div>
-
-    <h4 style="font-size: 17px; margin: 24px 0 10px; color: var(--text-primary);">Mac</h4>
-
-    <div class="code-block"><span class="code-label">Cinode-block för Mac – klistra in direkt efter första {</span>  "mcpServers": {
-    "cinode": {
-      "command": "npx",
-      "args": [
-        "mcp-remote",
-        "https://mcp.cinode.com/_mcp",
-        "--header",
-        "Authorization: Basic DITT_CINODE_ID_HÄR"
-      ]
-    }
-  },</div>
-
-    <h4 style="font-size: 17px; margin: 24px 0 10px; color: var(--text-primary);">Windows / PC</h4>
-
-    <div class="code-block"><span class="code-label">Cinode-block för Windows – klistra in direkt efter första {</span>  "mcpServers": {
-    "cinode": {
-      "command": "npx.cmd",
-      "args": [
-        "mcp-remote",
-        "https://mcp.cinode.com/_mcp",
-        "--header",
-        "Authorization: Basic DITT_CINODE_ID_HÄR"
-      ]
-    }
-  },</div>
-
-    <div class="step-list">
       <div class="step-item">
         <div class="step-num">4</div>
         <div class="step-content">
-          <h4>Ersätt <code>DITT_CINODE_ID_HÄR</code> med din nyckel från Cinode</h4>
+          <h4>Under <strong>Connection methods</strong></h4>
+          <p><strong>Individual sign-in</strong> ska vara <strong>på</strong> (default) – varje medarbetare signar in med sitt eget Cinode-konto. Managed authorization (via identity provider) är i beta och kräver särskild inställning – hoppa över.</p>
         </div>
       </div>
       <div class="step-item">
         <div class="step-num">5</div>
         <div class="step-content">
-          <h4>Spara filen och starta om Claude Desktop</h4>
+          <h4>Klicka <strong>Add</strong></h4>
+          <p>Cinode-connectorn ligger nu i er lista. Klicka <strong>Connect</strong> på den – ett webbfönster öppnas, logga in på Cinode och godkänn.</p>
         </div>
       </div>
     </div>
 
-    <div class="warning-box">
-      <span class="warn-label">Windows / PC – viktigt vid omstart</span>
-      Att stänga Claude-fönstret räcker <strong>inte</strong> – appen ligger kvar i bakgrunden. Öppna <strong>Aktivitetshanteraren</strong> (Ctrl+Shift+Esc), leta upp <em>Claude</em> under Processer, högerklicka och välj <strong>Avsluta aktivitet</strong>. Starta sedan Claude Desktop på nytt. Utan detta läser Claude inte den uppdaterade konfigurationsfilen.
-    </div>
-
     <div class="pro-tip">
-      <strong>Om <code>"mcpServers"</code> redan finns i filen</strong> med andra servrar – klistra då bara in själva <code>"cinode": { ... },</code>-blocket inuti det befintliga <code>"mcpServers"</code>-objektet istället för hela <code>"mcpServers"</code>-strukturen.
+      <strong>Notering om känslighet:</strong> Ingen känslig data hanteras i själva uppsättningen. Behörigheten kopplas till ert Cinode-konto – ni ser exakt det Cinode redan låter er se, varken mer eller mindre. Om er admin har stängt av "personal API accounts" på Cinode-sidan kan Väg B blockeras – då behöver ni köra Enterprise-vägen istället.
     </div>
 
     <h3 style="font-size: 20px; margin: 28px 0 12px;">Steg 3 – Verifiera och använd</h3>
 
-    <p class="lead">Efter omstart syns "cinode" i listan under Settings → Developer. Om det listas utan felmeddelande är ni igång.</p>
+    <p class="lead">När Cinode är ansluten syns den under Settings → Connectors med status <em>Connected</em>. Cinode-verktygen är då tillgängliga i alla nya konversationer.</p>
 
     <table class="info-table">
       <tr>
@@ -992,9 +953,14 @@
     <div class="station-header">
       <div class="station-number">6</div>
       <div class="station-title-wrap">
-        <h2>Worked example: Cinode MCP i Copilot Studio</h2>
-        <p class="station-tagline">Mer komplext än Claude Desktop. Den här guiden räddar timmar för den som annars hade gått fel väg.</p>
+        <h2>Worked example: Cinode i Copilot Studio</h2>
+        <p class="station-tagline">I motsats till Claude Desktop (som numera kör OAuth) behöver Copilot Studio fortfarande manuell API-nyckel. Guiden räddar timmar för den som annars hade gått fel väg.</p>
       </div>
+    </div>
+
+    <div class="when-callout">
+      <div class="label">Skiljer sig från Claude-uppsättningen i Station 5</div>
+      <div class="rule">Claude Desktop kopplar mot Cinode via browser-baserad OAuth (Dynamic Client Registration) sedan hösten 2026 – ingen konfig, ingen nyckel. Copilot Studio har ingen motsvarighet ännu – där gäller fortfarande API-nyckelflödet nedan. När Microsoft aktiverar DCR i Studio blir Väg B i Station 5 mönstret även här.</div>
     </div>
 
     <div class="warning-box">
